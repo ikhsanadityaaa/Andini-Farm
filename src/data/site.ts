@@ -34,7 +34,7 @@ export const IMG = {
   /* Cutout sapi di atas latar krem polos — ditampilkan dengan mix-blend-multiply
      sehingga menyatu dengan latar situs (efek PNG transparan). */
   heroCutout:
-    "https://image.qwenlm.ai/generated-images/b8e5005e-fa95-444c-b07d-95d1b3d865e5/_result.png",
+    "https://image.qwenlm.ai/generated-images/af81a566-6951-43a7-901b-a97d52e4a148/_result.png",
   heroLimosin:
     "https://image.qwenlm.ai/generated-images/ee75b94b-a4de-49d6-8d0f-0049b4d9817f/_result.png",
   simental:
@@ -55,7 +55,7 @@ export const IMG = {
   pasar:
     "https://image.qwenlm.ai/generated-images/842fadb8-cb74-4670-b362-56a80259da4d/_result.png",
   pickup:
-    "https://image.qwenlm.ai/generated-images/d18c1ba1-aad7-4638-b0ea-25de1b28276e/_result.png",
+    "https://image.qwenlm.ai/generated-images/d0450f64-120d-4104-ad2e-aa496fc1862b/_result.png",
 };
 
 export const SEO_KEYWORDS = [

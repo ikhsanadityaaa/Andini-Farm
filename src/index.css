@@ -86,6 +86,11 @@ body {
   opacity: 1;
   transform: none;
 }
+/* varian reveal tanpa transform — supaya mix-blend-mode tetap menyatu
+   dengan background halaman (transform membuat stacking context sendiri) */
+.reveal-fade {
+  transform: none !important;
+}
 
 /* ---------- keyframes ---------- */
 @keyframes marqueeMove {
