@@ -365,7 +365,7 @@ export function TentangPage() {
 export function KontakPage() {
   usePageMeta(
     "Kontak Andini Farm, Jual Sapi Sleman Yogyakarta | WhatsApp",
-    "Hubungi Andini Farm via WhatsApp +62 853-3137-9462. Kandang di Japanan, Margodadi, Seyegan, Sleman, Yogyakarta. Tanya stok, harga & pengiriman sapi."
+    "Hubungi Andini Farm via WhatsApp 085331379462. Kandang di Japanan, Margodadi, Seyegan, Sleman, Yogyakarta. Tanya stok, harga & pengiriman sapi."
   );
 
   const [nama, setNama] = useState("");

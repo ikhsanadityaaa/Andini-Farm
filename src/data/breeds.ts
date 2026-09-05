@@ -155,7 +155,7 @@ export const BELI_STEPS = [
   },
   {
     title: "LIHAT SAPI",
-    desc: "Kami kirim foto dan video terbaru. Bisa juga datang langsung ke kandang di Japanan, Seyegan.",
+    desc: "Kami kirim foto dan video terbaru. Sapi yang di kandang bisa dilihat langsung, atau janjian lihat di lokasi peternak rekanan maupun pasar hewan.",
   },
   {
     title: "SEPAKAT & BAYAR",

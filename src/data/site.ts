@@ -10,7 +10,7 @@ export const SUBTAGLINE = "LIMOSIN • SIMENTAL • PEGON SUPER";
 export const SINCE = 2008;
 
 export const WA_NUMBER = "6285331379462";
-export const WA_DISPLAY = "+62 853-3137-9462";
+export const WA_DISPLAY = "085331379462";
 
 export const waLink = (message: string) =>
   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -20,21 +20,21 @@ export const WA_DEFAULT = waLink(
 );
 
 export const ADDRESS_LINES = [
-  "Japanan, Margodadi",
-  "Seyegan, Sleman",
-  "Daerah Istimewa Yogyakarta",
+  "Japanan, Margodadi, Seyegan",
+  "Sleman, Daerah Istimewa Yogyakarta",
 ];
 
 export const MAPS_LINK =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent("Japanan, Margodadi, Seyegan, Sleman, Yogyakarta");
 
+export const MAPS_EMBED =
+  "https://maps.google.com/maps?q=" +
+  encodeURIComponent("Seyegan, Sleman, Yogyakarta") +
+  "&z=12&output=embed";
+
 /* Foto utama. Placeholder, ganti dengan foto asli peternakan */
 export const IMG = {
-  /* Cutout sapi di atas latar krem polos. Ditampilkan dengan mix-blend-multiply
-     sehingga menyatu dengan latar situs (efek PNG transparan). */
-  heroCutout:
-    "https://image.qwenlm.ai/generated-images/af81a566-6951-43a7-901b-a97d52e4a148/_result.png",
   heroLimosin:
     "https://image.qwenlm.ai/generated-images/ee75b94b-a4de-49d6-8d0f-0049b4d9817f/_result.png",
   simental:
@@ -54,6 +54,10 @@ export const IMG = {
     "https://image.qwenlm.ai/generated-images/be68e2fd-e174-4aca-ac0a-e458800256ba/_result.png",
   pasar:
     "https://image.qwenlm.ai/generated-images/842fadb8-cb74-4670-b362-56a80259da4d/_result.png",
+  /* Cutout sapi di atas latar krem polos. Ditampilkan dengan mix-blend-multiply
+     supaya latar menyatu dengan halaman */
+  heroCutout:
+    "https://image.qwenlm.ai/generated-images/af81a566-6951-43a7-901b-a97d52e4a148/_result.png",
   pickup:
     "https://image.qwenlm.ai/generated-images/d0450f64-120d-4104-ad2e-aa496fc1862b/_result.png",
 };
