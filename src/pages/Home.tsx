@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ADDRESS_LINES, IMG, MAPS_LINK, waLink } from "../data/site";
 import { BREEDS } from "../data/breeds";
-import { ARTICLES } from "../data/articles";
 import { usePageMeta } from "../components/chrome";
 import {
   BigCTA,
@@ -133,6 +132,7 @@ function DeliveryRoad() {
     { x: 1160, y: 178, label: "JAWA TIMUR", sub: "MADIUN • KEDIRI • SURABAYA", up: false },
   ];
   return (
+    <div className="relative">
     <svg
       viewBox="0 0 1200 330"
       className="w-full h-auto"
@@ -150,25 +150,6 @@ function DeliveryRoad() {
         strokeDasharray="16 14"
         strokeLinecap="round"
         className="road-dash"
-      />
-
-      {/* pickup angkut sapi — titik berangkat */}
-      <image
-        href={IMG.pickup}
-        x="-22"
-        y="104"
-        width="212"
-        style={{ mixBlendMode: "multiply" }}
-        className="float-slow"
-      />
-      {/* sapi tiba di tujuan */}
-      <image
-        href={IMG.heroCutout}
-        x="1088"
-        y="26"
-        width="100"
-        style={{ mixBlendMode: "multiply" }}
-        className="float-slow"
       />
 
       {/* titik-titik rute */}
@@ -229,6 +210,24 @@ function DeliveryRoad() {
         </g>
       )}
     </svg>
+
+    {/* pickup angkut sapi — titik berangkat */}
+    <div className="pointer-events-none absolute left-[1%] bottom-[27%] w-[19%] mix-blend-multiply">
+      <img
+        src={IMG.pickup}
+        alt="Pickup mengangkut dua sapi dari kandang Andini Farm"
+        className="w-full h-auto float-slow"
+      />
+    </div>
+    {/* sapi tiba di tujuan */}
+    <div className="pointer-events-none absolute right-[2%] bottom-[42%] w-[8%] mix-blend-multiply">
+      <img
+        src={IMG.heroCutout}
+        alt="Sapi sampai di lokasi pembeli dengan selamat"
+        className="w-full h-auto float-slow"
+      />
+    </div>
+    </div>
   );
 }
 
@@ -347,16 +346,15 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* hero photo — sapi cutout murni, tanpa bingkai */}
-          <Reveal delay={140} className="lg:col-span-6 relative">
-            <div className="relative aspect-[4/5] max-w-[430px] sm:max-w-[520px] mx-auto lg:mx-0 lg:max-w-none overflow-hidden">
+          {/* hero photo — sapi cutout murni, tanpa bingkai, menyatu dengan halaman */}
+          <Reveal delay={140} className="reveal-fade lg:col-span-6 relative">
+            <div className="relative aspect-[4/5] max-w-[430px] sm:max-w-[520px] mx-auto lg:mx-0 lg:max-w-none overflow-hidden mix-blend-multiply">
               <img
                 src={IMG.heroCutout}
-                alt="Sapi Limosin berkualitas dari kandang Andini Farm"
-                className="absolute inset-0 w-full h-full object-cover mix-blend-multiply kenburns"
+                alt="Sapi Limosin berkualitas dari kandang Andini Farm, Seyegan, Sleman, Yogyakarta"
+                className="absolute inset-0 w-full h-full object-cover kenburns"
               />
             </div>
-            <Stamp className="absolute -top-8 -left-2 md:-left-8 w-28 h-28 md:w-40 md:h-40" />
             <div className="absolute bottom-3 right-0 md:right-4 rotate-2">
               <EarTag tone="ranch">BOBOT & STOK: TANYA VIA WA</EarTag>
             </div>
@@ -463,57 +461,62 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="mt-14 space-y-16 md:space-y-20">
+          {/* katalog: tiga jenis sapi sejajar ke kanan */}
+          <div className="mt-14 grid md:grid-cols-3 gap-7 lg:gap-8 items-start">
             {BREEDS.map((b, idx) => (
               <Reveal
                 key={b.slug}
-                className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+                delay={idx * 110}
+                className={cx("md:col-span-1", idx === 1 && "md:translate-y-5")}
               >
-                <div className={cx("lg:col-span-7", idx % 2 === 1 && "lg:order-2")}>
-                  <div className="relative">
+                <div className="group/br h-full border-2 border-ink bg-cream shadow-press transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[8px_8px_0_0_#151515] flex flex-col">
+                  {/* foto besar */}
+                  <div className="relative overflow-hidden border-b-2 border-ink">
+                    <div className="aspect-[4/3]">
+                      <img
+                        src={b.photo}
+                        alt={b.photoAlt}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/br:scale-[1.06]"
+                      />
+                    </div>
                     <span
-                      className="absolute -top-7 -left-2 md:-left-5 font-display text-[5.5rem] md:text-[7rem] leading-none text-outline-ink select-none z-0"
+                      className="absolute -top-2 -left-1 font-display text-[4.5rem] leading-none text-outline-ink select-none"
                       aria-hidden
                     >
                       {String(idx + 1).padStart(2, "0")}
                     </span>
-                    <PhotoFrame
-                      src={b.photo}
-                      alt={b.photoAlt}
-                      caption={b.caption}
-                      tag={`SAPI ${b.name}`}
-                      aspect="aspect-[4/3] md:aspect-[16/10]"
-                      className="relative z-10"
-                    />
+                    <div className="absolute top-3 right-3">
+                      <EarTag>SIAP DIJUAL</EarTag>
+                    </div>
                   </div>
-                </div>
-                <div className={cx("lg:col-span-5", idx % 2 === 1 && "lg:order-1")}>
-                  <p className="font-mono text-[10px] font-bold tracking-[0.26em] uppercase text-leather flex items-center gap-2">
-                    <IconStar className="w-2.5 h-2.5 text-gold" /> SIAP DIJUAL —{" "}
-                    {b.nameAlt}
-                  </p>
-                  <h3 className="mt-3 font-display text-3xl md:text-[2.6rem] leading-[1.02] uppercase text-ranch">
-                    SAPI {b.name}
-                  </h3>
-                  <p className="mt-3 font-bold text-sm tracking-wide text-olive uppercase">
-                    {b.tagline}
-                  </p>
-                  <p className="mt-4 text-[15px] leading-relaxed text-ink/75">{b.intro}</p>
-                  <p className="mt-5 inline-flex items-center gap-2 border-2 border-ink bg-parch px-3.5 py-2 font-mono text-[11px] font-bold tracking-[0.14em] uppercase">
-                    <span className="w-2 h-2 rounded-full bg-olive blink-dot" />
-                    Harga menyesuaikan — tanyakan harga terbaru
-                  </p>
-                  <div className="mt-7 flex flex-wrap gap-3.5">
-                    <WAButton wa={b.waMessage} variant="gold" size="md">
-                      {b.cta}
-                    </WAButton>
-                    <Link
-                      to={`/sapi-${b.slug}`}
-                      className="group/l inline-flex items-center gap-2 border-2 border-ink px-5 py-[13px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink hover:bg-ranch hover:text-cream transition-colors"
-                    >
-                      LIHAT HALAMAN
-                      <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
-                    </Link>
+                  {/* isi */}
+                  <div className="p-6 md:p-7 flex flex-col flex-1">
+                    <h3 className="font-display text-2xl md:text-[1.7rem] leading-[1.02] uppercase text-ranch">
+                      SAPI {b.name}
+                    </h3>
+                    <p className="mt-2 font-bold text-[12px] tracking-[0.14em] text-olive uppercase">
+                      {b.tagline}
+                    </p>
+                    <p className="mt-3.5 text-[13.5px] leading-relaxed text-ink/70 flex-1">
+                      {b.intro}
+                    </p>
+                    <p className="mt-4 inline-flex w-fit items-center gap-2 border-2 border-ink bg-parch px-3 py-[7px] font-mono text-[10px] font-bold tracking-[0.12em] uppercase">
+                      <span className="w-2 h-2 rounded-full bg-olive blink-dot" />
+                      Harga menyesuaikan
+                    </p>
+                    <div className="mt-5 flex flex-col gap-2.5">
+                      <WAButton wa={b.waMessage} variant="gold" className="w-full">
+                        {b.cta}
+                      </WAButton>
+                      <Link
+                        to={`/sapi-${b.slug}`}
+                        className="group/l inline-flex items-center justify-center gap-2 border-2 border-ink px-5 py-[11px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink hover:bg-ranch hover:text-cream transition-colors"
+                      >
+                        LIHAT HALAMAN {b.nameAlt.toUpperCase()}
+                        <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -797,7 +800,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal delay={120} className="reveal-fade">
             <div className="relative mt-10 md:mt-14">
               <p className="md:hidden mb-3 text-center font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather">
                 ⟵ geser untuk melihat rute ⟶
@@ -840,52 +843,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= ARTIKEL TEASER ================= */}
-      <section className="bg-cream">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Reveal>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <SectionHead
-                kicker="07 — Panduan"
-                title="PANDUAN MEMILIH SAPI"
-                sub="Catatan dari pengalaman di kandang dan pasar hewan — supaya Anda beli sapi dengan tenang."
-              />
-              <Link
-                to="/artikel"
-                className="group/l inline-flex items-center gap-2 shrink-0 font-extrabold text-[12px] uppercase tracking-[0.14em] text-ranch border-b-2 border-gold pb-1 hover:text-leather transition-colors"
-              >
-                LIHAT SEMUA ARTIKEL
-                <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
-              </Link>
-            </div>
-          </Reveal>
-          <div className="mt-10 border-2 border-ink bg-cream shadow-press divide-y-2 divide-ink">
-            {ARTICLES.slice(0, 4).map((a, i) => (
-              <Reveal key={a.slug} delay={i * 60}>
-                <Link
-                  to={`/artikel/${a.slug}`}
-                  className="group/ar grid sm:grid-cols-[64px_1fr_auto] items-center gap-4 px-5 md:px-7 py-5 md:py-6 transition-colors duration-200 hover:bg-gold/25"
-                >
-                  <span className="font-display text-2xl md:text-3xl text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span>
-                    <span className="block font-mono text-[9px] md:text-[10px] font-bold tracking-[0.24em] uppercase text-leather">
-                      {a.category} • {a.read} baca
-                    </span>
-                    <span className="mt-1 block font-display text-base md:text-xl leading-snug uppercase text-ranch group-hover/ar:translate-x-1.5 transition-transform duration-200">
-                      {a.title}
-                    </span>
-                  </span>
-                  <span className="hidden sm:grid w-10 h-10 place-items-center border-2 border-ink bg-gold transition-transform duration-200 group-hover/ar:translate-x-1">
-                    <IconArrow className="w-4 h-4" />
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ================= FINAL CTA ================= */}
       <BigCTA />

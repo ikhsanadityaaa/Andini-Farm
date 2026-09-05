@@ -14,12 +14,38 @@ import { cx, IconArrow, IconCow, IconPin, IconStar, IconWA, WAButton } from "./u
 export function usePageMeta(title: string, desc?: string) {
   useEffect(() => {
     document.title = title;
+    const setMeta = (attr: "name" | "property", key: string, value: string) => {
+      let el = document.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
     if (desc) {
-      const m = document.querySelector('meta[name="description"]');
-      if (m) m.setAttribute("content", desc);
+      setMeta("name", "description", desc);
+      setMeta("property", "og:description", desc);
     }
+    setMeta("property", "og:title", title);
     window.scrollTo(0, 0);
   }, [title, desc]);
+}
+
+/* inject / remove JSON-LD structured data per halaman */
+export function useJsonLd(id: string, data: object | null) {
+  useEffect(() => {
+    if (!data) return;
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = `ld-${id}`;
+    script.text = JSON.stringify(data);
+    document.head.appendChild(script);
+    return () => {
+      document.getElementById(`ld-${id}`)?.remove();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 }
 
 export function Crumbs({ items }: { items: { label: string; to?: string }[] }) {

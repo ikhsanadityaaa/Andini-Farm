@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IMG, waLink } from "../data/site";
 import { BREEDS } from "../data/breeds";
-import { Crumbs, usePageMeta } from "../components/chrome";
+import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
   BigCTA,
   BuySteps,
@@ -58,6 +58,16 @@ export default function JualSapi() {
     "Jual Sapi Berkualitas Sleman Yogyakarta | Andini Farm",
     "Jual sapi Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Sehat, gemuk alami, harga kompetitif. Untuk qurban, aqiqah, penggemukan & dagang — tanya stok & harga via WhatsApp."
   );
+
+  useJsonLd("faq-jual-sapi", {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  });
 
   return (
     <>

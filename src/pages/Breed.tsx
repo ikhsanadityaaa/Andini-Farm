@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { getBreed } from "../data/breeds";
-import { Crumbs, usePageMeta } from "../components/chrome";
+import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
   BigCTA,
   BuySteps,
@@ -25,6 +25,27 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
   usePageMeta(
     breed?.metaTitle ?? "Jenis Sapi | Andini Farm",
     breed?.metaDesc
+  );
+
+  useJsonLd(
+    `product-${breed?.slug ?? "na"}`,
+    breed
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: `Sapi ${breed.name} ${breed.nameAlt !== breed.name ? `(${breed.nameAlt})` : ""}`.trim(),
+          description: breed.intro,
+          brand: { "@type": "Brand", name: "Andini Farm" },
+          category: "Sapi Hidup",
+          image: breed.photo,
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            priceCurrency: "IDR",
+            url: "https://wa.me/6285331379462",
+          },
+        }
+      : null
   );
 
   if (!breed) {
