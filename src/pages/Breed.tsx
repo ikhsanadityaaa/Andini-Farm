@@ -92,7 +92,6 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
         }
         photo={breed.photo}
         photoAlt={breed.photoAlt}
-        caption={breed.caption}
         tag={breed.earTag}
         facts={breed.fakta}
       >
@@ -202,7 +201,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
             <SectionHead
               kicker="Pilihan bobot"
               title={`BOBOT & KEBUTUHAN SAPI ${breed.name}`}
-              sub="Perkiraan rentang bobot yang umum kami pasarkan. Stok per ekor selalu bergerak — tanyakan kondisi terbaru sebelum memutuskan."
+              sub="Perkiraan rentang bobot yang umum kami pasarkan. Stok per ekor selalu bergerak, tanyakan kondisi terbaru sebelum memutuskan."
             />
           </Reveal>
           <Reveal delay={100}>
@@ -265,7 +264,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
             <SectionHead
               kicker="Cara membeli"
               title={`CARA BELI SAPI ${breed.nameAlt.toUpperCase()} DI ANDINI FARM`}
-              sub="Sederhana dan jelas — dari chat pertama sampai sapi tiba di lokasi Anda."
+              sub="Sederhana dan jelas, dari chat pertama sampai sapi tiba di lokasi Anda."
             />
           </Reveal>
           <div className="mt-12">
@@ -325,7 +324,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
 
       <BigCTA
         title={`MAU LIHAT SAPI ${breed.name}?`}
-        sub="Stok bergerak setiap minggu — cek yang tersedia hari ini."
+        sub="Stok bergerak setiap minggu, cek yang tersedia hari ini."
         copy="Hubungi Andini Farm untuk menanyakan stok, bobot, harga dan pengiriman sapi. Bisa juga datang langsung ke kandang di Japanan, Seyegan."
         bg={breed.photo}
       />

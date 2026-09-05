@@ -133,7 +133,7 @@ export function Header() {
       <div className="hidden md:flex items-center justify-between bg-pine text-cream/80 px-6 lg:px-10 py-2 font-mono text-[10px] tracking-[0.22em] uppercase border-b border-cream/10">
         <span className="flex items-center gap-2">
           <IconPin className="w-3 h-3 text-gold" />
-          Japanan, Margodadi, Seyegan, Sleman — Yogyakarta
+          Japanan, Seyegan • Sleman, Yogyakarta
         </span>
         <span className="flex items-center gap-2">
           <IconStar className="w-2.5 h-2.5 text-gold" />
@@ -149,7 +149,7 @@ export function Header() {
         )}
       >
         <div className="max-w-7xl mx-auto px-5 md:px-8 h-[72px] flex items-center justify-between gap-4">
-          <Link to="/" className="group flex items-center gap-3 shrink-0" aria-label="Andini Farm — beranda">
+          <Link to="/" className="group flex items-center gap-3 shrink-0" aria-label="Andini Farm, beranda">
             <span className="w-11 h-11 grid place-items-center border-2 border-ink bg-ranch text-gold shadow-[3px_3px_0_0_#151515] transition-transform duration-200 group-hover:-rotate-6">
               <IconCow className="w-7 h-7" />
             </span>
@@ -408,7 +408,7 @@ export function Footer() {
             {WA_DISPLAY}
           </p>
           <p className="mt-2 text-sm text-cream/60">
-            WhatsApp — respon cepat di jam kerja peternakan.
+            WhatsApp, respon cepat di jam kerja peternakan.
           </p>
           <div className="mt-6 flex flex-wrap gap-3.5">
             <WAButton wa="Halo Andini Farm, saya ingin tanya sapi yang tersedia." size="md">
@@ -439,7 +439,7 @@ export function Footer() {
       </div>
       <div className="border-t border-cream/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-[10px] tracking-[0.16em] uppercase text-cream/45">
-          <span>© {new Date().getFullYear()} Andini Farm — Japanan, Seyegan, Sleman</span>
+          <span>© {new Date().getFullYear()} Andini Farm • Japanan, Seyegan, Sleman</span>
           <span className="flex items-center gap-2">
             <IconStar className="w-2.5 h-2.5 text-gold" /> Sapi Berkualitas Sejak 2008
           </span>

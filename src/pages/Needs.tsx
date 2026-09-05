@@ -39,14 +39,14 @@ const NEEDS: Need[] = [
     kicker: "Kebutuhan • Qurban",
     photo: IMG.qurban,
     photoAlt: "Sapi sehat untuk qurban dari peternakan Sleman Yogyakarta",
-    caption: "SAPI QURBAN — SEHAT & CUKUP UMUR",
+    caption: "SAPI QURBAN, SEHAT & CUKUP UMUR",
     tag: "QURBAN",
     lead:
-      "Cari sapi untuk kebutuhan qurban? Andini Farm menyiapkan sapi qurban yang sehat, cukup umur dan memenuhi syarat — dari Limosin jumbo sampai Pegon yang lebih ekonomis.",
+      "Cari sapi untuk kebutuhan qurban? Andini Farm menyiapkan sapi qurban yang sehat, cukup umur dan memenuhi syarat, dari Limosin jumbo sampai Pegon yang lebih ekonomis.",
     points: [
       {
         t: "MEMENUHI SYARAT QURBAN",
-        d: "Sapi sudah poel (cukup umur), sehat, tidak cacat dan tidak kurus. Kami paham syaratnya — jadi Anda tinggal memilih dengan tenang.",
+        d: "Sapi sudah poel (cukup umur), sehat, tidak cacat dan tidak kurus. Kami paham syaratnya, jadi Anda tinggal memilih dengan tenang.",
       },
       {
         t: "PILIHAN JENIS & UKURAN",
@@ -58,7 +58,7 @@ const NEEDS: Need[] = [
       },
       {
         t: "BISA TITIP RAWAT",
-        d: "Booking dari jauh hari, sapi tetap dirawat di kandang kami sampai mendekati Idul Adha — lalu dikirim ke lokasi penyembelihan.",
+        d: "Booking dari jauh hari, sapi tetap dirawat di kandang kami sampai mendekati Idul Adha, lalu dikirim ke lokasi penyembelihan.",
       },
       {
         t: "DIKIRIM KE LOKASI",
@@ -67,9 +67,9 @@ const NEEDS: Need[] = [
     ],
     tipsTitle: "Checklist sebelum deal sapi qurban",
     tips: [
-      "Pesan 1–2 bulan sebelum Idul Adha — pilihan lebih banyak, harga lebih tenang",
+      "Pesan 1–2 bulan sebelum Idul Adha, pilihan lebih banyak, harga lebih tenang",
       "Minta video terbaru: gigi (poel), cara berjalan dan kondisi keseluruhan",
-      "Sepakati harga final — sudah termasuk ongkos kirim atau belum",
+      "Sepakati harga final, sudah termasuk ongkos kirim atau belum",
       "Tentukan tanggal kirim mendekati hari H supaya sapi tidak stres",
       "Simpan semua kesepakatan di chat sebagai pegangan dua pihak",
     ],
@@ -81,22 +81,22 @@ const NEEDS: Need[] = [
   },
   {
     slug: "aqiqah",
-    h1: "JUAL SAPI AQIQAH — BOBOT BISA DISESUAIKAN",
+    h1: "JUAL SAPI AQIQAH, BOBOT BISA DISESUAIKAN",
     kicker: "Kebutuhan • Aqiqah",
     photo: IMG.aqiqah,
     photoAlt: "Sapi ukuran sedang untuk aqiqah dari peternakan Sleman",
-    caption: "SAPI AQIQAH — UKURAN PAS UNTUK KELUARGA",
+    caption: "SAPI AQIQAH, UKURAN PAS UNTUK KELUARGA",
     tag: "AQIQAH",
     lead:
       "Pilihan sapi untuk kebutuhan aqiqah. Satu ekor sapi boleh untuk aqiqah, dan kami bantu carikan bobot yang pas dengan kebutuhan keluarga Anda.",
     points: [
       {
         t: "SATU SAPI UNTUK AQIQAH",
-        d: "Mayoritas ulama membolehkan satu sapi untuk aqiqah — praktis untuk keluarga besar atau berbagi lebih luas.",
+        d: "Mayoritas ulama membolehkan satu sapi untuk aqiqah, praktis untuk keluarga besar atau berbagi lebih luas.",
       },
       {
         t: "BOBOT FLEKSIBEL",
-        d: "Rentang 200–300 kg biasanya paling pas untuk aqiqah. Tidak perlu memaksakan sapi jumbo — yang penting sehat dan layak.",
+        d: "Rentang 200–300 kg biasanya paling pas untuk aqiqah. Tidak perlu memaksakan sapi jumbo, yang penting sehat dan layak.",
       },
       {
         t: "PILIHAN JENIS HEMAT",
@@ -104,21 +104,21 @@ const NEEDS: Need[] = [
       },
       {
         t: "ANTAR SESUAI JADWAL",
-        d: "Sampaikan tanggal acara (hari ke-7, 14 atau 21) — sapi dikirim tepat waktu ke rumah atau ke jasa catering aqiqah Anda.",
+        d: "Sampaikan tanggal acara (hari ke-7, 14 atau 21). Sapi dikirim tepat waktu ke rumah atau ke jasa catering aqiqah Anda.",
       },
     ],
     tipsTitle: "Yang sering ditanyakan soal sapi aqiqah",
     tips: [
-      "Apakah boleh aqiqah dengan sapi? Boleh — selama sehat dan tidak cacat",
+      "Apakah boleh aqiqah dengan sapi? Boleh, selama sehat dan tidak cacat",
       "Berapa bobot yang wajar? 200–300 kg sudah sangat memadai",
       "Kapan dikirim? Sesuai tanggal acara yang Anda sampaikan saat memesan",
-      "Bisa sekalian potong? Kami antar sapinya — pemotongan di tempat Anda atau jasa catering",
+      "Bisa sekalian potong? Kami antar sapinya, pemotongan di tempat Anda atau jasa catering",
     ],
     cta: "TANYAKAN SAPI AQIQAH",
     wa: "Halo Andini Farm, saya mencari sapi untuk AQIQAH. Bisa info stok dan harganya?",
     metaTitle: "Jual Sapi Aqiqah Sleman Yogyakarta | Andini Farm",
     metaDesc:
-      "Jual sapi aqiqah berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga menyesuaikan — tanya stok & harga via WhatsApp.",
+      "Jual sapi aqiqah berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga menyesuaikan, tanya stok & harga via WhatsApp.",
   },
   {
     slug: "penggemukan",
@@ -126,14 +126,14 @@ const NEEDS: Need[] = [
     kicker: "Kebutuhan • Penggemukan",
     photo: IMG.penggemukan,
     photoAlt: "Sapi bakalan untuk penggemukan sedang makan di kandang Andini Farm",
-    caption: "BAKALAN PENGGEMUKAN — MAKAN LAHAP",
+    caption: "BAKALAN PENGGEMUKAN, MAKAN LAHAP",
     tag: "PENGGEMUKAN",
     lead:
-      "Sapi untuk peternak dan kebutuhan penggemukan. Kami bantu carikan bakalan dengan kerangka bagus dan kondisi sehat — karena salah pilih bakalan, program bisa rugi.",
+      "Sapi untuk peternak dan kebutuhan penggemukan. Kami bantu carikan bakalan dengan kerangka bagus dan kondisi sehat, karena salah pilih bakalan, program bisa rugi.",
     points: [
       {
         t: "KERANGKA YANG BAGUS",
-        d: "Kami prioritaskan bakalan berpunggung lebar dan rata, dada dalam, kaki kuat — kerangka menentukan batas bobot akhir.",
+        d: "Kami prioritaskan bakalan berpunggung lebar dan rata, dada dalam, kaki kuat. Kerangka menentukan batas bobot akhir.",
       },
       {
         t: "JENIS CEPAT NAIK BOBOT",
@@ -141,7 +141,7 @@ const NEEDS: Need[] = [
       },
       {
         t: "BISA HITUNG BARENG",
-        d: "Harga bakalan per kg bobot, biaya pakan per hari, target jual — kami bantu hitungkan sebelum Anda memutuskan.",
+        d: "Harga bakalan per kg bobot, biaya pakan per hari, target jual. Kami bantu hitungkan sebelum Anda memutuskan.",
       },
       {
         t: "DIDUKUNG JARINGAN PETERNAK",
@@ -150,7 +150,7 @@ const NEEDS: Need[] = [
     ],
     tipsTitle: "Kriteria bakalan yang layak dibeli",
     tips: [
-      "Umur muda (± 1–2 tahun) — pertumbuhannya masih cepat",
+      "Umur muda (± 1–2 tahun), pertumbuhannya masih cepat",
       "Mata cerah, bulu mengilap, nafsu makan bagus",
       "Kaki lurus dan kuat, tidak pincang",
       "Tidak cacat dan bebas dari tanda sakit",
@@ -200,7 +200,6 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
         lead={need.lead}
         photo={need.photo}
         photoAlt={need.photoAlt}
-        caption={need.caption}
         tag={need.tag}
       >
         <WAButton wa={need.wa} variant="gold" size="lg">
@@ -259,7 +258,7 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
                 </h2>
                 <p className="mt-5 text-cream/75 leading-relaxed max-w-md">
                   Catatan ini kami tulis dari pengalaman melayani pembeli bertahun-tahun.
-                  Kalau masih ragu, tanyakan saja langsung — konsultasi tidak dipungut biaya.
+                  Kalau masih ragu, tanyakan saja langsung. Konsultasi tidak dipungut biaya.
                 </p>
                 <div className="mt-8">
                   <WAButton wa={need.wa} variant="gold" size="lg">
@@ -316,7 +315,7 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
 
       <BigCTA
         title={`SIAP CARI SAPI ${need.tag}?`}
-        sub="Kabari kebutuhannya — kami carikan sapinya."
+        sub="Kabari kebutuhannya, kami carikan sapinya."
         copy="Sampaikan budget dan kriteria sapi yang Anda cari. Kami bantu dari memilih sampai sapi tiba di lokasi Anda."
         bg={need.photo}
       />

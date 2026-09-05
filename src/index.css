@@ -85,7 +85,7 @@ body {
   opacity: 1;
   transform: none;
 }
-/* varian reveal tanpa transform/opacity — supaya mix-blend-mode tetap menyatu
+/* varian reveal tanpa transform/opacity, supaya mix-blend-mode tetap menyatu
    dengan background halaman (transform & opacity<1 membuat stacking context
    sendiri yang mengurung blend, sehingga latar putih foto tetap terlihat) */
 .reveal-fade {

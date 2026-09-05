@@ -1,5 +1,5 @@
 /* ============================================================
-   ANDINI FARM — konstanta situs
+   ANDINI FARM, konstanta situs
    FOTO: ganti URL di bawah ini dengan foto asli peternakan
    (simpan di folder public/ lalu ubah path-nya, mis. "/images/sapi-limosin.jpg")
    ============================================================ */
@@ -29,9 +29,9 @@ export const MAPS_LINK =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent("Japanan, Margodadi, Seyegan, Sleman, Yogyakarta");
 
-/* Foto utama — placeholder foto asli Andini Farm */
+/* Foto utama. Placeholder, ganti dengan foto asli peternakan */
 export const IMG = {
-  /* Cutout sapi di atas latar krem polos — ditampilkan dengan mix-blend-multiply
+  /* Cutout sapi di atas latar krem polos. Ditampilkan dengan mix-blend-multiply
      sehingga menyatu dengan latar situs (efek PNG transparan). */
   heroCutout:
     "https://image.qwenlm.ai/generated-images/af81a566-6951-43a7-901b-a97d52e4a148/_result.png",

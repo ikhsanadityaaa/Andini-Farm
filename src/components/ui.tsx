@@ -515,11 +515,11 @@ export function PriceBlock({ name, waMessage }: { name: string; waMessage: strin
           <p className="mt-5 text-cream/80 leading-relaxed max-w-lg">
             Harga sapi {name} mengikuti <strong className="text-cream">bobot, kondisi
             sapi dan waktu pembelian</strong>. Karena itu kami tidak memasang harga mati di
-            website — supaya angka yang Anda terima benar-benar sesuai dengan sapi yang
+            website. Supaya angka yang Anda terima benar-benar sesuai dengan sapi yang
             akan Anda beli.
           </p>
           <ul className="mt-6 space-y-2.5">
-            {["Stok & bobot terbaru dikirim via WhatsApp", "Bisa lihat foto dan video sapinya dulu", "Harga final jelas — termasuk opsi ongkos kirim"].map(
+            {["Stok & bobot terbaru dikirim via WhatsApp", "Bisa lihat foto dan video sapinya dulu", "Harga final jelas, termasuk opsi ongkos kirim"].map(
               (t) => (
                 <li key={t} className="flex items-start gap-3 text-sm text-cream/85">
                   <IconStar className="w-3 h-3 text-gold mt-1 shrink-0" />

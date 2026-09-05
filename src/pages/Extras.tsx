@@ -26,7 +26,7 @@ export function PengirimanPage() {
   );
 
   const ROUTE = [
-    { city: "YOGYAKARTA", note: "Titik berangkat — kandang di Seyegan, Sleman" },
+    { city: "YOGYAKARTA", note: "Titik berangkat, kandang di Seyegan, Sleman" },
     { city: "JAWA TENGAH", note: "Klaten, Solo, Magelang, Semarang & sekitarnya" },
     { city: "JAWA BARAT", note: "Bandung, Bekasi, Bogor & sekitarnya" },
     { city: "JAWA TIMUR", note: "Madiun, Kediri, Surabaya & sekitarnya" },
@@ -55,7 +55,6 @@ export function PengirimanPage() {
         }
         photo={IMG.truk}
         photoAlt="Truk pengangkut sapi melewati sawah di Jawa"
-        caption="PERJALANAN SAPI MENUJU PEMBELI"
         tag="MELAYANI PENGIRIMAN"
         facts={[
           { label: "TITIK BERANGKAT", value: "Japanan, Seyegan, Sleman" },
@@ -92,7 +91,7 @@ export function PengirimanPage() {
             <SectionHead
               kicker="Rute umum"
               title="DARI SLEMAN, MENYEBERANGI JAWA"
-              sub="Ini rute yang paling sering kami layani. Tujuan lain? Kabari saja — selama bisa dijangkau kendaraan ternak, kami usahakan."
+              sub="Ini rute yang paling sering kami layani. Tujuan lain? Kabari saja, selama bisa dijangkau kendaraan ternak, kami usahakan."
             />
           </Reveal>
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -166,7 +165,7 @@ export function PengirimanPage() {
       <BigCTA
         title="MAU HITUNG ONGKOS KIRIMNYA?"
         sub="Kirim alamat Anda, kami hitungkan."
-        copy="Sampaikan lokasi tujuan dan jumlah sapi yang rencana dibeli — kami kirimkan perkiraan ongkos kirimnya via WhatsApp."
+        copy="Sampaikan lokasi tujuan dan jumlah sapi yang rencana dibeli. Kami kirimkan perkiraan ongkos kirimnya via WhatsApp."
         bg={IMG.truk}
       />
     </>
@@ -176,7 +175,7 @@ export function PengirimanPage() {
 /* ================= TENTANG ================= */
 export function TentangPage() {
   usePageMeta(
-    "Tentang Andini Farm — Peternakan Sapi Sejak 2008 | Sleman, Yogyakarta",
+    "Tentang Andini Farm, Peternakan Sapi Sejak 2008 | Sleman, Yogyakarta",
     "Andini Farm adalah peternakan dan penjual sapi di Japanan, Seyegan, Sleman, Yogyakarta. Berpengalaman di dunia peternakan sejak 2008 dengan jaringan peternak yang luas."
   );
 
@@ -193,14 +192,13 @@ export function TentangPage() {
             <p>
               Andini Farm adalah peternakan dan penjual sapi dari Japanan, Margodadi,
               Seyegan, Sleman, Yogyakarta. Kami menjual <strong className="text-ranch">
-              sapi</strong> — Limosin, Simental dan Pegon Super — untuk qurban, aqiqah,
+              sapi</strong>, Limosin, Simental dan Pegon Super, untuk qurban, aqiqah,
               penggemukan hingga perdagangan.
             </p>
           </>
         }
         photo={IMG.bapak}
         photoAlt="Peternak Andini Farm bersama sapi di kandang Japanan Seyegan"
-        caption="BERSAMA SAPI — SEJAK 2008"
         tag="ANDINI FARM"
         facts={[
           { label: "BERDIRI", value: "Aktif di dunia sapi sejak 2008" },
@@ -237,7 +235,7 @@ export function TentangPage() {
                 title="BERAWAL DARI KETERTARIKAN, TUMBUH JADI PENGALAMAN"
               />
               <p className="mt-6 font-mono text-[11px] tracking-[0.2em] uppercase text-leather">
-                — Dari kandang sederhana di Japanan
+                • Dari kandang sederhana di Japanan
               </p>
             </Reveal>
           </div>
@@ -246,7 +244,7 @@ export function TentangPage() {
               <p className="dropcap">
                 Berawal dari ketertarikan dan pengalaman di dunia peternakan, Andini
                 Farm telah berkecimpung dalam usaha sapi sejak 2008. Bertahun-tahun
-                mengurus sapi — memilih bakalan, merawat, sampai melepas ke pembeli —
+                mengurus sapi, memilih bakalan, merawat, sampai melepas ke pembeli,
                 membentuk satu keyakinan: pembeli yang tenang adalah pembeli yang
                 dibantu, bukan sekadar ditawari.
               </p>
@@ -263,7 +261,7 @@ export function TentangPage() {
             <Reveal delay={160}>
               <p>
                 Karena itu, Andini Farm tidak hanya menjual sapi, tetapi juga membantu
-                pembeli menemukan sapi yang sesuai dengan kebutuhan mereka — dari
+                pembeli menemukan sapi yang sesuai dengan kebutuhan mereka, dari
                 menentukan jenis yang cocok, memperkirakan bobot, sampai mengatur
                 pengiriman ke lokasi.
               </p>
@@ -275,7 +273,7 @@ export function TentangPage() {
                   sapi yang tepat."
                 </p>
                 <p className="mt-3 font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather">
-                  — Prinsip Andini Farm
+                  • Prinsip Andini Farm
                 </p>
               </div>
             </Reveal>
@@ -295,9 +293,9 @@ export function TentangPage() {
           </Reveal>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {[
-              { t: "JUJUR SOAL KONDISI", d: "Kalau sapinya sedang tidak ada atau tidak cocok dengan kebutuhan Anda, kami katakan apa adanya — lalu bantu carikan yang pas." },
+              { t: "JUJUR SOAL KONDISI", d: "Kalau sapinya sedang tidak ada atau tidak cocok dengan kebutuhan Anda, kami katakan apa adanya, lalu bantu carikan yang pas." },
               { t: "SAPI TERAWAT", d: "Sapi di kandang dirawat dengan pakan dan pemeliharaan yang semestinya. Kondisi sapi adalah nama baik kami." },
-              { t: "JELAS DI KESEPAKATAN", d: "Harga, ongkos kirim dan jadwal — semua disepakati jelas di depan, tertulis di chat, tanpa biaya siluman di belakang." },
+              { t: "JELAS DI KESEPAKATAN", d: "Harga, ongkos kirim dan jadwal, semua disepakati jelas di depan, tertulis di chat, tanpa biaya siluman di belakang." },
             ].map((v, i) => (
               <Reveal key={v.t} delay={i * 90} className="border-2 border-cream/25 bg-pine/50 p-7 transition-colors duration-300 hover:border-gold">
                 <IconStar className="w-5 h-5 text-gold" />
@@ -318,7 +316,6 @@ export function TentangPage() {
             <PhotoFrame
               src={IMG.kandang}
               alt="Kandang sapi Andini Farm di Japanan Seyegan Sleman"
-              caption="KANDANG ANDINI FARM — TERBUKA UNTUK KUNJUNGAN"
               tag="JAPANAN, SEYEGAN"
             />
           </Reveal>
@@ -367,7 +364,7 @@ export function TentangPage() {
 /* ================= KONTAK ================= */
 export function KontakPage() {
   usePageMeta(
-    "Kontak Andini Farm — Jual Sapi Sleman Yogyakarta | WhatsApp",
+    "Kontak Andini Farm, Jual Sapi Sleman Yogyakarta | WhatsApp",
     "Hubungi Andini Farm via WhatsApp +62 853-3137-9462. Kandang di Japanan, Margodadi, Seyegan, Sleman, Yogyakarta. Tanya stok, harga & pengiriman sapi."
   );
 
@@ -397,7 +394,7 @@ export function KontakPage() {
               <p className="mt-6 text-base md:text-lg leading-relaxed text-ink/80 max-w-xl">
                 Cara tercepat tanya stok, jenis sapi, harga dan pengiriman adalah lewat{" "}
                 <strong className="text-ranch">WhatsApp</strong>. Kalau mau lihat
-                langsung, datang ke kandang — kabari dulu ya.
+                langsung, datang ke kandang. Kabari dulu ya.
               </p>
             </Reveal>
             <Reveal delay={110}>
@@ -413,7 +410,7 @@ export function KontakPage() {
                   </span>
                   <span>
                     <span className="block font-mono text-[10px] tracking-[0.26em] uppercase text-gold">
-                      WhatsApp — paling cepat
+                      WhatsApp, paling cepat
                     </span>
                     <span className="block mt-1 font-display text-xl md:text-2xl">{WA_DISPLAY}</span>
                   </span>
@@ -439,7 +436,7 @@ export function KontakPage() {
                 </a>
               </div>
               <p className="mt-6 text-[13px] text-ink/60 leading-relaxed max-w-md">
-                Jam peternakan mengikuti perawatan sapi — chat kapan saja, kami balas
+                Jam peternakan mengikuti perawatan sapi. Chat kapan saja, kami balas
                 secepatnya. Kunjungan kandang sebaiknya janjian dulu supaya sapinya
                 bisa kami siapkan.
               </p>
@@ -454,7 +451,7 @@ export function KontakPage() {
                 CERITAKAN SAPI YANG ANDA CARI
               </h2>
               <p className="mt-3 text-sm text-ink/70 leading-relaxed">
-                Isi singkat saja — pesan ini akan terbuka langsung di WhatsApp Anda
+                Isi singkat saja. Pesan ini akan terbuka langsung di WhatsApp Anda
                 menuju nomor Andini Farm.
               </p>
               <div className="mt-7 space-y-5">
@@ -478,7 +475,7 @@ export function KontakPage() {
                     onChange={(e) => setKebutuhan(e.target.value)}
                     className="mt-2 w-full border-2 border-ink bg-cream px-4 py-3 text-sm font-semibold outline-none focus:border-ranch focus:shadow-[3px_3px_0_0_#163020] transition-all cursor-pointer"
                   >
-                    {["Qurban", "Aqiqah", "Penggemukan", "Dagang / Usaha", "Belum tahu — mau konsultasi"].map((o) => (
+                    {["Qurban", "Aqiqah", "Penggemukan", "Dagang / Usaha", "Belum tahu, mau konsultasi"].map((o) => (
                       <option key={o}>{o}</option>
                     ))}
                   </select>

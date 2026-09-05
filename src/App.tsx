@@ -14,7 +14,7 @@ function NotFound() {
       <p className="font-mono text-[11px] font-bold tracking-[0.3em] uppercase text-leather">
         Halaman tidak ditemukan
       </p>
-      <h1 className="mt-4 font-display text-5xl uppercase text-ranch">404 — SAPI NYASAR</h1>
+      <h1 className="mt-4 font-display text-5xl uppercase text-ranch">404, SAPI NYASAR</h1>
       <p className="mt-5 text-ink/70 max-w-md mx-auto leading-relaxed">
         Halaman yang Anda cari tidak ada. Yuk kembali ke kandang dan lihat sapi yang
         tersedia.

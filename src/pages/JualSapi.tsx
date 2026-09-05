@@ -20,7 +20,7 @@ import {
 const FAQ = [
   {
     q: "Berapa harga sapi di Andini Farm?",
-    a: "Harga mengikuti bobot, jenis dan kondisi sapi, serta waktu pembelian. Kami tidak memasang harga mati — tanyakan via WhatsApp untuk harga terbaru sesuai sapi yang tersedia.",
+    a: "Harga mengikuti bobot, jenis dan kondisi sapi, serta waktu pembelian. Kami tidak memasang harga mati. Tanyakan via WhatsApp untuk harga terbaru sesuai sapi yang tersedia.",
   },
   {
     q: "Apakah bisa melihat sapi sebelum membeli?",
@@ -32,15 +32,15 @@ const FAQ = [
   },
   {
     q: "Apakah sapi qurbannya sudah poel dan memenuhi syarat?",
-    a: "Sapi qurban yang kami siapkan sudah cukup umur (poel), sehat dan tidak cacat. Kami paham syaratnya — Anda tinggal memilih.",
+    a: "Sapi qurban yang kami siapkan sudah cukup umur (poel), sehat dan tidak cacat. Kami paham syaratnya, Anda tinggal memilih.",
   },
   {
     q: "Sapinya sehat dan terawat?",
-    a: "Iya. Sapi dirawat dengan pakan layak dan dipantau setiap hari. Yang sedang kurang sehat tidak kami pasarkan — reputasi kandang taruhannya.",
+    a: "Iya. Sapi dirawat dengan pakan layak dan dipantau setiap hari. Yang sedang kurang sehat tidak kami pasarkan, reputasi kandang taruhannya.",
   },
   {
     q: "Saya belum tahu butuh sapi yang seperti apa. Bisa dibantu?",
-    a: "Justru itu tugas kami. Ceritakan kebutuhan dan budget Anda — kami bantu carikan jenis dan ukuran sapi yang paling pas.",
+    a: "Justru itu tugas kami. Ceritakan kebutuhan dan budget Anda, kami bantu carikan jenis dan ukuran sapi yang paling pas.",
   },
 ];
 
@@ -56,7 +56,7 @@ const JANJI_STRIP = [
 export default function JualSapi() {
   usePageMeta(
     "Jual Sapi Berkualitas Sleman Yogyakarta | Andini Farm",
-    "Jual sapi Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Sehat, gemuk alami, harga kompetitif. Untuk qurban, aqiqah, penggemukan & dagang — tanya stok & harga via WhatsApp."
+    "Jual sapi Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Sehat, gemuk alami, harga kompetitif. Untuk qurban, aqiqah, penggemukan & dagang. Tanya stok & harga via WhatsApp."
   );
 
   useJsonLd("faq-jual-sapi", {
@@ -81,19 +81,18 @@ export default function JualSapi() {
           <>
             <p>
               Andini Farm menyediakan sapi pilihan untuk berbagai kebutuhan dengan
-              pengalaman di dunia peternakan sejak 2008 — Limosin, Simental dan Pegon
+              pengalaman di dunia peternakan sejak 2008. Limosin, Simental dan Pegon
               Super, dari kandang di Japanan, Seyegan, Sleman, Yogyakarta.
             </p>
             <p className="mt-3">
               Untuk <strong className="text-ranch">qurban, aqiqah, penggemukan</strong>{" "}
-              sampai <strong className="text-ranch">perdagangan</strong> — ceritakan
+              sampai <strong className="text-ranch">perdagangan</strong>. Ceritakan
               kebutuhan Anda, kami bantu carikan sapinya.
             </p>
           </>
         }
         photo={IMG.kandang}
         photoAlt="Kandang sapi Andini Farm di Japanan Seyegan Sleman"
-        caption="KANDANG ANDINI FARM — JAPANAN, SEYEGAN"
         tag="SAPI SEHAT"
         facts={[
           { label: "JENIS SAPI", value: "Limosin • Simental • Pegon Super" },
@@ -205,7 +204,7 @@ export default function JualSapi() {
                 tone="dark"
                 kicker="Sapi untuk apa?"
                 title="SATU KANDANG, BANYAK KEBUTUHAN"
-                sub="Pembeli datang dengan tujuan berbeda-beda — dan kriteria sapinya ikut berbeda. Kami bantu sesuaikan."
+                sub="Pembeli datang dengan tujuan berbeda-beda, dan kriteria sapinya ikut berbeda. Kami bantu sesuaikan."
               />
               <div className="mt-8">
                 <WAButton
@@ -296,7 +295,7 @@ export default function JualSapi() {
                 Kalau Anda mencari <strong>jual sapi Sleman</strong> atau{" "}
                 <strong>jual sapi Yogyakarta</strong>, Andini Farm adalah peternakan dan
                 penjual sapi yang berbasis di Japanan, Margodadi, Seyegan, Sleman. Kami
-                berkecimpung di dunia sapi sejak 2008 — memahami sapi bukan dari brosur,
+                berkecimpung di dunia sapi sejak 2008. Memahami sapi bukan dari brosur,
                 tapi dari kandang dan pasar hewan.
               </p>
             </Reveal>
@@ -306,7 +305,7 @@ export default function JualSapi() {
                 mencari tubuh besar dan berotot, <strong>sapi Simental</strong> dengan
                 rangka besar dan pertumbuhan cepat, serta{" "}
                 <strong>sapi Pegon Super</strong> yang adaptif dan ekonomis. Semuanya
-                bisa untuk qurban, aqiqah, penggemukan maupun perdagangan — dan
+                bisa untuk qurban, aqiqah, penggemukan maupun perdagangan, dan
                 semuanya sehat, gemuk alami, serta bisa dicarikan sesuai budget Anda.
               </p>
             </Reveal>
@@ -316,7 +315,7 @@ export default function JualSapi() {
                 bobot dan kondisi per ekor, dan kami jaga tetap kompetitif karena sapi
                 berasal dari kandang sendiri serta jaringan peternak sejak 2008. Soal{" "}
                 <strong>pengiriman sapi</strong>, kami melayani berbagai wilayah di
-                Pulau Jawa — antar sampai tujuan dengan ongkos yang jelas di depan.
+                Pulau Jawa. Antar sampai tujuan dengan ongkos yang jelas di depan.
               </p>
             </Reveal>
           </div>
@@ -386,7 +385,7 @@ export default function JualSapi() {
 
       <BigCTA
         title="SIAP MELIHAT SAPI?"
-        sub="Stok, bobot, harga & pengiriman — semua via satu chat."
+        sub="Stok, bobot, harga & pengiriman. Semua via satu chat."
         bg={IMG.kandang}
       />
     </>

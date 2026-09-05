@@ -19,7 +19,7 @@ const CATS = ["SEMUA", ...Array.from(new Set(ARTICLES.map((a) => a.category)))];
 /* ================= LIST ================= */
 export function ArticlesPage() {
   usePageMeta(
-    "Panduan Memilih Sapi — Artikel & Tips | Andini Farm",
+    "Panduan Memilih Sapi: Artikel & Tips | Andini Farm",
     "Kumpulan artikel panduan memilih sapi: cara memilih sapi sehat, memperkirakan bobot, perbedaan Limosin & Simental, tips qurban, aqiqah, penggemukan dan pengiriman."
   );
   const [cat, setCat] = useState("SEMUA");
@@ -38,7 +38,7 @@ export function ArticlesPage() {
               <SectionHead
                 kicker="Dari pengalaman di kandang & pasar hewan"
                 title="PANDUAN MEMILIH SAPI"
-                sub="Supaya Anda membeli sapi dengan tenang — bukan menebak-nebak. Semua ditulis dari pengalaman nyata berjualan sapi sejak 2008."
+                sub="Supaya Anda membeli sapi dengan tenang, bukan menebak-nebak. Semua ditulis dari pengalaman nyata berjualan sapi sejak 2008."
               />
             </Reveal>
             <Reveal delay={120} className="lg:col-span-4 lg:justify-self-end">

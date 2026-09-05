@@ -6,7 +6,6 @@ export type Breed = {
   earTag: string;
   photo: string;
   photoAlt: string;
-  caption: string;
   tagline: string;
   intro: string;
   karakteristik: string[];
@@ -30,15 +29,14 @@ export const BREEDS: Breed[] = [
     photo:
       "https://image.qwenlm.ai/generated-images/ee75b94b-a4de-49d6-8d0f-0049b4d9817f/_result.png",
     photoAlt: "Sapi Limosin di kandang Andini Farm Seyegan Sleman",
-    caption: "SAPI LIMOSIN — KANDANG ANDINI FARM",
     tagline: "Tubuh besar, berotot, dan proporsional.",
     intro:
-      "Sapi Limosin dikenal dengan tubuh yang besar dan proporsi tubuh yang kuat. Cocok untuk berbagai kebutuhan pembelian sapi — mulai dari qurban, aqiqah, penggemukan hingga perdagangan.",
+      "Sapi Limosin dikenal dengan tubuh yang besar dan proporsi tubuh yang kuat. Cocok untuk berbagai kebutuhan pembelian sapi, mulai dari qurban, aqiqah, penggemukan hingga perdagangan.",
     karakteristik: [
       "Postur tubuh besar dan panjang dengan perototan yang padat, terutama di bagian punggung dan paha.",
       "Warna bulu khas cokelat kemerahan hingga cokelat tua, dengan area sekitar mata dan moncong yang lebih terang.",
       "Pertambahan bobot harian tergolong tinggi sehingga disukai untuk penggemukan.",
-      "Hasil karkas tinggi — daging lebih banyak dibanding bobot tubuhnya.",
+      "Hasil karkas tinggi, daging lebih banyak dibanding bobot tubuhnya.",
       "Cocok untuk qurban besar, bakalan penggemukan, maupun indukan berkualitas.",
     ],
     bobot: [
@@ -50,11 +48,11 @@ export const BREEDS: Breed[] = [
     kebutuhan: ["Qurban", "Aqiqah", "Penggemukan", "Perdagangan"],
     seo: [
       "Andini Farm melayani jual sapi Limosin untuk wilayah Sleman, Yogyakarta dan sekitarnya. Banyak pembeli mencari sapi Limosin (sering juga ditulis Limousin) karena posturnya yang besar dan bobotnya yang menguntungkan. Jika Anda mencari tempat jual sapi Limousin dengan kondisi terawat, Anda bisa melihat langsung sapinya di kandang kami di Japanan, Seyegan.",
-      "Karena Limosin banyak dicari menjelang musim qurban maupun untuk program penggemukan, stok bisa cepat berpindah tangan. Cara paling praktis untuk mengecek bobot dan kondisi terbaru adalah bertanya langsung lewat WhatsApp — kami kirimkan foto dan video sapi yang tersedia.",
+      "Karena Limosin banyak dicari menjelang musim qurban maupun untuk program penggemukan, stok bisa cepat berpindah tangan. Cara paling praktis untuk mengecek bobot dan kondisi terbaru adalah bertanya langsung lewat WhatsApp, kami kirimkan foto dan video sapi yang tersedia.",
     ],
     metaTitle: "Jual Sapi Limosin (Limousin) Sleman Yogyakarta | Andini Farm",
     metaDesc:
-      "Jual sapi Limosin berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga sapi Limousin menyesuaikan — tanya stok & harga terbaru via WhatsApp.",
+      "Jual sapi Limosin berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga sapi Limousin menyesuaikan, tanya stok & harga terbaru via WhatsApp.",
     cta: "TANYAKAN SAPI LIMOSIN",
     waMessage: "Halo Andini Farm, saya ingin tanya stok dan harga sapi LIMOSIN.",
     fakta: [
@@ -73,7 +71,6 @@ export const BREEDS: Breed[] = [
     photo:
       "https://image.qwenlm.ai/generated-images/70d2f183-3987-4d7a-aad3-f7d55e28a1f8/_result.png",
     photoAlt: "Sapi Simental di peternakan Andini Farm Sleman",
-    caption: "SAPI SIMENTAL — KANDANG ANDINI FARM",
     tagline: "Rangka besar dengan pertumbuhan cepat.",
     intro:
       "Sapi Simental memiliki karakteristik tubuh besar dengan pertumbuhan dan bentuk tubuh yang menarik bagi peternak dan pembeli sapi.",
@@ -81,7 +78,7 @@ export const BREEDS: Breed[] = [
       "Rangka tubuh besar dan dalam, dengan dada lebar dan punggung rata.",
       "Ciri khas warna: badan cokelat kemerahan dengan kepala dan kaki putih.",
       "Pertumbuhan cepat dan respons bagus terhadap pakan penggemukan.",
-      "Termasuk sapi dwiguna (pedaging & susu) di negara asalnya — di Indonesia dipelihara sebagai pedaging.",
+      "Termasuk sapi dwiguna (pedaging & susu) di negara asalnya. Di Indonesia dipelihara sebagai pedaging.",
       "Banyak diminati untuk qurban karena penampilannya yang besar dan gagah.",
     ],
     bobot: [
@@ -92,12 +89,12 @@ export const BREEDS: Breed[] = [
     ],
     kebutuhan: ["Qurban", "Penggemukan", "Perdagangan", "Indukan"],
     seo: [
-      "Andini Farm menyediakan jual sapi Simental untuk pembeli di Sleman, Yogyakarta dan berbagai wilayah lain. Sapi Simental — yang juga sering ditulis Simmental — dikenal dengan rangka tubuhnya yang besar dan pertumbuhan yang cepat, sehingga menjadi favorit peternak maupun pembeli sapi qurban.",
+      "Andini Farm menyediakan jual sapi Simental untuk pembeli di Sleman, Yogyakarta dan berbagai wilayah lain. Sapi Simental, yang juga sering ditulis Simmental, dikenal dengan rangka tubuhnya yang besar dan pertumbuhan yang cepat, sehingga menjadi favorit peternak maupun pembeli sapi qurban.",
       "Jika Anda sedang mencari jual sapi Simmental dengan kondisi sehat dan terawat, silakan tanyakan stok terbaru kami. Kami juga bisa membantu mencarikan Simental dengan rentang bobot tertentu melalui jaringan peternak yang kami bangun sejak 2008.",
     ],
     metaTitle: "Jual Sapi Simental (Simmental) Sleman Yogyakarta | Andini Farm",
     metaDesc:
-      "Jual sapi Simental berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga sapi Simmental menyesuaikan — tanya stok & harga via WhatsApp.",
+      "Jual sapi Simental berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga sapi Simmental menyesuaikan, tanya stok & harga via WhatsApp.",
     cta: "TANYAKAN SAPI SIMENTAL",
     waMessage: "Halo Andini Farm, saya ingin tanya stok dan harga sapi SIMENTAL.",
     fakta: [
@@ -116,7 +113,6 @@ export const BREEDS: Breed[] = [
     photo:
       "https://image.qwenlm.ai/generated-images/2c0658f7-b53c-4098-b8b2-fc8d62257aae/_result.png",
     photoAlt: "Sapi Pegon Super di kandang Andini Farm Yogyakarta",
-    caption: "SAPI PEGON SUPER — KANDANG ANDINI FARM",
     tagline: "Persilangan lokal yang adaptif dan bernilai ekonomis.",
     intro:
       "Pilihan sapi Pegon Super untuk berbagai kebutuhan pembelian sapi. Pegon merupakan sapi persilangan lokal yang sudah sangat adaptif dengan iklim dan pakan di Indonesia.",
@@ -124,7 +120,7 @@ export const BREEDS: Breed[] = [
       "Hasil persilangan sapi lokal (Jawa/Peranakan Ongole) dengan sapi Eropa seperti Limosin atau Simental.",
       "Adaptif terhadap iklim tropis, pakan lokal, dan sistem pemeliharaan peternak Indonesia.",
       "Perawatan lebih mudah dan tahan banting dibanding sapi impor murni.",
-      "Harga lebih bersahabat — nilai ekonomisnya tinggi untuk aqiqah, qurban dan dagang.",
+      "Harga lebih bersahabat, nilai ekonomisnya tinggi untuk aqiqah, qurban dan dagang.",
       "Varian 'Pegon Super' biasanya memiliki postur dan perototan yang lebih menonjol.",
     ],
     bobot: [
@@ -140,7 +136,7 @@ export const BREEDS: Breed[] = [
     ],
     metaTitle: "Jual Sapi Pegon Super Sleman Yogyakarta | Andini Farm",
     metaDesc:
-      "Jual sapi Pegon Super di Seyegan, Sleman, Yogyakarta. Harga sapi Pegon menyesuaikan bobot — tanya stok & harga via WhatsApp.",
+      "Jual sapi Pegon Super di Seyegan, Sleman, Yogyakarta. Harga sapi Pegon menyesuaikan bobot, tanya stok & harga via WhatsApp.",
     cta: "TANYAKAN SAPI PEGON",
     waMessage: "Halo Andini Farm, saya ingin tanya stok dan harga sapi PEGON SUPER.",
     fakta: [
@@ -155,7 +151,7 @@ export const BREEDS: Breed[] = [
 export const BELI_STEPS = [
   {
     title: "CHAT WHATSAPP",
-    desc: "Kabari jenis sapi, perkiraan bobot dan budget Anda — atau sekadar tanya stok yang ada.",
+    desc: "Kabari jenis sapi, perkiraan bobot dan budget Anda, atau sekadar tanya stok yang ada.",
   },
   {
     title: "LIHAT SAPI",
