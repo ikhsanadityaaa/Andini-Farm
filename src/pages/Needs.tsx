@@ -260,11 +260,6 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
                   Catatan ini kami tulis dari pengalaman melayani pembeli bertahun-tahun.
                   Kalau masih ragu, tanyakan saja langsung. Konsultasi tidak dipungut biaya.
                 </p>
-                <div className="mt-8">
-                  <WAButton wa={need.wa} variant="gold" size="lg">
-                    {need.cta}
-                  </WAButton>
-                </div>
               </Reveal>
             </div>
           </div>

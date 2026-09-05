@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IMG, waLink } from "../data/site";
+import { IMG, WA_DEFAULT, WA_DISPLAY, waLink } from "../data/site";
 import { BREEDS } from "../data/breeds";
 import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
@@ -354,14 +354,14 @@ export default function JualSapi() {
               <p className="mt-3 font-display text-xl uppercase leading-snug">
                 Tanya langsung, lebih cepat jelas
               </p>
-              <div className="mt-6">
-                <WAButton
-                  wa="Halo Andini Farm, saya ada pertanyaan soal pembelian sapi."
-                  variant="gold"
-                >
-                  CHAT WHATSAPP
-                </WAButton>
-              </div>
+              <a
+                href={WA_DEFAULT}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-block w-fit font-display text-lg text-gold underline decoration-gold/50 decoration-2 underline-offset-4 hover:decoration-gold transition-colors"
+              >
+                {WA_DISPLAY}
+              </a>
             </Reveal>
           </div>
         </div>

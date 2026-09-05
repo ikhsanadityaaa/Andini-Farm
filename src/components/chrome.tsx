@@ -8,7 +8,7 @@ import {
   WA_DISPLAY,
   waLink,
 } from "../data/site";
-import { cx, IconArrow, IconCow, IconPin, IconStar, IconWA, WAButton } from "./ui";
+import { cx, IconArrow, IconCow, IconPin, IconStar, IconWA } from "./ui";
 
 /* ---------------- per-page meta ---------------- */
 export function usePageMeta(title: string, desc?: string) {
@@ -228,22 +228,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <WAButton
-              wa="Halo Andini Farm, saya ingin tanya sapi yang tersedia."
-              className="hidden sm:inline-flex !px-4 !py-3"
-            >
-              CHAT WHATSAPP
-            </WAButton>
-            {/* mobile toggles */}
-            <a
-              href={WA_DEFAULT}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sm:hidden w-11 h-11 grid place-items-center border-2 border-ink bg-gold shadow-[3px_3px_0_0_#151515] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
-              aria-label="Chat WhatsApp Andini Farm"
-            >
-              <IconWA className="w-5 h-5" />
-            </a>
+            {/* tombol WhatsApp ada di pill melayang kanan; header cukup menu */}
             <button
               onClick={() => setMobile(true)}
               className="lg:hidden w-11 h-11 grid place-items-center border-2 border-ink bg-ranch text-cream shadow-[3px_3px_0_0_#151515] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer"
@@ -316,15 +301,7 @@ export function Header() {
                 Kontak
               </Link>
               <div className="pt-4 border-t-2 border-cream/15">
-                <WAButton
-                  wa="Halo Andini Farm, saya ingin tanya sapi yang tersedia."
-                  variant="gold"
-                  size="lg"
-                  className="w-full"
-                >
-                  CHAT WHATSAPP
-                </WAButton>
-                <p className="mt-4 font-mono text-[11px] text-cream/60 leading-relaxed">
+                <p className="font-mono text-[11px] text-cream/60 leading-relaxed">
                   {ADDRESS_LINES.join(", ")}
                   <br />
                   {WA_DISPLAY}
@@ -404,16 +381,18 @@ export function Footer() {
           <p className="font-mono text-[10px] font-bold tracking-[0.28em] uppercase text-gold">
             Hubungi Kami
           </p>
-          <p className="mt-5 font-display text-2xl md:text-[1.7rem] leading-tight text-cream">
+          <a
+            href={WA_DEFAULT}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-block font-display text-2xl md:text-[1.7rem] leading-tight text-cream underline decoration-gold decoration-[3px] underline-offset-[6px] hover:text-gold transition-colors"
+          >
             {WA_DISPLAY}
-          </p>
+          </a>
           <p className="mt-2 text-sm text-cream/60">
             WhatsApp, respon cepat di jam kerja peternakan.
           </p>
           <div className="mt-6 flex flex-wrap gap-3.5">
-            <WAButton wa="Halo Andini Farm, saya ingin tanya sapi yang tersedia." size="md">
-              CHAT WHATSAPP
-            </WAButton>
             <a
               href={MAPS_LINK}
               target="_blank"

@@ -70,13 +70,6 @@ export function PengirimanPage() {
         >
           TANYAKAN ONGKOS KIRIM
         </WAButton>
-        <WAButton
-          wa="Halo Andini Farm, saya ingin tanya stok sapi yang tersedia."
-          variant="outline"
-          size="lg"
-        >
-          TANYAKAN STOK SAPI
-        </WAButton>
       </SplitHero>
 
       <Marquee
@@ -344,9 +337,6 @@ export function TentangPage() {
               >
                 <IconPin className="w-3.5 h-3.5" /> BUKA DI GOOGLE MAPS
               </a>
-              <WAButton wa="Halo Andini Farm, saya ingin menjadwalkan kunjungan ke kandang.">
-                JADWALKAN KUNJUNGAN
-              </WAButton>
             </div>
           </Reveal>
         </div>

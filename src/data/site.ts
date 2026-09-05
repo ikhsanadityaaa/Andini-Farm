@@ -24,14 +24,11 @@ export const ADDRESS_LINES = [
   "Sleman, Daerah Istimewa Yogyakarta",
 ];
 
-export const MAPS_LINK =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("Japanan, Margodadi, Seyegan, Sleman, Yogyakarta");
+/* Titik resmi: Kandang Sapi Japanan, Ngampon, Margodadi, Seyegan, Sleman */
+export const MAPS_LINK = "https://maps.app.goo.gl/W7nCM55av43rAnFm7";
 
 export const MAPS_EMBED =
-  "https://maps.google.com/maps?q=" +
-  encodeURIComponent("Seyegan, Sleman, Yogyakarta") +
-  "&z=12&output=embed";
+  "https://www.google.com/maps?q=-7.7336362,110.2950401&z=16&output=embed";
 
 /* Foto utama. Placeholder, ganti dengan foto asli peternakan */
 export const IMG = {

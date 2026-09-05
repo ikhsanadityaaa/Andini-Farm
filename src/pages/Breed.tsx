@@ -98,13 +98,6 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
         <WAButton wa={breed.waMessage} variant="gold" size="lg">
           {breed.cta}
         </WAButton>
-        <WAButton
-          wa={`Halo Andini Farm, saya ingin cek stok sapi ${breed.name} yang tersedia hari ini.`}
-          variant="outline"
-          size="lg"
-        >
-          CEK STOK TERSEDIA
-        </WAButton>
       </SplitHero>
 
       <Marquee
@@ -299,9 +292,6 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
               DETAIL PENGIRIMAN
               <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
             </Link>
-            <WAButton wa="Halo Andini Farm, saya ingin tanya ongkos kirim sapi ke lokasi saya.">
-              TANYAKAN ONGKOS KIRIM
-            </WAButton>
           </Reveal>
         </div>
       </section>

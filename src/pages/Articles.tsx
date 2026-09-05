@@ -34,21 +34,12 @@ export function ArticlesPage() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 pt-12 md:pt-16 pb-12">
           <Crumbs items={[{ label: "Beranda", to: "/" }, { label: "Artikel" }]} />
           <div className="mt-8 grid lg:grid-cols-12 gap-8 items-end">
-            <Reveal className="lg:col-span-8">
+            <Reveal>
               <SectionHead
                 kicker="Dari pengalaman di kandang & pasar hewan"
                 title="PANDUAN MEMILIH SAPI"
                 sub="Supaya Anda membeli sapi dengan tenang, bukan menebak-nebak. Semua ditulis dari pengalaman nyata berjualan sapi sejak 2008."
               />
-            </Reveal>
-            <Reveal delay={120} className="lg:col-span-4 lg:justify-self-end">
-              <WAButton
-                wa="Halo Andini Farm, saya baca artikel di website dan ingin tanya sapi yang tersedia."
-                variant="green"
-                size="lg"
-              >
-                SEDANG CARI SAPI? CHAT KAMI
-              </WAButton>
             </Reveal>
           </div>
           <Reveal delay={80}>
