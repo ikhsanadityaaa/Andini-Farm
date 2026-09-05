@@ -152,6 +152,28 @@ body {
   animation: tagFloat 5.5s ease-in-out infinite;
 }
 
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+.float-slow {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+@keyframes dashMove {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+.road-dash {
+  animation: dashMove 2.8s linear infinite;
+}
+
 /* ---------- typography helpers ---------- */
 .dropcap::first-letter {
   font-family: var(--font-display);

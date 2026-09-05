@@ -54,6 +54,8 @@ export const IMG = {
     "https://image.qwenlm.ai/generated-images/be68e2fd-e174-4aca-ac0a-e458800256ba/_result.png",
   pasar:
     "https://image.qwenlm.ai/generated-images/842fadb8-cb74-4670-b362-56a80259da4d/_result.png",
+  pickup:
+    "https://image.qwenlm.ai/generated-images/d18c1ba1-aad7-4638-b0ea-25de1b28276e/_result.png",
 };
 
 export const SEO_KEYWORDS = [

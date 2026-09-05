@@ -375,10 +375,9 @@ export function KontakPage() {
   const [kebutuhan, setKebutuhan] = useState("Qurban");
   const [pesan, setPesan] = useState("");
 
-  const submit = () => {
-    const text = `Halo Andini Farm, saya ${nama || "(nama)"}. Saya mencari sapi untuk kebutuhan ${kebutuhan}. ${pesan}`.trim();
-    window.open(waLink(text), "_blank", "noopener,noreferrer");
-  };
+  const waHref = waLink(
+    `Halo Andini Farm, saya ${nama || "(nama)"}. Saya mencari sapi untuk kebutuhan ${kebutuhan}. ${pesan}`.trim()
+  );
 
   return (
     <>
@@ -496,13 +495,15 @@ export function KontakPage() {
                     className="mt-2 w-full border-2 border-ink bg-cream px-4 py-3 text-sm font-semibold placeholder:text-ink/35 outline-none focus:border-ranch focus:shadow-[3px_3px_0_0_#163020] transition-all resize-none"
                   />
                 </label>
-                <button
-                  onClick={submit}
-                  className="group/bt w-full inline-flex items-center justify-center gap-2.5 border-2 border-ink bg-gold px-7 py-[17px] text-xs font-extrabold uppercase tracking-[0.13em] shadow-press transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[7px_7px_0_0_#151515] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer"
+                <a
+                  href={waHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/bt w-full inline-flex items-center justify-center gap-2.5 border-2 border-ink bg-gold px-7 py-[17px] text-xs font-extrabold uppercase tracking-[0.13em] shadow-press transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[7px_7px_0_0_#151515] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                 >
                   <IconWA className="w-4 h-4 transition-transform group-hover/bt:rotate-12" />
                   KIRIM VIA WHATSAPP
-                </button>
+                </a>
               </div>
             </div>
           </Reveal>

@@ -20,6 +20,7 @@ import {
   SectionHead,
   Stamp,
   StripeBar,
+  usePrefersReducedMotion,
   WAButton,
 } from "../components/ui";
 
@@ -112,6 +113,124 @@ const HERO_CHIPS = [
   "HARGA KOMPETITIF",
   "ANTAR SAMPAI TUJUAN",
 ];
+
+const ROUTE_NOTES = [
+  { c: "YOGYAKARTA", n: "Titik berangkat — kandang di Seyegan, Sleman" },
+  { c: "JAWA TENGAH", n: "Klaten, Solo, Magelang, Semarang & sekitarnya" },
+  { c: "JAWA BARAT", n: "Bandung, Bekasi, Bogor & sekitarnya" },
+  { c: "JAWA TIMUR", n: "Madiun, Kediri, Surabaya & sekitarnya" },
+];
+
+/* Roadmap ilustrasi pengiriman: jalan berkelok + pickup sapi + truk berjalan */
+function DeliveryRoad() {
+  const reduce = usePrefersReducedMotion();
+  const d =
+    "M 200 220 C 320 122, 430 122, 540 198 C 655 265, 760 268, 860 210 C 960 152, 1060 128, 1160 178";
+  const stops = [
+    { x: 200, y: 220, label: "YOGYAKARTA", sub: "KANDANG ANDINI FARM", up: true, start: true },
+    { x: 540, y: 198, label: "JAWA TENGAH", sub: "SOLO • SEMARANG • MAGELANG", up: false },
+    { x: 860, y: 210, label: "JAWA BARAT", sub: "BANDUNG • BOGOR • BEKASI", up: true },
+    { x: 1160, y: 178, label: "JAWA TIMUR", sub: "MADIUN • KEDIRI • SURABAYA", up: false },
+  ];
+  return (
+    <svg
+      viewBox="0 0 1200 330"
+      className="w-full h-auto"
+      role="img"
+      aria-label="Ilustrasi rute pengiriman sapi dari Yogyakarta menuju Jawa Tengah, Jawa Barat dan Jawa Timur"
+    >
+      {/* jalan */}
+      <path d={d} fill="none" stroke="#163020" strokeWidth="30" strokeLinecap="round" />
+      <path d={d} fill="none" stroke="#EDE8DC" strokeWidth="22" strokeLinecap="round" opacity="0.13" />
+      <path
+        d={d}
+        fill="none"
+        stroke="#C89B3C"
+        strokeWidth="3.5"
+        strokeDasharray="16 14"
+        strokeLinecap="round"
+        className="road-dash"
+      />
+
+      {/* pickup angkut sapi — titik berangkat */}
+      <image
+        href={IMG.pickup}
+        x="-22"
+        y="104"
+        width="212"
+        style={{ mixBlendMode: "multiply" }}
+        className="float-slow"
+      />
+      {/* sapi tiba di tujuan */}
+      <image
+        href={IMG.heroCutout}
+        x="1088"
+        y="26"
+        width="100"
+        style={{ mixBlendMode: "multiply" }}
+        className="float-slow"
+      />
+
+      {/* titik-titik rute */}
+      {stops.map((s) => (
+        <g key={s.label}>
+          <circle cx={s.x} cy={s.y} r="14" fill="#EDE8DC" stroke="#151515" strokeWidth="3.5" />
+          {s.start ? (
+            <path
+              d={`M ${s.x} ${s.y - 7.5} l 2.3 5.2 5.2 2.3 -5.2 2.3 -2.3 5.2 -2.3 -5.2 -5.2 -2.3 5.2 -2.3 z`}
+              fill="#C89B3C"
+              stroke="#151515"
+              strokeWidth="1.4"
+            />
+          ) : (
+            <circle cx={s.x} cy={s.y} r="5.5" fill="#163020" />
+          )}
+          <text
+            x={s.x}
+            y={s.up ? s.y - 52 : s.y + 46}
+            textAnchor="middle"
+            style={{ fontFamily: "var(--font-display)", fontSize: "22px", letterSpacing: "1px" }}
+            fill="#163020"
+          >
+            {s.label}
+          </text>
+          <text
+            x={s.x}
+            y={s.up ? s.y - 32 : s.y + 66}
+            textAnchor="middle"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "11.5px",
+              fontWeight: 700,
+              letterSpacing: "1.8px",
+            }}
+            fill="#6E4B32"
+          >
+            {s.sub}
+          </text>
+        </g>
+      ))}
+
+      {/* truk berjalan menyusuri rute */}
+      {!reduce && (
+        <g>
+          <g stroke="#151515" strokeWidth="2.6" strokeLinejoin="round">
+            <rect x="-40" y="-24" width="46" height="22" rx="2.5" fill="#C89B3C" />
+            <circle cx="-26" cy="-31" r="7" fill="#6E4B32" strokeWidth="2.4" />
+            <circle cx="-12" cy="-31" r="7" fill="#EDE8DC" strokeWidth="2.4" />
+            <path d="M 6 -24 h 15 l 11 11 v 11 h -26 z" fill="#163020" />
+            <rect x="10" y="-20" width="9" height="8" fill="#EDE8DC" strokeWidth="2" />
+          </g>
+          <circle cx="-26" cy="2" r="8" fill="#151515" />
+          <circle cx="-26" cy="2" r="3" fill="#EDE8DC" />
+          <circle cx="17" cy="2" r="8" fill="#151515" />
+          <circle cx="17" cy="2" r="3" fill="#EDE8DC" />
+          <animateMotion dur="15s" repeatCount="indefinite" rotate="auto" path={d} />
+        </g>
+      )}
+    </svg>
+  );
+}
 
 export default function Home() {
   usePageMeta(
@@ -208,7 +327,12 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-              <p className="mt-6 font-mono text-[11px] tracking-[0.14em] uppercase text-ink/55">
+              <p className="mt-6 flex items-start gap-2.5 text-sm md:text-[15px] font-bold text-ranch max-w-xl">
+                <IconTruck className="w-5 h-5 mt-0.5 shrink-0 text-leather" />
+                Bisa diantar sampai tujuan — Yogyakarta, Jawa Tengah, Jawa Barat, Jawa
+                Timur & wilayah lainnya.
+              </p>
+              <p className="mt-3 font-mono text-[11px] tracking-[0.14em] uppercase text-ink/55">
                 Fast respon:{" "}
                 <a
                   href={waLink("Halo Andini Farm.")}
@@ -223,27 +347,17 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* hero photo — sapi cutout tanpa background */}
+          {/* hero photo — sapi cutout murni, tanpa bingkai */}
           <Reveal delay={140} className="lg:col-span-6 relative">
-            <div className="relative border-2 border-ink bg-parch shadow-press-lg">
-              <div className="relative overflow-hidden aspect-[4/5]">
-                <img
-                  src={IMG.heroCutout}
-                  alt="Sapi Limosin berkualitas dari kandang Andini Farm"
-                  className="absolute inset-0 w-full h-full object-cover mix-blend-multiply kenburns"
-                />
-                <div className="absolute inset-0 bg-rules pointer-events-none" aria-hidden />
-                <div className="absolute top-3 left-3">
-                  <EarTag>SAPI SEHAT • SIAP TANYA</EarTag>
-                </div>
-              </div>
-              <div className="flex items-center justify-between gap-3 border-t-2 border-ink bg-gold px-3.5 py-2 font-mono text-[10px] font-bold tracking-[0.16em] uppercase text-ink">
-                <span className="truncate">LIMOSIN • KANDANG ANDINI FARM, JAPANAN</span>
-                <IconStar className="w-3 h-3 shrink-0" />
-              </div>
+            <div className="relative aspect-[4/5] max-w-[430px] sm:max-w-[520px] mx-auto lg:mx-0 lg:max-w-none overflow-hidden">
+              <img
+                src={IMG.heroCutout}
+                alt="Sapi Limosin berkualitas dari kandang Andini Farm"
+                className="absolute inset-0 w-full h-full object-cover mix-blend-multiply kenburns"
+              />
             </div>
-            <Stamp className="absolute -top-8 -left-5 md:-left-10 w-28 h-28 md:w-40 md:h-40" />
-            <div className="absolute -bottom-6 right-4 md:right-8 rotate-2">
+            <Stamp className="absolute -top-8 -left-2 md:-left-8 w-28 h-28 md:w-40 md:h-40" />
+            <div className="absolute bottom-3 right-0 md:right-4 rotate-2">
               <EarTag tone="ranch">BOBOT & STOK: TANYA VIA WA</EarTag>
             </div>
           </Reveal>
@@ -654,59 +768,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= PENGIRIMAN ================= */}
-      <section className="relative overflow-hidden bg-ranch text-cream bg-dotgrid border-y-2 border-ink">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-12 gap-12 items-center">
-          <Reveal className="lg:col-span-5 order-2 lg:order-1">
-            <PhotoFrame
-              src={IMG.truk}
-              alt="Pengiriman sapi dengan truk melewati sawah di Jawa"
-              caption="SAPI DALAM PERJALANAN KE PEMBELI"
-              tag="MELAYANI PENGIRIMAN"
-              aspect="aspect-[4/3]"
-            />
-          </Reveal>
-          <div className="lg:col-span-7 order-1 lg:order-2">
-            <Reveal>
+      {/* ================= KIRIM KE MANA SAJA — ROADMAP ================= */}
+      <section className="relative overflow-hidden bg-parch border-y-2 border-ink">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <SectionHead
-                tone="dark"
                 kicker="06 — Pengiriman"
-                title="SAPI BISA DIKIRIM KE BERBAGAI WILAYAH"
+                title="SAPI BISA DIKIRIM KE MANA SAJA"
+                sub="Beli dari luar kota tetap aman. Andini Farm melayani pengiriman sapi sesuai tujuan pembelian — biaya menyesuaikan lokasi, jumlah sapi dan kondisi pengiriman."
               />
-              <p className="mt-5 text-[15px] md:text-base leading-relaxed text-cream/80 max-w-xl">
-                Andini Farm melayani pengiriman sapi sesuai tujuan pembelian. Biaya
-                pengiriman dapat berbeda berdasarkan lokasi, jumlah sapi dan kondisi
-                pengiriman.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                {["YOGYAKARTA", "JAWA TENGAH", "JAWA BARAT", "JAWA TIMUR"].map((r, i) => (
-                  <span key={r} className="flex items-center gap-3">
-                    <span className="border-2 border-gold/70 bg-pine px-4 py-2.5 font-mono text-[11px] font-bold tracking-[0.18em] text-gold">
-                      {r}
-                    </span>
-                    {i < 3 && (
-                      <IconTruck className="w-5 h-5 text-cream/50 hidden sm:block" />
-                    )}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-4 font-mono text-[11px] tracking-[0.14em] uppercase text-cream/50">
-                + wilayah lain sesuai kesepakatan
-              </p>
-              <div className="mt-8">
-                <Link
-                  to="/pengiriman-sapi"
-                  className="group/l mr-4 inline-flex items-center gap-2 font-extrabold text-[12px] uppercase tracking-[0.14em] text-cream border-b-2 border-gold pb-1 hover:text-gold transition-colors"
+              <div className="flex flex-wrap items-center gap-5 shrink-0">
+                <WAButton
+                  wa="Halo Andini Farm, saya ingin tanya ongkos kirim sapi ke lokasi saya."
+                  variant="green"
+                  size="lg"
                 >
-                  LIHAT DETAIL PENGIRIMAN
-                  <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
-                </Link>
-                <WAButton wa="Halo Andini Farm, saya ingin tanya ongkos kirim sapi ke lokasi saya.">
                   TANYAKAN ONGKOS KIRIM
                 </WAButton>
+                <Link
+                  to="/pengiriman-sapi"
+                  className="group/l inline-flex items-center gap-2 font-extrabold text-[12px] uppercase tracking-[0.14em] text-ranch border-b-2 border-gold pb-1 hover:text-leather transition-colors"
+                >
+                  DETAIL PENGIRIMAN
+                  <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
+                </Link>
               </div>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="relative mt-10 md:mt-14">
+              <p className="md:hidden mb-3 text-center font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather">
+                ⟵ geser untuk melihat rute ⟶
+              </p>
+              <div className="overflow-x-auto md:overflow-x-visible -mx-5 px-5 md:mx-0 md:px-0">
+                <div className="min-w-[860px] md:min-w-0">
+                  <DeliveryRoad />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <div className="mt-9 border-2 border-ink bg-cream shadow-press grid sm:grid-cols-2 lg:grid-cols-4">
+              {ROUTE_NOTES.map((r, i) => (
+                <div
+                  key={r.c}
+                  className={cx(
+                    "group/rt flex items-start gap-4 p-5 md:p-6 transition-colors duration-200 hover:bg-gold/25",
+                    i > 0 && "border-t-2 border-ink sm:border-t-0 sm:border-l-2",
+                    i >= 2 && "sm:border-t-2 lg:border-t-0",
+                    i === 2 && "sm:border-l-0 lg:border-l-2"
+                  )}
+                >
+                  <IconTruck className="w-6 h-6 mt-1 shrink-0 text-leather transition-transform duration-300 group-hover/rt:translate-x-1.5" />
+                  <div>
+                    <p className="font-display text-base md:text-lg uppercase text-ranch leading-tight">
+                      {r.c}
+                    </p>
+                    <p className="mt-1.5 text-[12.5px] leading-snug text-ink/65">{r.n}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 font-mono text-[10.5px] md:text-[11px] tracking-[0.14em] uppercase text-leather">
+              + wilayah lain sesuai kesepakatan • ongkos kirim jelas di depan, tanpa
+              biaya tambahan di belakang
+            </p>
+          </Reveal>
         </div>
       </section>
 
