@@ -176,8 +176,8 @@ export function PengirimanPage() {
 /* ================= TENTANG ================= */
 export function TentangPage() {
   usePageMeta(
-    "Tentang Andini Farm — Peternakan Sapi Sejak 2011 | Sleman, Yogyakarta",
-    "Andini Farm adalah peternakan dan penjual sapi di Japanan, Seyegan, Sleman, Yogyakarta. Berpengalaman di dunia peternakan sejak 2011 dengan jaringan peternak yang luas."
+    "Tentang Andini Farm — Peternakan Sapi Sejak 2008 | Sleman, Yogyakarta",
+    "Andini Farm adalah peternakan dan penjual sapi di Japanan, Seyegan, Sleman, Yogyakarta. Berpengalaman di dunia peternakan sejak 2008 dengan jaringan peternak yang luas."
   );
 
   return (
@@ -187,7 +187,7 @@ export function TentangPage() {
       </div>
       <SplitHero
         kicker="Tentang Kami"
-        h1="BERPENGALAMAN DI DUNIA PETERNAKAN SEJAK 2011"
+        h1="BERPENGALAMAN DI DUNIA PETERNAKAN SEJAK 2008"
         lead={
           <>
             <p>
@@ -200,10 +200,10 @@ export function TentangPage() {
         }
         photo={IMG.bapak}
         photoAlt="Peternak Andini Farm bersama sapi di kandang Japanan Seyegan"
-        caption="BERSAMA SAPI — SEJAK 2011"
+        caption="BERSAMA SAPI — SEJAK 2008"
         tag="ANDINI FARM"
         facts={[
-          { label: "BERDIRI", value: "Aktif di dunia sapi sejak 2011" },
+          { label: "BERDIRI", value: "Aktif di dunia sapi sejak 2008" },
           { label: "FOKUS", value: "Penjualan sapi" },
           { label: "JARINGAN", value: "Peternak & pelaku usaha sapi" },
           { label: "PRINSIP", value: "Bantu pembeli, bukan sekadar jual" },
@@ -225,7 +225,7 @@ export function TentangPage() {
         </Link>
       </SplitHero>
 
-      <Marquee items={["SEJAK 2011", "JAPANAN • SEYEGAN", "SAPI SEHAT", "JARINGAN PETERNAK", "AMANAH"]} />
+      <Marquee items={["SEJAK 2008", "JAPANAN • SEYEGAN", "SAPI SEHAT", "JARINGAN PETERNAK", "AMANAH"]} />
 
       {/* cerita */}
       <section className="bg-cream bg-rules">
@@ -245,7 +245,7 @@ export function TentangPage() {
             <Reveal>
               <p className="dropcap">
                 Berawal dari ketertarikan dan pengalaman di dunia peternakan, Andini
-                Farm telah berkecimpung dalam usaha sapi sejak 2011. Bertahun-tahun
+                Farm telah berkecimpung dalam usaha sapi sejak 2008. Bertahun-tahun
                 mengurus sapi — memilih bakalan, merawat, sampai melepas ke pembeli —
                 membentuk satu keyakinan: pembeli yang tenang adalah pembeli yang
                 dibantu, bukan sekadar ditawari.

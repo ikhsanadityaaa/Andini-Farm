@@ -111,7 +111,7 @@ export function Header() {
         </span>
         <span className="flex items-center gap-2">
           <IconStar className="w-2.5 h-2.5 text-gold" />
-          Berpengalaman sejak 2011
+          Berpengalaman sejak 2008
         </span>
       </div>
 
@@ -132,7 +132,7 @@ export function Header() {
                 ANDINI FARM
               </span>
               <span className="mt-1 block font-mono text-[9px] md:text-[10px] font-bold tracking-[0.26em] text-leather uppercase">
-                Sapi Hidup • Sejak 2011
+                Sapi Berkualitas • Sejak 2008
               </span>
             </span>
           </Link>
@@ -329,7 +329,7 @@ const FOOTER_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="bg-pine text-cream border-t-2 border-ink">
+    <footer className="bg-pine text-cream border-t-2 border-ink pb-20 lg:pb-0">
       <div className="stripe-bar-thin h-2.5 border-b-2 border-ink" aria-hidden />
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-16 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-5">
@@ -340,10 +340,10 @@ export function Footer() {
             <span className="font-display text-3xl tracking-wide">ANDINI FARM</span>
           </div>
           <p className="mt-5 font-bold text-gold tracking-[0.06em] uppercase text-sm">
-            Jual Sapi Hidup Limosin, Simental & Pegon Super
+            Jual Sapi Limosin, Simental & Pegon Super
           </p>
           <p className="mt-4 text-cream/70 leading-relaxed max-w-sm text-sm">
-            Berpengalaman di dunia peternakan sejak 2011. Menjual sapi untuk
+            Berpengalaman di dunia peternakan sejak 2008. Menjual sapi untuk
             qurban, aqiqah, penggemukan hingga perdagangan.
           </p>
           <address className="mt-6 not-italic font-mono text-[12px] leading-relaxed text-cream/60">
@@ -415,7 +415,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono text-[10px] tracking-[0.16em] uppercase text-cream/45">
           <span>© {new Date().getFullYear()} Andini Farm — Japanan, Seyegan, Sleman</span>
           <span className="flex items-center gap-2">
-            <IconStar className="w-2.5 h-2.5 text-gold" /> Sapi Hidup Berkualitas Sejak 2011
+            <IconStar className="w-2.5 h-2.5 text-gold" /> Sapi Berkualitas Sejak 2008
           </span>
         </div>
       </div>

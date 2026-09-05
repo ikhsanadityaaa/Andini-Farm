@@ -7,7 +7,7 @@
 export const BRAND = "ANDINI FARM";
 export const TAGLINE = "JUAL SAPI BERKUALITAS";
 export const SUBTAGLINE = "LIMOSIN • SIMENTAL • PEGON SUPER";
-export const SINCE = 2011;
+export const SINCE = 2008;
 
 export const WA_NUMBER = "6285331379462";
 export const WA_DISPLAY = "+62 853-3137-9462";
@@ -31,6 +31,10 @@ export const MAPS_LINK =
 
 /* Foto utama — placeholder foto asli Andini Farm */
 export const IMG = {
+  /* Cutout sapi di atas latar krem polos — ditampilkan dengan mix-blend-multiply
+     sehingga menyatu dengan latar situs (efek PNG transparan). */
+  heroCutout:
+    "https://image.qwenlm.ai/generated-images/b8e5005e-fa95-444c-b07d-95d1b3d865e5/_result.png",
   heroLimosin:
     "https://image.qwenlm.ai/generated-images/ee75b94b-a4de-49d6-8d0f-0049b4d9817f/_result.png",
   simental:

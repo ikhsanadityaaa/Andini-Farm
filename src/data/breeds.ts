@@ -93,7 +93,7 @@ export const BREEDS: Breed[] = [
     kebutuhan: ["Qurban", "Penggemukan", "Perdagangan", "Indukan"],
     seo: [
       "Andini Farm menyediakan jual sapi Simental untuk pembeli di Sleman, Yogyakarta dan berbagai wilayah lain. Sapi Simental — yang juga sering ditulis Simmental — dikenal dengan rangka tubuhnya yang besar dan pertumbuhan yang cepat, sehingga menjadi favorit peternak maupun pembeli sapi qurban.",
-      "Jika Anda sedang mencari jual sapi Simmental dengan kondisi sehat dan terawat, silakan tanyakan stok terbaru kami. Kami juga bisa membantu mencarikan Simental dengan rentang bobot tertentu melalui jaringan peternak yang kami bangun sejak 2011.",
+      "Jika Anda sedang mencari jual sapi Simmental dengan kondisi sehat dan terawat, silakan tanyakan stok terbaru kami. Kami juga bisa membantu mencarikan Simental dengan rentang bobot tertentu melalui jaringan peternak yang kami bangun sejak 2008.",
     ],
     metaTitle: "Jual Sapi Simental (Simmental) Sleman Yogyakarta | Andini Farm",
     metaDesc:

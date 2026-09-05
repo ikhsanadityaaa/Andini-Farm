@@ -145,7 +145,7 @@ const NEEDS: Need[] = [
       },
       {
         t: "DIDUKUNG JARINGAN PETERNAK",
-        d: "Butuh bakalan dalam jumlah tertentu atau jenis spesifik? Jaringan peternak yang kami bangun sejak 2011 siap membantu mencarikan.",
+        d: "Butuh bakalan dalam jumlah tertentu atau jenis spesifik? Jaringan peternak yang kami bangun sejak 2008 siap membantu mencarikan.",
       },
     ],
     tipsTitle: "Kriteria bakalan yang layak dibeli",
@@ -160,7 +160,7 @@ const NEEDS: Need[] = [
     wa: "Halo Andini Farm, saya mencari sapi bakalan untuk PENGGEMUKAN. Bisa dibantu carikan?",
     metaTitle: "Jual Sapi Bakalan Penggemukan Sleman Yogyakarta | Andini Farm",
     metaDesc:
-      "Jual sapi bakalan untuk penggemukan: Limosin, Simental & Pegon. Dari peternakan berpengalaman sejak 2011 di Seyegan, Sleman, Yogyakarta.",
+      "Jual sapi bakalan untuk penggemukan: Limosin, Simental & Pegon. Dari peternakan berpengalaman sejak 2008 di Seyegan, Sleman, Yogyakarta.",
   },
 ];
 
@@ -216,7 +216,7 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
       </SplitHero>
 
       <Marquee
-        items={[need.tag, "SAPI SEHAT", "GEMUK ALAMI", "SEJAK 2011", "SEYEGAN • SLEMAN", "BISA DIKIRIM", "KONSULTASI GRATIS"]}
+        items={[need.tag, "SAPI SEHAT", "GEMUK ALAMI", "SEJAK 2008", "SEYEGAN • SLEMAN", "BISA DIKIRIM", "KONSULTASI GRATIS"]}
         dur="30s"
       />
 

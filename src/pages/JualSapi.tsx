@@ -65,13 +65,13 @@ export default function JualSapi() {
         <Crumbs items={[{ label: "Beranda", to: "/" }, { label: "Jual Sapi" }]} />
       </div>
       <SplitHero
-        kicker="Jual Sapi • Sejak 2011"
+        kicker="Jual Sapi • Sejak 2008"
         h1="JUAL SAPI BERKUALITAS"
         lead={
           <>
             <p>
               Andini Farm menyediakan sapi pilihan untuk berbagai kebutuhan dengan
-              pengalaman di dunia peternakan sejak 2011 — Limosin, Simental dan Pegon
+              pengalaman di dunia peternakan sejak 2008 — Limosin, Simental dan Pegon
               Super, dari kandang di Japanan, Seyegan, Sleman, Yogyakarta.
             </p>
             <p className="mt-3">
@@ -87,7 +87,7 @@ export default function JualSapi() {
         tag="SAPI SEHAT"
         facts={[
           { label: "JENIS SAPI", value: "Limosin • Simental • Pegon Super" },
-          { label: "PENGALAMAN", value: "Sejak 2011" },
+          { label: "PENGALAMAN", value: "Sejak 2008" },
           { label: "LOKASI", value: "Seyegan, Sleman, Yogyakarta" },
           { label: "PEMBELI", value: "Berbagai wilayah, bisa kirim" },
         ]}
@@ -286,7 +286,7 @@ export default function JualSapi() {
                 Kalau Anda mencari <strong>jual sapi Sleman</strong> atau{" "}
                 <strong>jual sapi Yogyakarta</strong>, Andini Farm adalah peternakan dan
                 penjual sapi yang berbasis di Japanan, Margodadi, Seyegan, Sleman. Kami
-                berkecimpung di dunia sapi sejak 2011 — memahami sapi bukan dari brosur,
+                berkecimpung di dunia sapi sejak 2008 — memahami sapi bukan dari brosur,
                 tapi dari kandang dan pasar hewan.
               </p>
             </Reveal>
@@ -304,7 +304,7 @@ export default function JualSapi() {
               <p>
                 Soal <strong>harga sapi</strong>, kami jujur saja: harganya menyesuaikan
                 bobot dan kondisi per ekor, dan kami jaga tetap kompetitif karena sapi
-                berasal dari kandang sendiri serta jaringan peternak sejak 2011. Soal{" "}
+                berasal dari kandang sendiri serta jaringan peternak sejak 2008. Soal{" "}
                 <strong>pengiriman sapi</strong>, kami melayani berbagai wilayah di
                 Pulau Jawa — antar sampai tujuan dengan ongkos yang jelas di depan.
               </p>
@@ -377,7 +377,7 @@ export default function JualSapi() {
       <BigCTA
         title="SIAP MELIHAT SAPI?"
         sub="Stok, bobot, harga & pengiriman — semua via satu chat."
-        bg={IMG.heroLimosin}
+        bg={IMG.kandang}
       />
     </>
   );

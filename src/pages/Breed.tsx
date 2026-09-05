@@ -61,7 +61,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
         />
       </div>
       <SplitHero
-        kicker={`Peternakan sejak 2011 • Sleman`}
+        kicker={`Peternakan sejak 2008 • Sleman`}
         h1={breed.h1}
         lead={
           <>
@@ -91,7 +91,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
         items={[
           `JUAL SAPI ${breed.name}`,
           "SAPI SEHAT & GEMUK ALAMI",
-          "SEJAK 2011",
+          "SEJAK 2008",
           "SEYEGAN • SLEMAN",
           "BISA DIKIRIM",
           `TANYA HARGA ${breed.nameAlt.toUpperCase()}`,

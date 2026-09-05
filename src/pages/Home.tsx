@@ -32,12 +32,12 @@ const MARQUEE_ITEMS = [
   "PEGON SUPER",
   "HARGA KOMPETITIF",
   "ANTAR SAMPAI TUJUAN",
-  "SEJAK 2011",
+  "SEJAK 2008",
   "SEYEGAN • SLEMAN • YOGYAKARTA",
 ];
 
 const TRUST = [
-  { big: "SEJAK 2011", small: "Pengalaman lebih dari 15 tahun di dunia peternakan" },
+  { big: "SEJAK 2008", small: "Pengalaman lebih dari 17 tahun di dunia peternakan" },
   { big: "JARINGAN PETERNAK", small: "Jaringan yang dibangun selama bertahun-tahun" },
   { big: "FOKUS JUAL SAPI", small: "Menjual sapi — bukan daging, bukan produk olahan" },
   { big: "YOGYAKARTA", small: "Japanan, Margodadi, Seyegan, Sleman" },
@@ -54,7 +54,7 @@ const JANJI = [
   },
   {
     t: "HARGA PALING KOMPETITIF",
-    d: "Sapi dari kandang sendiri dan jaringan peternak yang dibangun sejak 2011 — harga dari tangan pertama, bukan dari perantara berlapis.",
+    d: "Sapi dari kandang sendiri dan jaringan peternak yang dibangun sejak 2008 — harga dari tangan pertama, bukan dari perantara berlapis.",
   },
   {
     t: "DICARIKAN SESUAI BUDGET",
@@ -116,7 +116,7 @@ const HERO_CHIPS = [
 export default function Home() {
   usePageMeta(
     "Jual Sapi Limosin, Simental & Pegon Super | Andini Farm",
-    "Andini Farm menyediakan sapi Limosin, Simental dan Pegon Super yang sehat dan terawat. Berpengalaman sejak 2011 dan berlokasi di Japanan, Seyegan, Sleman, Yogyakarta. Hubungi kami untuk stok, harga dan pengiriman sapi."
+    "Andini Farm menyediakan sapi Limosin, Simental dan Pegon Super yang sehat dan terawat. Berpengalaman sejak 2008 dan berlokasi di Japanan, Seyegan, Sleman, Yogyakarta. Hubungi kami untuk stok, harga dan pengiriman sapi."
   );
 
   const location = useLocation();
@@ -169,7 +169,7 @@ export default function Home() {
             <Reveal delay={110}>
               <p className="mt-7 text-base md:text-lg leading-relaxed text-ink/80 max-w-xl">
                 <strong className="text-ranch">
-                  Berpengalaman di dunia peternakan sejak 2011.
+                  Berpengalaman di dunia peternakan sejak 2008.
                 </strong>{" "}
                 Andini Farm menyediakan sapi-sapi pilihan untuk berbagai kebutuhan —
                 mulai dari qurban, aqiqah, penggemukan hingga kebutuhan peternakan dan
@@ -223,16 +223,25 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* hero photo */}
+          {/* hero photo — sapi cutout tanpa background */}
           <Reveal delay={140} className="lg:col-span-6 relative">
-            <PhotoFrame
-              src={IMG.heroLimosin}
-              alt="Sapi Limosin di kandang Andini Farm Seyegan Sleman"
-              caption="LIMOSIN — KANDANG ANDINI FARM, JAPANAN"
-              tag="SAPI SEHAT • SIAP TANYA"
-              kenburns
-              aspect="aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5]"
-            />
+            <div className="relative border-2 border-ink bg-parch shadow-press-lg">
+              <div className="relative overflow-hidden aspect-[4/5]">
+                <img
+                  src={IMG.heroCutout}
+                  alt="Sapi Limosin berkualitas dari kandang Andini Farm"
+                  className="absolute inset-0 w-full h-full object-cover mix-blend-multiply kenburns"
+                />
+                <div className="absolute inset-0 bg-rules pointer-events-none" aria-hidden />
+                <div className="absolute top-3 left-3">
+                  <EarTag>SAPI SEHAT • SIAP TANYA</EarTag>
+                </div>
+              </div>
+              <div className="flex items-center justify-between gap-3 border-t-2 border-ink bg-gold px-3.5 py-2 font-mono text-[10px] font-bold tracking-[0.16em] uppercase text-ink">
+                <span className="truncate">LIMOSIN • KANDANG ANDINI FARM, JAPANAN</span>
+                <IconStar className="w-3 h-3 shrink-0" />
+              </div>
+            </div>
             <Stamp className="absolute -top-8 -left-5 md:-left-10 w-28 h-28 md:w-40 md:h-40" />
             <div className="absolute -bottom-6 right-4 md:right-8 rotate-2">
               <EarTag tone="ranch">BOBOT & STOK: TANYA VIA WA</EarTag>
@@ -462,7 +471,7 @@ export default function Home() {
             <Reveal delay={140}>
               <p className="mt-8 flex flex-wrap gap-x-2.5 gap-y-1.5 font-mono text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-cream/55">
                 <span className="text-gold">Ditopang:</span>
-                <span>Pengalaman sejak 2011</span>
+                <span>Pengalaman sejak 2008</span>
                 <span aria-hidden>✦</span>
                 <span>Jaringan peternak luas</span>
                 <span aria-hidden>✦</span>
@@ -483,7 +492,7 @@ export default function Home() {
               src={IMG.bapak}
               alt="Peternak Andini Farm bersama sapi di kandang"
               caption="DI KANDANG — TEMPAT SEMUA BERAWAL"
-              tag="SEJAK 2011"
+              tag="SEJAK 2008"
               aspect="aspect-[4/5]"
             />
             <Stamp className="absolute -bottom-9 -right-3 md:-right-8 w-28 h-28 md:w-32 md:h-32" />
@@ -499,7 +508,7 @@ export default function Home() {
               <div className="mt-7 space-y-5 text-[15px] md:text-base leading-relaxed text-ink/80 max-w-2xl">
                 <p className="dropcap">
                   Berawal dari ketertarikan dan pengalaman di dunia peternakan, Andini
-                  Farm telah berkecimpung dalam usaha sapi sejak 2011. Dari kandang
+                  Farm telah berkecimpung dalam usaha sapi sejak 2008. Dari kandang
                   sederhana di Japanan, usaha ini tumbuh pelan-pelan — sapi demi sapi,
                   pembeli demi pembeli.
                 </p>

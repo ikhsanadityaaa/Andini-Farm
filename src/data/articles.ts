@@ -122,7 +122,7 @@ export const ARTICLES: Article[] = [
     category: "Tips",
     read: "7 mnt",
     excerpt:
-      "Tiga belas tahun lebih berurusan dengan jual-beli sapi, ini hal-hal yang selalu kami ingatkan ke pembeli.",
+      "Hampir dua puluh tahun berurusan dengan jual-beli sapi, ini hal-hal yang selalu kami ingatkan ke pembeli.",
     cover: IMG.pasar,
     body: [
       "Membeli sapi itu soal percaya — tapi kepercayaan yang sehat dibangun di atas informasi yang jelas. Beberapa hal yang sebaiknya tidak dilewatkan:",

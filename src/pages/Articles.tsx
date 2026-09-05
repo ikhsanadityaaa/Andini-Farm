@@ -38,7 +38,7 @@ export function ArticlesPage() {
               <SectionHead
                 kicker="Dari pengalaman di kandang & pasar hewan"
                 title="PANDUAN MEMILIH SAPI"
-                sub="Supaya Anda membeli sapi dengan tenang — bukan menebak-nebak. Semua ditulis dari pengalaman nyata berjualan sapi sejak 2011."
+                sub="Supaya Anda membeli sapi dengan tenang — bukan menebak-nebak. Semua ditulis dari pengalaman nyata berjualan sapi sejak 2008."
               />
             </Reveal>
             <Reveal delay={120} className="lg:col-span-4 lg:justify-self-end">
@@ -205,7 +205,7 @@ export function ArticleDetailPage() {
                 {article.excerpt}
               </p>
               <p className="mt-6 font-mono text-[11px] tracking-[0.18em] uppercase text-leather">
-                ✦ Ditulis dari pengalaman Andini Farm sejak 2011
+                ✦ Ditulis dari pengalaman Andini Farm sejak 2008
               </p>
             </Reveal>
           </div>

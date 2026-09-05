@@ -233,7 +233,7 @@ export function Stamp({ className }: { className?: string }) {
           fill="#EDE8DC"
           style={{ fontFamily: "var(--font-mono)", fontSize: "8.6px", letterSpacing: "1.9px", fontWeight: 700 }}
         >
-          <textPath href="#stamp-circ">SEJAK 2011 • SAPI SEHAT • SLEMAN JOGJA •</textPath>
+          <textPath href="#stamp-circ">SEJAK 2008 • SAPI SEHAT • SLEMAN JOGJA •</textPath>
         </text>
         <path d="M60 44l4.4 11.6L76 60l-11.6 4.4L60 76l-4.4-11.6L44 60l11.6-4.4z" fill="#C89B3C" />
       </svg>
