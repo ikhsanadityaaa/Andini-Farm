@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IMG, WA_DEFAULT, WA_DISPLAY, waLink } from "../data/site";
+import { IMG, WA_DEFAULT, WA_DISPLAY } from "../data/site";
 import { BREEDS } from "../data/breeds";
 import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
@@ -44,14 +44,7 @@ const FAQ = [
   },
 ];
 
-const JANJI_STRIP = [
-  "SAPI SEHAT & BEBAS PENYAKIT",
-  "GEMUK ALAMI",
-  "HARGA PALING KOMPETITIF",
-  "DICARIKAN SESUAI BUDGET",
-  "ANTAR SAMPAI TUJUAN",
-  "BISA LIHAT DULU, BARU DEAL",
-];
+
 
 export default function JualSapi() {
   usePageMeta(
@@ -130,26 +123,34 @@ export default function JualSapi() {
         ]}
       />
 
-      {/* janji strip */}
+      {/* lintas halaman kebutuhan (navigasi, bukan konten) */}
       <section className="bg-parch border-b-2 border-ink">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-wrap items-center gap-3">
-          <span className="font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather mr-1">
-            Janji kami ke pembeli:
-          </span>
-          {JANJI_STRIP.map((p) => (
-            <span
-              key={p}
-              className="inline-flex items-center gap-2 border-2 border-ink bg-cream px-3 py-[7px] font-mono text-[10px] font-bold tracking-[0.14em] uppercase transition-colors duration-200 hover:bg-gold cursor-default"
-            >
-              <IconStar className="w-2.5 h-2.5 text-gold" />
-              {p}
-            </span>
-          ))}
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+          <p className="font-display text-lg md:text-xl uppercase leading-snug text-ranch">
+            Butuh untuk <span className="text-gold">qurban, aqiqah,</span> atau{" "}
+            <span className="text-gold">penggemukan?</span>
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { t: "SAPI QURBAN", to: "/sapi-qurban" },
+              { t: "SAPI AQIQAH", to: "/sapi-aqiqah" },
+              { t: "SAPI PENGGEMUKAN", to: "/sapi-penggemukan" },
+            ].map((k) => (
+              <Link
+                key={k.to}
+                to={k.to}
+                className="group/k inline-flex items-center gap-2 border-2 border-ink bg-cream px-4 py-[10px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink transition-colors duration-200 hover:bg-ranch hover:text-cream"
+              >
+                {k.t}
+                <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/k:translate-x-1" />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* jenis sapi ringkas */}
-      <section className="bg-cream bg-rules">
+      <section className="bg-cream bg-rules border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <SectionHead
@@ -189,77 +190,6 @@ export default function JualSapi() {
                     </span>
                   </div>
                 </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* kebutuhan */}
-      <section className="bg-ranch text-cream bg-dotgrid border-y-2 border-ink">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5">
-            <Reveal>
-              <SectionHead
-                tone="dark"
-                kicker="Sapi untuk apa?"
-                title="SATU KANDANG, BANYAK KEBUTUHAN"
-                sub="Pembeli datang dengan tujuan berbeda-beda, dan kriteria sapinya ikut berbeda. Kami bantu sesuaikan."
-              />
-              <div className="mt-8">
-                <WAButton
-                  wa="Halo Andini Farm, saya belum yakin jenis sapi yang cocok. Bisa konsultasi dulu?"
-                  variant="cream"
-                  size="lg"
-                >
-                  BANTU PILIHKAN SAPI
-                </WAButton>
-              </div>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
-            {[
-              { t: "SAPI QURBAN", d: "Sehat, poel dan layak syariat.", to: "/sapi-qurban", img: IMG.qurban },
-              { t: "SAPI AQIQAH", d: "Bobot pas untuk keluarga.", to: "/sapi-aqiqah", img: IMG.aqiqah },
-              { t: "SAPI PENGGEMUKAN", d: "Bakalan dengan kerangka bagus.", to: "/sapi-penggemukan", img: IMG.penggemukan },
-              { t: "DAGANG / USAHA", d: "Sapi dengan perputaran cepat.", to: null, img: IMG.pasar },
-            ].map((k, i) => (
-              <Reveal key={k.t} delay={i * 80}>
-                {k.to ? (
-                  <Link
-                    to={k.to}
-                    className="group/k flex items-center gap-4 border-2 border-cream/25 bg-pine/50 p-4 transition-all duration-200 hover:border-gold hover:bg-pine"
-                  >
-                    <span className="w-16 h-16 shrink-0 border-2 border-cream/25 overflow-hidden">
-                      <img src={k.img} alt="" className="w-full h-full object-cover" loading="lazy" />
-                    </span>
-                    <span className="flex-1">
-                      <span className="block font-display text-base uppercase text-cream group-hover/k:text-gold transition-colors">
-                        {k.t}
-                      </span>
-                      <span className="block text-[12px] text-cream/60 mt-0.5">{k.d}</span>
-                    </span>
-                    <IconArrow className="w-4 h-4 text-gold transition-transform group-hover/k:translate-x-1" />
-                  </Link>
-                ) : (
-                  <a
-                    href={waLink("Halo Andini Farm, saya butuh sapi untuk dagang / usaha.")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/k flex items-center gap-4 border-2 border-cream/25 bg-pine/50 p-4 transition-all duration-200 hover:border-gold hover:bg-pine"
-                  >
-                    <span className="w-16 h-16 shrink-0 border-2 border-cream/25 overflow-hidden">
-                      <img src={k.img} alt="" className="w-full h-full object-cover" loading="lazy" />
-                    </span>
-                    <span className="flex-1">
-                      <span className="block font-display text-base uppercase text-cream group-hover/k:text-gold transition-colors">
-                        {k.t}
-                      </span>
-                      <span className="block text-[12px] text-cream/60 mt-0.5">{k.d}</span>
-                    </span>
-                    <IconArrow className="w-4 h-4 text-gold transition-transform group-hover/k:translate-x-1" />
-                  </a>
-                )}
               </Reveal>
             ))}
           </div>

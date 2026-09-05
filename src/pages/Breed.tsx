@@ -3,7 +3,6 @@ import { getBreed } from "../data/breeds";
 import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
   BigCTA,
-  BuySteps,
   CrossBreeds,
   EarTag,
   IconArrow,
@@ -111,31 +110,6 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
         ]}
         dur="30s"
       />
-
-      {/* janji beli */}
-      <section className="bg-parch border-b-2 border-ink">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-wrap items-center gap-3">
-          <span className="font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather mr-1">
-            Yang Anda dapat di Andini Farm:
-          </span>
-          {[
-            "SAPI SEHAT & BEBAS PENYAKIT",
-            "GEMUK ALAMI",
-            "HARGA KOMPETITIF",
-            "DICARIKAN SESUAI BUDGET",
-            "ANTAR SAMPAI TUJUAN",
-            "BISA LIHAT DULU",
-          ].map((p) => (
-            <span
-              key={p}
-              className="inline-flex items-center gap-2 border-2 border-ink bg-cream px-3 py-[7px] font-mono text-[10px] font-bold tracking-[0.14em] uppercase transition-colors duration-200 hover:bg-gold cursor-default"
-            >
-              <IconStar className="w-2.5 h-2.5 text-gold" />
-              {p}
-            </span>
-          ))}
-        </div>
-      </section>
 
       {/* karakteristik */}
       <section className="bg-cream bg-rules">
@@ -250,19 +224,23 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
 
       <StripeBar />
 
-      {/* cara membeli */}
+      {/* cara membeli (ringkas, detail di halaman Jual Sapi) */}
       <section className="bg-cream bg-rules">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-8">
           <Reveal>
-            <SectionHead
-              kicker="Cara membeli"
-              title={`CARA BELI SAPI ${breed.nameAlt.toUpperCase()} DI ANDINI FARM`}
-              sub="Sederhana dan jelas, dari chat pertama sampai sapi tiba di lokasi Anda."
-            />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-2 border-ink bg-cream shadow-press px-6 py-5">
+              <p className="font-display text-base md:text-lg uppercase leading-snug text-ranch flex-1">
+                Cara belinya sederhana: chat, lihat sapinya, sepakat, lalu dikirim.
+              </p>
+              <Link
+                to="/jual-sapi"
+                className="group/l inline-flex w-fit items-center gap-2 border-2 border-ink bg-gold px-4 py-[11px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink transition-colors duration-200 hover:bg-ranch hover:text-cream hover:border-ranch"
+              >
+                LIHAT CARA MEMBELI
+                <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
+              </Link>
+            </div>
           </Reveal>
-          <div className="mt-12">
-            <BuySteps />
-          </div>
         </div>
       </section>
 

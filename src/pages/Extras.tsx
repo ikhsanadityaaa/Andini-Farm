@@ -304,36 +304,22 @@ export function TentangPage() {
 
       {/* lokasi singkat */}
       <section className="bg-cream">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-10">
           <Reveal>
-            <PhotoFrame
-              src={IMG.kandang}
-              alt="Kandang sapi Andini Farm di Japanan Seyegan Sleman"
-              tag="JAPANAN, SEYEGAN"
-            />
-          </Reveal>
-          <Reveal delay={120}>
-            <SectionHead
-              kicker="Lokasi"
-              title="MAMPIR KE KANDANG, LIHAT SENDIRI SAPINYA"
-            />
-            <address className="mt-6 not-italic font-display text-xl md:text-2xl uppercase leading-snug text-ranch">
-              {ADDRESS_LINES.map((l) => (
-                <span key={l} className="block">
-                  {l}
-                </span>
-              ))}
-            </address>
-            <p className="mt-4 text-[15px] text-ink/70 max-w-md leading-relaxed">
-              Melihat sapi langsung selalu jadi cara terbaik sebelum membeli. Kabari
-              dulu via WhatsApp supaya kami siapkan waktunya.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3.5">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-2 border-ink bg-parch shadow-press px-6 py-5">
+              <div className="flex-1">
+                <p className="font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather">
+                  Lokasi kandang
+                </p>
+                <address className="mt-1.5 not-italic font-display text-lg md:text-xl uppercase leading-snug text-ranch">
+                  {ADDRESS_LINES.join(" • ")}
+                </address>
+              </div>
               <a
                 href={MAPS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border-2 border-ink px-5 py-[13px] text-[11px] font-extrabold uppercase tracking-[0.13em] hover:bg-ink hover:text-cream transition-colors"
+                className="inline-flex w-fit items-center gap-2 border-2 border-ink bg-gold px-4 py-[11px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink transition-colors duration-200 hover:bg-ranch hover:text-cream hover:border-ranch"
               >
                 <IconPin className="w-3.5 h-3.5" /> BUKA DI GOOGLE MAPS
               </a>

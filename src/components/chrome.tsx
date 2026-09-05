@@ -74,6 +74,7 @@ type NavChild = { label: string; to: string };
 type NavItem = { label: string; to?: string; children?: NavChild[] };
 
 const NAV: NavItem[] = [
+  { label: "Beranda", to: "/" },
   { label: "Jual Sapi", to: "/jual-sapi" },
   {
     label: "Jenis Sapi",
@@ -89,9 +90,9 @@ const NAV: NavItem[] = [
       { label: "Sapi Qurban", to: "/sapi-qurban" },
       { label: "Sapi Aqiqah", to: "/sapi-aqiqah" },
       { label: "Sapi Penggemukan", to: "/sapi-penggemukan" },
-      { label: "Pengiriman Sapi", to: "/pengiriman-sapi" },
     ],
   },
+  { label: "Pengiriman", to: "/pengiriman-sapi" },
   { label: "Tentang Kami", to: "/tentang-andini-farm" },
   { label: "Artikel", to: "/artikel" },
 ];
@@ -164,7 +165,7 @@ export function Header() {
           </Link>
 
           {/* desktop nav */}
-          <nav className="hidden lg:flex items-center gap-7" aria-label="Navigasi utama">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6" aria-label="Navigasi utama">
             {NAV.map((item) => (
               <div
                 key={item.label}
@@ -264,39 +265,34 @@ export function Header() {
               </button>
             </div>
             <nav className="p-5 space-y-6" aria-label="Navigasi mobile">
-              <Link to="/jual-sapi" className="block font-display text-2xl uppercase hover:text-gold transition-colors">
-                Jual Sapi
-              </Link>
-              <div>
-                <p className="font-mono text-[10px] tracking-[0.26em] uppercase text-gold mb-3">
-                  Jenis Sapi
-                </p>
-                <div className="space-y-2.5">
-                  {NAV[1].children!.map((c) => (
-                    <Link key={c.to} to={c.to} className="flex items-center gap-2.5 font-extrabold text-sm tracking-[0.1em] uppercase hover:text-gold transition-colors">
-                      <IconStar className="w-2.5 h-2.5 text-gold" /> {c.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="font-mono text-[10px] tracking-[0.26em] uppercase text-gold mb-3">
-                  Kebutuhan
-                </p>
-                <div className="space-y-2.5">
-                  {NAV[2].children!.map((c) => (
-                    <Link key={c.to} to={c.to} className="flex items-center gap-2.5 font-extrabold text-sm tracking-[0.1em] uppercase hover:text-gold transition-colors">
-                      <IconStar className="w-2.5 h-2.5 text-gold" /> {c.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <Link to="/tentang-andini-farm" className="block font-display text-2xl uppercase hover:text-gold transition-colors">
-                Tentang Kami
-              </Link>
-              <Link to="/artikel" className="block font-display text-2xl uppercase hover:text-gold transition-colors">
-                Artikel
-              </Link>
+              {NAV.map((item) =>
+                item.children ? (
+                  <div key={item.label}>
+                    <p className="font-mono text-[10px] tracking-[0.26em] uppercase text-gold mb-3">
+                      {item.label}
+                    </p>
+                    <div className="space-y-2.5">
+                      {item.children.map((c) => (
+                        <Link
+                          key={c.to}
+                          to={c.to}
+                          className="flex items-center gap-2.5 font-extrabold text-sm tracking-[0.1em] uppercase hover:text-gold transition-colors"
+                        >
+                          <IconStar className="w-2.5 h-2.5 text-gold" /> {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.to!}
+                    className="block font-display text-2xl uppercase hover:text-gold transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
               <Link to="/kontak" className="block font-display text-2xl uppercase hover:text-gold transition-colors">
                 Kontak
               </Link>

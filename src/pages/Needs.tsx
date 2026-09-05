@@ -3,7 +3,6 @@ import { IMG } from "../data/site";
 import { Crumbs, usePageMeta } from "../components/chrome";
 import {
   BigCTA,
-  BuySteps,
   EarTag,
   IconArrow,
   Marquee,
@@ -294,17 +293,23 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
         </div>
       </section>
 
+      {/* cara membeli (ringkas, detail di halaman Jual Sapi) */}
       <section className="bg-cream bg-rules border-t-2 border-ink/10">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-8">
           <Reveal>
-            <SectionHead
-              kicker="Alurnya sederhana"
-              title="CARA MEMBELI DI ANDINI FARM"
-            />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-2 border-ink bg-cream shadow-press px-6 py-5">
+              <p className="font-display text-base md:text-lg uppercase leading-snug text-ranch flex-1">
+                Cara belinya sederhana: chat, lihat sapinya, sepakat, lalu dikirim.
+              </p>
+              <Link
+                to="/jual-sapi"
+                className="group/l inline-flex w-fit items-center gap-2 border-2 border-ink bg-gold px-4 py-[11px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink transition-colors duration-200 hover:bg-ranch hover:text-cream hover:border-ranch"
+              >
+                LIHAT CARA MEMBELI
+                <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
+              </Link>
+            </div>
           </Reveal>
-          <div className="mt-12">
-            <BuySteps />
-          </div>
         </div>
       </section>
 

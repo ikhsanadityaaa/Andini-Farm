@@ -349,14 +349,14 @@ export default function Home() {
                 Berpengalaman di dunia peternakan sejak 2008, Andini Farm menyediakan
                 sapi-sapi pilihan untuk qurban, aqiqah, penggemukan hingga perdagangan.
               </p>
-              <p className="mt-6 flex items-center gap-3.5">
-                <IconTruck className="w-8 h-8 md:w-10 md:h-10 shrink-0 text-gold" />
-                <span className="font-display whitespace-nowrap text-[clamp(0.85rem,3.9vw,1.85rem)] leading-[1.05] uppercase text-leather">
+              <p className="mt-5 flex items-center gap-3">
+                <IconTruck className="w-7 h-7 md:w-8 md:h-8 shrink-0 text-gold" />
+                <span className="whitespace-nowrap text-base md:text-lg font-extrabold tracking-[0.05em] uppercase text-leather">
                   Bisa diantar{" "}
                   <span className="relative inline-block">
                     <span className="relative z-10">sampai tujuan</span>
                     <span
-                      className="absolute left-0 right-0 bottom-[0.06em] h-[0.24em] bg-gold -z-0"
+                      className="absolute left-0 right-0 bottom-[0.08em] h-[0.3em] bg-gold/60 -z-0"
                       aria-hidden
                     />
                   </span>
