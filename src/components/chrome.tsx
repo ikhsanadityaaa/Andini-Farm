@@ -343,7 +343,7 @@ export function Footer() {
             Jual Sapi Hidup Limosin, Simental & Pegon Super
           </p>
           <p className="mt-4 text-cream/70 leading-relaxed max-w-sm text-sm">
-            Berpengalaman di dunia peternakan sejak 2011. Menjual sapi hidup untuk
+            Berpengalaman di dunia peternakan sejak 2011. Menjual sapi untuk
             qurban, aqiqah, penggemukan hingga perdagangan.
           </p>
           <address className="mt-6 not-italic font-mono text-[12px] leading-relaxed text-cream/60">

@@ -20,7 +20,7 @@ const CATS = ["SEMUA", ...Array.from(new Set(ARTICLES.map((a) => a.category)))];
 export function ArticlesPage() {
   usePageMeta(
     "Panduan Memilih Sapi — Artikel & Tips | Andini Farm",
-    "Kumpulan artikel panduan memilih sapi hidup: cara memilih sapi sehat, memperkirakan bobot, perbedaan Limosin & Simental, tips qurban, aqiqah, penggemukan dan pengiriman."
+    "Kumpulan artikel panduan memilih sapi: cara memilih sapi sehat, memperkirakan bobot, perbedaan Limosin & Simental, tips qurban, aqiqah, penggemukan dan pengiriman."
   );
   const [cat, setCat] = useState("SEMUA");
   const list = useMemo(
@@ -224,29 +224,38 @@ export function ArticleDetailPage() {
 
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-14 md:py-20 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8">
-            {article.sections.map((s, si) => (
-              <Reveal key={s.h} as="section" className={cx(si > 0 && "mt-12")}>
-                <h2 className="flex items-start gap-4 font-display text-xl md:text-2xl uppercase leading-snug text-ranch">
-                  <span className="shrink-0 font-mono text-[12px] font-bold tracking-widest text-gold bg-ranch border-2 border-ranch px-2.5 py-1 mt-1">
-                    {String(si + 1).padStart(2, "0")}
-                  </span>
-                  {s.h}
-                </h2>
-                <div className="mt-5 space-y-4 max-w-2xl">
-                  {s.ps.map((p, pi) => (
-                    <p
-                      key={pi}
-                      className={cx(
-                        "text-[15px] md:text-base leading-relaxed text-ink/80",
-                        si === 0 && pi === 0 && "dropcap"
-                      )}
-                    >
-                      {p}
-                    </p>
-                  ))}
-                </div>
+            {article.body.map((p, pi) => (
+              <Reveal key={pi} as="section" className={cx(pi > 0 && "mt-5")}>
+                <p
+                  className={cx(
+                    "text-[15px] md:text-base leading-relaxed text-ink/80 max-w-2xl",
+                    pi === 0 && "dropcap"
+                  )}
+                >
+                  {p}
+                </p>
               </Reveal>
             ))}
+
+            {article.checklist && (
+              <Reveal as="section" className="mt-10">
+                <div className="border-2 border-ink bg-parch shadow-press p-6 md:p-8 max-w-2xl">
+                  <p className="flex items-center gap-3 font-mono text-[10px] font-bold tracking-[0.26em] uppercase text-leather">
+                    <IconStar className="w-3 h-3 text-gold" /> Cek satu per satu
+                  </p>
+                  <ul className="mt-5 space-y-3.5">
+                    {article.checklist.map((c, ci) => (
+                      <li key={ci} className="flex items-start gap-3.5">
+                        <span className="shrink-0 w-7 h-7 grid place-items-center border-2 border-ink bg-gold font-mono text-[10px] font-bold mt-0.5">
+                          {ci + 1}
+                        </span>
+                        <p className="text-[15px] leading-relaxed text-ink/85 pt-1">{c}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            )}
 
             {/* CTA dalam artikel */}
             <Reveal as="section" className="mt-14">

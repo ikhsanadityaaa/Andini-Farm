@@ -233,7 +233,7 @@ export function Stamp({ className }: { className?: string }) {
           fill="#EDE8DC"
           style={{ fontFamily: "var(--font-mono)", fontSize: "8.6px", letterSpacing: "1.9px", fontWeight: 700 }}
         >
-          <textPath href="#stamp-circ">SEJAK 2011 • SAPI HIDUP • SLEMAN JOGJA •</textPath>
+          <textPath href="#stamp-circ">SEJAK 2011 • SAPI SEHAT • SLEMAN JOGJA •</textPath>
         </text>
         <path d="M60 44l4.4 11.6L76 60l-11.6 4.4L60 76l-4.4-11.6L44 60l11.6-4.4z" fill="#C89B3C" />
       </svg>
@@ -497,7 +497,7 @@ export function PriceBlock({ name, waMessage }: { name: string; waMessage: strin
             HARGA <span className="text-gold">MENYESUAIKAN</span>
           </h3>
           <p className="mt-5 text-cream/80 leading-relaxed max-w-lg">
-            Harga sapi {name} hidup mengikuti <strong className="text-cream">bobot, kondisi
+            Harga sapi {name} mengikuti <strong className="text-cream">bobot, kondisi
             sapi dan waktu pembelian</strong>. Karena itu kami tidak memasang harga mati di
             website — supaya angka yang Anda terima benar-benar sesuai dengan sapi yang
             akan Anda beli.
@@ -551,7 +551,7 @@ export function CrossBreeds({ current }: { current: string }) {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/cb:scale-105"
               />
               <div className="absolute top-3 left-3">
-                <EarTag>SAPI HIDUP</EarTag>
+                <EarTag>SIAP DIJUAL</EarTag>
               </div>
             </div>
             <div className="flex items-center justify-between gap-4 p-5 md:p-6">

@@ -38,11 +38,11 @@ const NEEDS: Need[] = [
     h1: "JUAL SAPI QURBAN LIMOSIN, SIMENTAL & PEGON",
     kicker: "Kebutuhan • Qurban",
     photo: IMG.qurban,
-    photoAlt: "Sapi hidup sehat untuk qurban dari peternakan Sleman Yogyakarta",
+    photoAlt: "Sapi sehat untuk qurban dari peternakan Sleman Yogyakarta",
     caption: "SAPI QURBAN — SEHAT & CUKUP UMUR",
     tag: "QURBAN",
     lead:
-      "Cari sapi hidup untuk kebutuhan qurban? Andini Farm menyiapkan sapi qurban yang sehat, cukup umur dan memenuhi syarat — dari Limosin jumbo sampai Pegon yang lebih ekonomis.",
+      "Cari sapi untuk kebutuhan qurban? Andini Farm menyiapkan sapi qurban yang sehat, cukup umur dan memenuhi syarat — dari Limosin jumbo sampai Pegon yang lebih ekonomis.",
     points: [
       {
         t: "MEMENUHI SYARAT QURBAN",
@@ -77,18 +77,18 @@ const NEEDS: Need[] = [
     wa: "Halo Andini Farm, saya sedang mencari sapi untuk QURBAN. Bisa dibantu carikan sesuai budget?",
     metaTitle: "Jual Sapi Qurban Sehat Sleman Yogyakarta | Andini Farm",
     metaDesc:
-      "Jual sapi qurban hidup Limosin, Simental & Pegon di Seyegan, Sleman, Yogyakarta. Sehat, cukup umur, bisa kirim. Tanya stok via WhatsApp.",
+      "Jual sapi qurban Limosin, Simental & Pegon di Seyegan, Sleman, Yogyakarta. Sehat, cukup umur, bisa kirim. Tanya stok via WhatsApp.",
   },
   {
     slug: "aqiqah",
     h1: "JUAL SAPI AQIQAH — BOBOT BISA DISESUAIKAN",
     kicker: "Kebutuhan • Aqiqah",
     photo: IMG.aqiqah,
-    photoAlt: "Sapi hidup ukuran sedang untuk aqiqah dari peternakan Sleman",
+    photoAlt: "Sapi ukuran sedang untuk aqiqah dari peternakan Sleman",
     caption: "SAPI AQIQAH — UKURAN PAS UNTUK KELUARGA",
     tag: "AQIQAH",
     lead:
-      "Pilihan sapi hidup untuk kebutuhan aqiqah. Satu ekor sapi boleh untuk aqiqah, dan kami bantu carikan bobot yang pas dengan kebutuhan keluarga Anda.",
+      "Pilihan sapi untuk kebutuhan aqiqah. Satu ekor sapi boleh untuk aqiqah, dan kami bantu carikan bobot yang pas dengan kebutuhan keluarga Anda.",
     points: [
       {
         t: "SATU SAPI UNTUK AQIQAH",
@@ -112,13 +112,13 @@ const NEEDS: Need[] = [
       "Apakah boleh aqiqah dengan sapi? Boleh — selama sehat dan tidak cacat",
       "Berapa bobot yang wajar? 200–300 kg sudah sangat memadai",
       "Kapan dikirim? Sesuai tanggal acara yang Anda sampaikan saat memesan",
-      "Bisa sekalian potong? Kami antar sapi hidup — pemotongan di tempat Anda atau jasa catering",
+      "Bisa sekalian potong? Kami antar sapinya — pemotongan di tempat Anda atau jasa catering",
     ],
     cta: "TANYAKAN SAPI AQIQAH",
     wa: "Halo Andini Farm, saya mencari sapi untuk AQIQAH. Bisa info stok dan harganya?",
-    metaTitle: "Jual Sapi Aqiqah Hidup Sleman Yogyakarta | Andini Farm",
+    metaTitle: "Jual Sapi Aqiqah Sleman Yogyakarta | Andini Farm",
     metaDesc:
-      "Jual sapi aqiqah hidup berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga menyesuaikan — tanya stok & harga via WhatsApp.",
+      "Jual sapi aqiqah berbagai bobot di Seyegan, Sleman, Yogyakarta. Harga menyesuaikan — tanya stok & harga via WhatsApp.",
   },
   {
     slug: "penggemukan",
@@ -141,7 +141,7 @@ const NEEDS: Need[] = [
       },
       {
         t: "BISA HITUNG BARENG",
-        d: "Harga bakalan per kg bobot hidup, biaya pakan per hari, target jual — kami bantu hitungkan sebelum Anda memutuskan.",
+        d: "Harga bakalan per kg bobot, biaya pakan per hari, target jual — kami bantu hitungkan sebelum Anda memutuskan.",
       },
       {
         t: "DIDUKUNG JARINGAN PETERNAK",
@@ -154,7 +154,7 @@ const NEEDS: Need[] = [
       "Mata cerah, bulu mengilap, nafsu makan bagus",
       "Kaki lurus dan kuat, tidak pincang",
       "Tidak cacat dan bebas dari tanda sakit",
-      "Hitung harga per kilogram bobot hidup, bandingkan antar bakalan",
+      "Hitung harga per kilogram bobot, bandingkan antar bakalan",
     ],
     cta: "TANYAKAN SAPI BAKALAN",
     wa: "Halo Andini Farm, saya mencari sapi bakalan untuk PENGGEMUKAN. Bisa dibantu carikan?",
@@ -216,7 +216,7 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
       </SplitHero>
 
       <Marquee
-        items={[need.tag, "SAPI HIDUP", "SEJAK 2011", "SEYEGAN • SLEMAN", "BISA DIKIRIM", "KONSULTASI GRATIS"]}
+        items={[need.tag, "SAPI SEHAT", "GEMUK ALAMI", "SEJAK 2011", "SEYEGAN • SLEMAN", "BISA DIKIRIM", "KONSULTASI GRATIS"]}
         dur="30s"
       />
 

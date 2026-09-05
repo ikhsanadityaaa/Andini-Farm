@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ADDRESS_LINES, IMG, MAPS_LINK, waLink } from "../data/site";
-import { BREEDS, breedWa } from "../data/breeds";
+import { BREEDS } from "../data/breeds";
 import { ARTICLES } from "../data/articles";
 import { usePageMeta } from "../components/chrome";
 import {
@@ -24,62 +24,68 @@ import {
 } from "../components/ui";
 
 const MARQUEE_ITEMS = [
-  "JUAL SAPI HIDUP",
+  "JUAL SAPI BERKUALITAS",
+  "SAPI SEHAT",
+  "GEMUK ALAMI",
   "LIMOSIN",
   "SIMENTAL",
   "PEGON SUPER",
+  "HARGA KOMPETITIF",
+  "ANTAR SAMPAI TUJUAN",
   "SEJAK 2011",
   "SEYEGAN • SLEMAN • YOGYAKARTA",
-  "QURBAN • AQIQAH • PENGGEMUKAN",
-  "BISA DIKIRIM KE BERBAGAI WILAYAH",
 ];
 
 const TRUST = [
   { big: "SEJAK 2011", small: "Pengalaman lebih dari 15 tahun di dunia peternakan" },
   { big: "JARINGAN PETERNAK", small: "Jaringan yang dibangun selama bertahun-tahun" },
-  { big: "SAPI HIDUP", small: "Fokus pada penjualan sapi hidup, bukan produk olahan" },
+  { big: "FOKUS JUAL SAPI", small: "Menjual sapi — bukan daging, bukan produk olahan" },
   { big: "YOGYAKARTA", small: "Japanan, Margodadi, Seyegan, Sleman" },
 ];
 
-const WHY = [
+const JANJI = [
   {
-    t: "BERPENGALAMAN SEJAK 2011",
-    d: "Lebih dari 15 tahun berkecimpung di dunia peternakan — dari memilih bakalan sampai melepas sapi ke pembeli.",
+    t: "SAPI SEHAT, BEBAS PENYAKIT",
+    d: "Setiap sapi dirawat dan dipantau kondisinya setiap hari. Sapi yang sedang kurang sehat tidak kami pasarkan — sesederhana itu.",
   },
   {
-    t: "JARINGAN PETERNAK",
-    d: "Pengalaman bertahun-tahun membangun jaringan dengan peternak dan pelaku usaha sapi di berbagai tempat.",
+    t: "GEMUK ALAMI",
+    d: "Badan berisi karena pakan yang layak dan perawatan rutin, bukan cara instan. Kondisinya bisa Anda cek lewat video atau langsung di kandang.",
   },
   {
-    t: "PILIHAN JENIS SAPI",
-    d: "Limosin, Simental dan Pegon Super — masing-masing dengan karakter dan keunggulannya sendiri.",
+    t: "HARGA PALING KOMPETITIF",
+    d: "Sapi dari kandang sendiri dan jaringan peternak yang dibangun sejak 2011 — harga dari tangan pertama, bukan dari perantara berlapis.",
   },
   {
-    t: "BISA KONSULTASI",
-    d: "Belum yakin jenis atau kondisi sapi yang dibutuhkan? Konsultasikan dulu, baru kita cari sapinya bersama.",
+    t: "DICARIKAN SESUAI BUDGET",
+    d: "Sebutkan budget dan kebutuhan Anda. Kalau stok kandang belum pas, kami carikan lewat jaringan sampai dapat yang cocok.",
   },
   {
-    t: "MELAYANI PENGIRIMAN",
-    d: "Pengiriman sapi dapat disesuaikan dengan tujuan dan jumlah sapi yang dibeli — ambil sendiri pun boleh.",
+    t: "ANTAR SAMPAI TUJUAN",
+    d: "Sapi diantar sampai lokasi Anda dengan kendaraan ternak yang sesuai. Ongkos kirim jelas di depan — tanpa biaya tambahan di belakang.",
+  },
+  {
+    t: "BISA LIHAT DULU, BARU DEAL",
+    d: "Minta foto dan video terbaru, atau datang langsung ke kandang di Japanan. Puas melihatnya, baru kita bicara harga.",
   },
 ];
 
 const NEEDS = [
   {
     t: "UNTUK QURBAN",
-    d: "Cari sapi hidup untuk kebutuhan qurban — sehat, cukup umur dan layak sesuai syariat.",
+    d: "Cari sapi untuk kebutuhan qurban — sehat, cukup umur dan layak sesuai syariat.",
     img: IMG.qurban,
     to: "/sapi-qurban",
     cta: "CARI SAPI QURBAN",
-    alt: "Sapi hidup sehat untuk qurban di Sleman Yogyakarta",
+    alt: "Sapi sehat untuk qurban di Sleman Yogyakarta",
   },
   {
     t: "UNTUK AQIQAH",
-    d: "Pilihan sapi hidup untuk kebutuhan aqiqah keluarga, dengan bobot yang bisa disesuaikan.",
+    d: "Pilihan sapi untuk kebutuhan aqiqah keluarga, dengan bobot yang bisa disesuaikan.",
     img: IMG.aqiqah,
     to: "/sapi-aqiqah",
     cta: "TANYAKAN SAPI AQIQAH",
-    alt: "Sapi hidup ukuran sedang untuk aqiqah",
+    alt: "Sapi ukuran sedang untuk aqiqah",
   },
   {
     t: "UNTUK PENGGEMUKAN",
@@ -99,10 +105,18 @@ const NEEDS = [
   },
 ];
 
+const HERO_CHIPS = [
+  "SAPI SEHAT",
+  "BEBAS PENYAKIT",
+  "GEMUK ALAMI",
+  "HARGA KOMPETITIF",
+  "ANTAR SAMPAI TUJUAN",
+];
+
 export default function Home() {
   usePageMeta(
-    "Jual Sapi Hidup Limosin, Simental & Pegon Super | Andini Farm",
-    "Andini Farm menyediakan sapi hidup Limosin, Simental dan Pegon Super. Berpengalaman sejak 2011 dan berlokasi di Japanan, Seyegan, Sleman, Yogyakarta. Hubungi kami untuk stok, harga dan pengiriman sapi."
+    "Jual Sapi Limosin, Simental & Pegon Super | Andini Farm",
+    "Andini Farm menyediakan sapi Limosin, Simental dan Pegon Super yang sehat dan terawat. Berpengalaman sejak 2011 dan berlokasi di Japanan, Seyegan, Sleman, Yogyakarta. Hubungi kami untuk stok, harga dan pengiriman sapi."
   );
 
   const location = useLocation();
@@ -137,9 +151,9 @@ export default function Home() {
                 Peternakan Sapi • Seyegan, Sleman
               </EarTag>
               <h1 className="mt-7 font-display text-[clamp(2.7rem,7.2vw,5rem)] leading-[0.95] uppercase text-ranch">
-                JUAL SAPI{" "}
+                JUAL{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10">HIDUP</span>
+                  <span className="relative z-10">SAPI</span>
                   <span
                     className="absolute left-0 right-0 bottom-[0.08em] h-[0.28em] bg-gold -z-0"
                     aria-hidden
@@ -157,8 +171,9 @@ export default function Home() {
                 <strong className="text-ranch">
                   Berpengalaman di dunia peternakan sejak 2011.
                 </strong>{" "}
-                Andini Farm menyediakan sapi hidup untuk berbagai kebutuhan — mulai dari
-                qurban, aqiqah, penggemukan hingga kebutuhan peternakan dan perdagangan.
+                Andini Farm menyediakan sapi-sapi pilihan untuk berbagai kebutuhan —
+                mulai dari qurban, aqiqah, penggemukan hingga kebutuhan peternakan dan
+                perdagangan.
               </p>
               <p className="mt-4 flex items-start gap-2.5 text-sm md:text-[15px] text-ink/65 max-w-xl">
                 <IconPin className="w-4 h-4 mt-0.5 shrink-0 text-leather" />
@@ -179,6 +194,20 @@ export default function Home() {
                   CHAT WHATSAPP
                 </WAButton>
               </div>
+              <div className="mt-7 flex flex-wrap gap-2">
+                {HERO_CHIPS.map((c, i) => (
+                  <span
+                    key={c}
+                    className={cx(
+                      "inline-flex items-center gap-1.5 border-2 border-ink/70 bg-cream px-3 py-[6px] font-mono text-[10px] font-bold tracking-[0.16em] text-ranch transition-all duration-200 hover:bg-gold hover:border-ink cursor-default",
+                      i % 2 === 1 && "rotate-[0.6deg]"
+                    )}
+                  >
+                    <IconStar className="w-2.5 h-2.5 text-gold" />
+                    {c}
+                  </span>
+                ))}
+              </div>
               <p className="mt-6 font-mono text-[11px] tracking-[0.14em] uppercase text-ink/55">
                 Fast respon:{" "}
                 <a
@@ -198,9 +227,9 @@ export default function Home() {
           <Reveal delay={140} className="lg:col-span-6 relative">
             <PhotoFrame
               src={IMG.heroLimosin}
-              alt="Sapi Limosin hidup di kandang Andini Farm Seyegan Sleman"
+              alt="Sapi Limosin di kandang Andini Farm Seyegan Sleman"
               caption="LIMOSIN — KANDANG ANDINI FARM, JAPANAN"
-              tag="SAPI HIDUP • SIAP TANYA"
+              tag="SAPI SEHAT • SIAP TANYA"
               kenburns
               aspect="aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5]"
             />
@@ -299,7 +328,7 @@ export default function Home() {
               <SectionHead
                 kicker="01 — Jenis Sapi"
                 title="PILIH SAPI YANG ANDA CARI"
-                sub="Andini Farm menyediakan berbagai jenis sapi hidup untuk berbagai kebutuhan. Semua sapi bisa dilihat langsung — di kandang maupun lewat foto dan video terbaru."
+                sub="Andini Farm menyediakan berbagai jenis sapi pilihan untuk berbagai kebutuhan. Semua sapi bisa dilihat langsung — di kandang maupun lewat foto dan video terbaru."
               />
               <WAButton
                 wa="Halo Andini Farm, saya mau cek stok sapi yang tersedia."
@@ -337,7 +366,7 @@ export default function Home() {
                 </div>
                 <div className={cx("lg:col-span-5", idx % 2 === 1 && "lg:order-1")}>
                   <p className="font-mono text-[10px] font-bold tracking-[0.26em] uppercase text-leather flex items-center gap-2">
-                    <IconStar className="w-2.5 h-2.5 text-gold" /> SAPI HIDUP —{" "}
+                    <IconStar className="w-2.5 h-2.5 text-gold" /> SIAP DIJUAL —{" "}
                     {b.nameAlt}
                   </p>
                   <h3 className="mt-3 font-display text-3xl md:text-[2.6rem] leading-[1.02] uppercase text-ranch">
@@ -371,13 +400,13 @@ export default function Home() {
         <StripeBar />
       </section>
 
-      {/* ================= KENAPA ANDINI FARM ================= */}
+      {/* ================= KENAPA HARUS BELI DI SINI ================= */}
       <section className="relative overflow-hidden bg-ranch text-cream">
         <img
           src={IMG.kandang}
           alt=""
           aria-hidden
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.14]"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.13]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ranch via-ranch/92 to-ranch/70" aria-hidden />
         <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-12 gap-12">
@@ -386,45 +415,62 @@ export default function Home() {
               <Reveal>
                 <SectionHead
                   tone="dark"
-                  kicker="02 — Alasan beli di sini"
-                  title="KENAPA MEMBELI SAPI DI ANDINI FARM?"
-                  sub="Kami bukan marketplace. Kami peternak dan penjual sapi yang bisa Anda ajak ngobrol dulu sebelum membeli."
+                  kicker="02 — Kenapa beli di sini"
+                  title={
+                    <>
+                      KENAPA HARUS BELI SAPI <span className="text-gold">DI SINI?</span>
+                    </>
+                  }
+                  sub="Bukan sekadar jualan — ini alasan pembeli tenang bertransaksi dengan Andini Farm, dan datang lagi."
                 />
                 <div className="mt-8">
                   <WAButton
-                    wa="Halo Andini Farm, saya mau konsultasi sebelum beli sapi."
+                    wa="Halo Andini Farm, saya mau tanya stok dan harga sapi."
                     variant="cream"
                     size="lg"
                   >
-                    KONSULTASI DULU, GRATIS
+                    CHAT WHATSAPP
                   </WAButton>
                 </div>
+                <p className="mt-6 font-mono text-[11px] tracking-[0.16em] uppercase text-cream/50">
+                  Tanya stok & harga hari ini — balas cepat di jam peternakan.
+                </p>
               </Reveal>
             </div>
           </div>
           <div className="lg:col-span-7">
-            <ol>
-              {WHY.map((w, i) => (
+            <div className="grid sm:grid-cols-2 gap-5">
+              {JANJI.map((w, i) => (
                 <Reveal
-                  as="li"
                   key={w.t}
-                  delay={i * 70}
-                  className="group border-b-2 border-cream/12 py-7 md:py-8 grid grid-cols-[auto_1fr] gap-5 md:gap-8 items-start"
+                  delay={(i % 2) * 90}
+                  className="group border-2 border-cream/25 bg-pine/60 p-6 md:p-7 transition-all duration-300 hover:border-gold hover:bg-pine hover:-translate-y-1.5"
                 >
-                  <span className="font-display text-3xl md:text-5xl text-gold leading-none transition-transform duration-300 group-hover:-translate-y-1">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-lg md:text-2xl uppercase tracking-wide text-cream group-hover:text-gold transition-colors duration-300">
-                      {w.t}
-                    </h3>
-                    <p className="mt-2.5 text-[15px] leading-relaxed text-cream/70 max-w-xl">
-                      {w.d}
-                    </p>
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="font-display text-3xl md:text-4xl text-gold leading-none transition-transform duration-300 group-hover:-translate-y-1">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <IconStar className="w-4 h-4 text-cream/25 transition-colors duration-300 group-hover:text-gold" />
                   </div>
+                  <h3 className="mt-4 font-display text-lg md:text-xl leading-snug uppercase text-cream group-hover:text-gold transition-colors duration-300">
+                    {w.t}
+                  </h3>
+                  <p className="mt-3 text-[13.5px] leading-relaxed text-cream/70">{w.d}</p>
                 </Reveal>
               ))}
-            </ol>
+            </div>
+            <Reveal delay={140}>
+              <p className="mt-8 flex flex-wrap gap-x-2.5 gap-y-1.5 font-mono text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-cream/55">
+                <span className="text-gold">Ditopang:</span>
+                <span>Pengalaman sejak 2011</span>
+                <span aria-hidden>✦</span>
+                <span>Jaringan peternak luas</span>
+                <span aria-hidden>✦</span>
+                <span>Bisa konsultasi dulu</span>
+                <span aria-hidden>✦</span>
+                <span>Pilihan 3 jenis sapi</span>
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -605,7 +651,7 @@ export default function Home() {
           <Reveal className="lg:col-span-5 order-2 lg:order-1">
             <PhotoFrame
               src={IMG.truk}
-              alt="Pengiriman sapi hidup dengan truk melewati sawah di Jawa"
+              alt="Pengiriman sapi dengan truk melewati sawah di Jawa"
               caption="SAPI DALAM PERJALANAN KE PEMBELI"
               tag="MELAYANI PENGIRIMAN"
               aspect="aspect-[4/3]"
@@ -619,7 +665,7 @@ export default function Home() {
                 title="SAPI BISA DIKIRIM KE BERBAGAI WILAYAH"
               />
               <p className="mt-5 text-[15px] md:text-base leading-relaxed text-cream/80 max-w-xl">
-                Andini Farm melayani pengiriman sapi hidup sesuai tujuan pembelian. Biaya
+                Andini Farm melayani pengiriman sapi sesuai tujuan pembelian. Biaya
                 pengiriman dapat berbeda berdasarkan lokasi, jumlah sapi dan kondisi
                 pengiriman.
               </p>

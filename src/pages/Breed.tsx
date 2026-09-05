@@ -90,7 +90,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
       <Marquee
         items={[
           `JUAL SAPI ${breed.name}`,
-          "SAPI HIDUP",
+          "SAPI SEHAT & GEMUK ALAMI",
           "SEJAK 2011",
           "SEYEGAN • SLEMAN",
           "BISA DIKIRIM",
@@ -98,6 +98,31 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
         ]}
         dur="30s"
       />
+
+      {/* janji beli */}
+      <section className="bg-parch border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-wrap items-center gap-3">
+          <span className="font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather mr-1">
+            Yang Anda dapat di Andini Farm:
+          </span>
+          {[
+            "SAPI SEHAT & BEBAS PENYAKIT",
+            "GEMUK ALAMI",
+            "HARGA KOMPETITIF",
+            "DICARIKAN SESUAI BUDGET",
+            "ANTAR SAMPAI TUJUAN",
+            "BISA LIHAT DULU",
+          ].map((p) => (
+            <span
+              key={p}
+              className="inline-flex items-center gap-2 border-2 border-ink bg-cream px-3 py-[7px] font-mono text-[10px] font-bold tracking-[0.14em] uppercase transition-colors duration-200 hover:bg-gold cursor-default"
+            >
+              <IconStar className="w-2.5 h-2.5 text-gold" />
+              {p}
+            </span>
+          ))}
+        </div>
+      </section>
 
       {/* karakteristik */}
       <section className="bg-cream bg-rules">

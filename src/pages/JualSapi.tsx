@@ -35,15 +35,28 @@ const FAQ = [
     a: "Sapi qurban yang kami siapkan sudah cukup umur (poel), sehat dan tidak cacat. Kami paham syaratnya — Anda tinggal memilih.",
   },
   {
+    q: "Sapinya sehat dan terawat?",
+    a: "Iya. Sapi dirawat dengan pakan layak dan dipantau setiap hari. Yang sedang kurang sehat tidak kami pasarkan — reputasi kandang taruhannya.",
+  },
+  {
     q: "Saya belum tahu butuh sapi yang seperti apa. Bisa dibantu?",
     a: "Justru itu tugas kami. Ceritakan kebutuhan dan budget Anda — kami bantu carikan jenis dan ukuran sapi yang paling pas.",
   },
 ];
 
+const JANJI_STRIP = [
+  "SAPI SEHAT & BEBAS PENYAKIT",
+  "GEMUK ALAMI",
+  "HARGA PALING KOMPETITIF",
+  "DICARIKAN SESUAI BUDGET",
+  "ANTAR SAMPAI TUJUAN",
+  "BISA LIHAT DULU, BARU DEAL",
+];
+
 export default function JualSapi() {
   usePageMeta(
-    "Jual Sapi Hidup Berkualitas Sleman Yogyakarta | Andini Farm",
-    "Jual sapi hidup Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Untuk qurban, aqiqah, penggemukan & dagang. Berpengalaman sejak 2011 — tanya stok & harga via WhatsApp."
+    "Jual Sapi Berkualitas Sleman Yogyakarta | Andini Farm",
+    "Jual sapi Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Sehat, gemuk alami, harga kompetitif. Untuk qurban, aqiqah, penggemukan & dagang — tanya stok & harga via WhatsApp."
   );
 
   return (
@@ -53,11 +66,11 @@ export default function JualSapi() {
       </div>
       <SplitHero
         kicker="Jual Sapi • Sejak 2011"
-        h1="JUAL SAPI HIDUP BERKUALITAS"
+        h1="JUAL SAPI BERKUALITAS"
         lead={
           <>
             <p>
-              Andini Farm menyediakan sapi hidup untuk berbagai kebutuhan dengan
+              Andini Farm menyediakan sapi pilihan untuk berbagai kebutuhan dengan
               pengalaman di dunia peternakan sejak 2011 — Limosin, Simental dan Pegon
               Super, dari kandang di Japanan, Seyegan, Sleman, Yogyakarta.
             </p>
@@ -71,7 +84,7 @@ export default function JualSapi() {
         photo={IMG.kandang}
         photoAlt="Kandang sapi Andini Farm di Japanan Seyegan Sleman"
         caption="KANDANG ANDINI FARM — JAPANAN, SEYEGAN"
-        tag="SAPI HIDUP"
+        tag="SAPI SEHAT"
         facts={[
           { label: "JENIS SAPI", value: "Limosin • Simental • Pegon Super" },
           { label: "PENGALAMAN", value: "Sejak 2011" },
@@ -99,12 +112,32 @@ export default function JualSapi() {
         items={[
           "JUAL SAPI SLEMAN",
           "JUAL SAPI YOGYAKARTA",
+          "SAPI SEHAT",
+          "GEMUK ALAMI",
           "LIMOSIN",
           "SIMENTAL",
           "PEGON SUPER",
           "QURBAN • AQIQAH • PENGGEMUKAN",
         ]}
       />
+
+      {/* janji strip */}
+      <section className="bg-parch border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-wrap items-center gap-3">
+          <span className="font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather mr-1">
+            Janji kami ke pembeli:
+          </span>
+          {JANJI_STRIP.map((p) => (
+            <span
+              key={p}
+              className="inline-flex items-center gap-2 border-2 border-ink bg-cream px-3 py-[7px] font-mono text-[10px] font-bold tracking-[0.14em] uppercase transition-colors duration-200 hover:bg-gold cursor-default"
+            >
+              <IconStar className="w-2.5 h-2.5 text-gold" />
+              {p}
+            </span>
+          ))}
+        </div>
+      </section>
 
       {/* jenis sapi ringkas */}
       <section className="bg-cream bg-rules">
@@ -252,27 +285,28 @@ export default function JualSapi() {
               <p>
                 Kalau Anda mencari <strong>jual sapi Sleman</strong> atau{" "}
                 <strong>jual sapi Yogyakarta</strong>, Andini Farm adalah peternakan dan
-                penjual sapi hidup yang berbasis di Japanan, Margodadi, Seyegan, Sleman.
-                Kami berkecimpung di dunia sapi sejak 2011 — memahami sapi bukan dari
-                brosur, tapi dari kandang dan pasar hewan.
+                penjual sapi yang berbasis di Japanan, Margodadi, Seyegan, Sleman. Kami
+                berkecimpung di dunia sapi sejak 2011 — memahami sapi bukan dari brosur,
+                tapi dari kandang dan pasar hewan.
               </p>
             </Reveal>
             <Reveal delay={140}>
               <p>
                 Jenis yang kami pasarkan: <strong>sapi Limosin</strong> untuk yang
                 mencari tubuh besar dan berotot, <strong>sapi Simental</strong> dengan
-                rangka besar dan pertumbuhan cepat, serta <strong>sapi Pegon Super</strong>{" "}
-                yang adaptif dan ekonomis. Semuanya bisa untuk qurban, aqiqah,
-                penggemukan maupun perdagangan.
+                rangka besar dan pertumbuhan cepat, serta{" "}
+                <strong>sapi Pegon Super</strong> yang adaptif dan ekonomis. Semuanya
+                bisa untuk qurban, aqiqah, penggemukan maupun perdagangan — dan
+                semuanya sehat, gemuk alami, serta bisa dicarikan sesuai budget Anda.
               </p>
             </Reveal>
             <Reveal delay={200}>
               <p>
                 Soal <strong>harga sapi</strong>, kami jujur saja: harganya menyesuaikan
-                bobot dan kondisi per ekor. Soal <strong>pengiriman sapi</strong>, kami
-                melayani berbagai wilayah di Pulau Jawa dengan kendaraan ternak yang
-                sesuai. Dan soal pembelian — prosesnya sederhana: chat, lihat sapinya,
-                sepakat, lalu sapi dikirim atau diambil.
+                bobot dan kondisi per ekor, dan kami jaga tetap kompetitif karena sapi
+                berasal dari kandang sendiri serta jaringan peternak sejak 2011. Soal{" "}
+                <strong>pengiriman sapi</strong>, kami melayani berbagai wilayah di
+                Pulau Jawa — antar sampai tujuan dengan ongkos yang jelas di depan.
               </p>
             </Reveal>
           </div>

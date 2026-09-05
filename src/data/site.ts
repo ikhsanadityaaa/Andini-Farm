@@ -5,7 +5,7 @@
    ============================================================ */
 
 export const BRAND = "ANDINI FARM";
-export const TAGLINE = "JUAL SAPI HIDUP BERKUALITAS";
+export const TAGLINE = "JUAL SAPI BERKUALITAS";
 export const SUBTAGLINE = "LIMOSIN • SIMENTAL • PEGON SUPER";
 export const SINCE = 2011;
 
@@ -57,10 +57,10 @@ export const SEO_KEYWORDS = [
   "jual sapi Yogyakarta",
   "jual sapi Jogja",
   "jual sapi Seyegan",
-  "jual sapi hidup Jogja",
   "penjual sapi Yogyakarta",
   "peternakan sapi Sleman",
   "sapi Limosin Jogja",
   "sapi Simental Jogja",
   "jual sapi Pegon",
+  "jual sapi qurban",
 ];
