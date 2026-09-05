@@ -27,8 +27,8 @@ export const BREEDS: Breed[] = [
     h1: "JUAL SAPI LIMOSIN",
     earTag: "AF-LMS • SIAP DIJUAL",
     photo:
-      "https://image.qwenlm.ai/generated-images/ee75b94b-a4de-49d6-8d0f-0049b4d9817f/_result.png",
-    photoAlt: "Sapi Limosin di kandang Andini Farm Seyegan Sleman",
+      "https://image.qwenlm.ai/generated-images/dfe76c77-7a6d-468c-9cce-b9e01d2d35f5/_result.png",
+    photoAlt: "Sapi Limosin berwarna cokelat kemerahan polos di peternakan Andini Farm Sleman",
     tagline: "Tubuh besar, berotot, dan proporsional.",
     intro:
       "Sapi Limosin dikenal dengan tubuh yang besar dan proporsi tubuh yang kuat. Cocok untuk berbagai kebutuhan pembelian sapi, mulai dari qurban, aqiqah, penggemukan hingga perdagangan.",
@@ -69,8 +69,8 @@ export const BREEDS: Breed[] = [
     h1: "JUAL SAPI SIMENTAL",
     earTag: "AF-SMT • SIAP DIJUAL",
     photo:
-      "https://image.qwenlm.ai/generated-images/70d2f183-3987-4d7a-aad3-f7d55e28a1f8/_result.png",
-    photoAlt: "Sapi Simental di peternakan Andini Farm Sleman",
+      "https://image.qwenlm.ai/generated-images/a2468954-9892-4de0-96e1-bacc0db1f3f8/_result.png",
+    photoAlt: "Sapi Simental berbadan cokelat dengan wajah dan kaki putih di peternakan Andini Farm Sleman",
     tagline: "Rangka besar dengan pertumbuhan cepat.",
     intro:
       "Sapi Simental memiliki karakteristik tubuh besar dengan pertumbuhan dan bentuk tubuh yang menarik bagi peternak dan pembeli sapi.",
@@ -111,8 +111,8 @@ export const BREEDS: Breed[] = [
     h1: "JUAL SAPI PEGON SUPER",
     earTag: "AF-PGN • SIAP DIJUAL",
     photo:
-      "https://image.qwenlm.ai/generated-images/2c0658f7-b53c-4098-b8b2-fc8d62257aae/_result.png",
-    photoAlt: "Sapi Pegon Super di kandang Andini Farm Yogyakarta",
+      "https://image.qwenlm.ai/generated-images/c6a6c636-a9da-48eb-a777-c6d785d01522/_result.png",
+    photoAlt: "Sapi Pegon Super belang abu-cokelat dengan wajah putih di kandang Andini Farm Yogyakarta",
     tagline: "Persilangan lokal yang adaptif dan bernilai ekonomis.",
     intro:
       "Pilihan sapi Pegon Super untuk berbagai kebutuhan pembelian sapi. Pegon merupakan sapi persilangan lokal yang sudah sangat adaptif dengan iklim dan pakan di Indonesia.",

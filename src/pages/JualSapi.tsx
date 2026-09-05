@@ -48,7 +48,7 @@ const FAQ = [
 
 export default function JualSapi() {
   usePageMeta(
-    "Jual Sapi Berkualitas Sleman Yogyakarta | Andini Farm",
+    "Jual Sapi di Sleman, Yogyakarta | Andini Farm",
     "Jual sapi Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Sehat, gemuk alami, harga kompetitif. Untuk qurban, aqiqah, penggemukan & dagang. Tanya stok & harga via WhatsApp."
   );
 
@@ -69,7 +69,7 @@ export default function JualSapi() {
       </div>
       <SplitHero
         kicker="Jual Sapi • Sejak 2008"
-        h1="JUAL SAPI BERKUALITAS"
+        h1="JUAL SAPI DI SLEMAN, YOGYAKARTA"
         lead={
           <>
             <p>

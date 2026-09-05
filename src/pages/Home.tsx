@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ADDRESS_LINES, IMG, MAPS_EMBED, MAPS_LINK, WA_DISPLAY, waLink } from "../data/site";
 import { BREEDS } from "../data/breeds";
@@ -120,9 +120,15 @@ function NeedIcon({ kind, className = "w-12 h-12 md:w-14 md:h-14" }: { kind: Nee
     >
       {kind === "qurban" && (
         <>
-          <path d="M28 5 A17 17 0 1 0 28 43 A14 14 0 1 1 28 5 Z" fill="currentColor" stroke="none" />
+          {/* bulan sabit */}
           <path
-            d="M37 17 l1.9 4.6 4.6 1.9 -4.6 1.9 -1.9 4.6 -1.9 -4.6 -4.6 -1.9 4.6 -1.9 z"
+            d="M27 4 A20 20 0 1 0 27 44 A26 26 0 0 1 27 4 Z"
+            fill="currentColor"
+            stroke="none"
+          />
+          {/* bintang */}
+          <path
+            d="M36 15 l2.2 5.3 5.3 2.2 -5.3 2.2 -2.2 5.3 -2.2 -5.3 -5.3 -2.2 5.3 -2.2 z"
             fill="currentColor"
             stroke="none"
           />
@@ -285,6 +291,68 @@ function DeliveryRoad() {
           className="w-full h-auto float-slow"
         />
       </div>
+    </div>
+  );
+}
+
+/* Peta Google Maps yang dimuat lambat: tampilkan poster dulu, iframe
+   hanya dimuat ketika section hampir terlihat, supaya halaman tetap cepat */
+function LazyMap() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [load, setLoad] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setLoad(true);
+            io.disconnect();
+          }
+        });
+      },
+      { rootMargin: "400px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className="relative border-2 border-ink shadow-press overflow-hidden bg-ranch">
+      {load ? (
+        <iframe
+          title="Peta lokasi Andini Farm di Japanan, Seyegan, Sleman, Yogyakarta"
+          src={MAPS_EMBED}
+          className="w-full h-[240px] sm:h-[280px] lg:h-[320px] border-0 block bg-parch"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      ) : (
+        <a
+          href={MAPS_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group/mp relative flex h-[240px] sm:h-[280px] lg:h-[320px] items-center justify-center bg-dotgrid transition-colors duration-300 hover:bg-pine"
+          aria-label="Buka lokasi Andini Farm di Google Maps"
+        >
+          {/* garis jalan ilustratif */}
+          <svg viewBox="0 0 400 120" className="absolute inset-x-0 bottom-4 w-full opacity-30" aria-hidden>
+            <path d="M0 80 C 90 40, 170 100, 250 60 S 360 30, 400 55" fill="none" stroke="#C89B3C" strokeWidth="3" strokeDasharray="10 8" />
+          </svg>
+          <span className="relative flex flex-col items-center text-center px-6">
+            <span className="w-14 h-14 grid place-items-center border-2 border-gold bg-pine text-gold transition-transform duration-300 group-hover/mp:-translate-y-1.5">
+              <IconPin className="w-7 h-7" />
+            </span>
+            <span className="mt-4 font-display text-lg md:text-xl uppercase text-cream leading-snug">
+              Kandang Sapi Japanan, Seyegan
+            </span>
+            <span className="mt-2 font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-cream/60 group-hover/mp:text-gold transition-colors">
+              Klik untuk buka Google Maps
+            </span>
+          </span>
+        </a>
+      )}
     </div>
   );
 }
@@ -717,16 +785,7 @@ export default function Home() {
               </a>
             </Reveal>
             <Reveal delay={120} className="reveal-fade lg:col-span-7">
-              <div className="border-2 border-ink shadow-press overflow-hidden bg-parch">
-                <iframe
-                  title="Peta lokasi Andini Farm di Japanan, Seyegan, Sleman, Yogyakarta"
-                  src={MAPS_EMBED}
-                  className="w-full h-[240px] sm:h-[280px] lg:h-[320px] border-0 block"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
-              </div>
+              <LazyMap />
             </Reveal>
           </div>
         </div>

@@ -33,11 +33,11 @@ export const MAPS_EMBED =
 /* Foto utama. Placeholder, ganti dengan foto asli peternakan */
 export const IMG = {
   heroLimosin:
-    "https://image.qwenlm.ai/generated-images/ee75b94b-a4de-49d6-8d0f-0049b4d9817f/_result.png",
+    "https://image.qwenlm.ai/generated-images/dfe76c77-7a6d-468c-9cce-b9e01d2d35f5/_result.png",
   simental:
-    "https://image.qwenlm.ai/generated-images/70d2f183-3987-4d7a-aad3-f7d55e28a1f8/_result.png",
+    "https://image.qwenlm.ai/generated-images/a2468954-9892-4de0-96e1-bacc0db1f3f8/_result.png",
   pegon:
-    "https://image.qwenlm.ai/generated-images/2c0658f7-b53c-4098-b8b2-fc8d62257aae/_result.png",
+    "https://image.qwenlm.ai/generated-images/c6a6c636-a9da-48eb-a777-c6d785d01522/_result.png",
   bapak:
     "https://image.qwenlm.ai/generated-images/09f424e5-6421-455e-b33b-a44903a8b809/_result.png",
   kandang:
