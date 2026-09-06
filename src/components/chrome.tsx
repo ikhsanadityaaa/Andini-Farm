@@ -145,7 +145,7 @@ export function Header() {
       {/* main bar */}
       <div
         className={cx(
-          "relative bg-cream/95 backdrop-blur border-b-2 border-ink transition-shadow duration-300",
+          "relative bg-cream border-b-2 border-ink transition-shadow duration-300",
           scrolled && "shadow-[0_6px_0_0_rgba(21,21,21,0.08)]"
         )}
       >

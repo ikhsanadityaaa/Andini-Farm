@@ -17,7 +17,6 @@ import {
   SectionHead,
   Stamp,
   StripeBar,
-  usePrefersReducedMotion,
   WAButton,
 } from "../components/ui";
 
@@ -186,7 +185,6 @@ const ROUTE_NOTES = [
 
 /* Roadmap ilustrasi pengiriman: jalan berkelok + pickup sapi + truk berjalan */
 function DeliveryRoad() {
-  const reduce = usePrefersReducedMotion();
   const d =
     "M 215 195 C 335 115, 445 118, 560 195 C 675 262, 775 265, 880 208 C 985 152, 1065 128, 1150 178";
   const stops = [
@@ -213,7 +211,6 @@ function DeliveryRoad() {
           strokeWidth="3.5"
           strokeDasharray="16 14"
           strokeLinecap="round"
-          className="road-dash"
         />
 
         {/* titik-titik rute */}
@@ -256,39 +253,31 @@ function DeliveryRoad() {
           </g>
         ))}
 
-        {/* truk berjalan menyusuri rute */}
-        {!reduce && (
-          <g>
-            <g stroke="#151515" strokeWidth="2.6" strokeLinejoin="round">
-              <rect x="-40" y="-24" width="46" height="22" rx="2.5" fill="#C89B3C" />
-              <circle cx="-26" cy="-31" r="7" fill="#6E4B32" strokeWidth="2.4" />
-              <circle cx="-12" cy="-31" r="7" fill="#EDE8DC" strokeWidth="2.4" />
-              <path d="M 6 -24 h 15 l 11 11 v 11 h -26 z" fill="#163020" />
-              <rect x="10" y="-20" width="9" height="8" fill="#EDE8DC" strokeWidth="2" />
-            </g>
-            <circle cx="-26" cy="2" r="8" fill="#151515" />
-            <circle cx="-26" cy="2" r="3" fill="#EDE8DC" />
-            <circle cx="17" cy="2" r="8" fill="#151515" />
-            <circle cx="17" cy="2" r="3" fill="#EDE8DC" />
-            <animateMotion dur="15s" repeatCount="indefinite" rotate="auto" path={d} />
-          </g>
-        )}
       </svg>
 
-      {/* pickup angkut sapi di kiri bawah, tidak menutupi label Yogyakarta */}
+      {/* truk menyusuri rute: layer HTML terpisah, animasi transform (compositor) */}
+      <div className="pointer-events-none absolute left-[50%] top-[58%] text-ranch">
+        <div className="truck-drift">
+          <IconTruck className="w-10 h-10 md:w-14 md:h-14" />
+        </div>
+      </div>
+
+      {/* pickup angkut sapi di kiri bawah, tidak menutupi label Yogyakarta (statis: blend murah) */}
       <div className="pointer-events-none absolute left-[4%] bottom-[2%] w-[12%] mix-blend-multiply">
         <img
           src={IMG.pickup}
           alt="Pickup mengangkut dua sapi dari kandang Andini Farm"
-          className="w-full h-auto float-slow"
+          decoding="async"
+          className="w-full h-auto"
         />
       </div>
-      {/* sapi tiba di tujuan */}
+      {/* sapi tiba di tujuan (statis: blend murah) */}
       <div className="pointer-events-none absolute right-[4%] bottom-[46%] w-[8%] mix-blend-multiply">
         <img
           src={IMG.heroCutout}
           alt="Sapi sampai di lokasi pembeli dengan selamat"
-          className="w-full h-auto float-slow"
+          decoding="async"
+          className="w-full h-auto"
         />
       </div>
     </div>
@@ -465,7 +454,9 @@ export default function Home() {
               <img
                 src={IMG.heroCutout}
                 alt="Sapi Limosin berkualitas dari Andini Farm, Sleman, Yogyakarta"
-                className="absolute inset-0 w-full h-full object-cover kenburns"
+                decoding="async"
+                fetchPriority="high"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             <div className="absolute bottom-3 right-0 md:right-4 rotate-2">
@@ -577,7 +568,7 @@ export default function Home() {
       </section>
 
       {/* ================= 02 • CARI SAPI SESUAI KEBUTUHAN ================= */}
-      <section className="relative overflow-hidden bg-ranch text-cream bg-dotgrid border-b-2 border-ink">
+      <section className="cv relative overflow-hidden bg-ranch text-cream bg-dotgrid border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
@@ -630,7 +621,7 @@ export default function Home() {
       </section>
 
       {/* ================= 03 • KIRIM KE MANA SAJA, ROADMAP ================= */}
-      <section className="relative overflow-hidden bg-parch border-b-2 border-ink">
+      <section className="cv relative overflow-hidden bg-parch border-b-2 border-ink">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
@@ -695,7 +686,7 @@ export default function Home() {
       </section>
 
       {/* ================= 04 • KENAPA HARUS BELI DI SINI (menyamping) ================= */}
-      <section className="relative overflow-hidden bg-ranch text-cream">
+      <section className="cv relative overflow-hidden bg-ranch text-cream">
         <img
           src={IMG.kandang}
           alt=""
@@ -755,7 +746,7 @@ export default function Home() {
       </section>
 
       {/* ================= 05 • ALAMAT ANDINI FARM (Google Maps) ================= */}
-      <section className="bg-cream bg-rules border-b-2 border-ink/10">
+      <section className="cv bg-cream bg-rules border-b-2 border-ink/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <Reveal className="lg:col-span-5">
@@ -792,7 +783,7 @@ export default function Home() {
       </section>
 
       {/* ================= FINAL: SEDANG MENCARI SAPI? ================= */}
-      <section className="relative overflow-hidden bg-ranch text-cream border-t-2 border-ink">
+      <section className="cv relative overflow-hidden bg-ranch text-cream border-t-2 border-ink">
         <img
           src={IMG.heroCutout}
           alt=""

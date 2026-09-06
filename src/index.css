@@ -70,6 +70,8 @@ body {
   z-index: 90;
   pointer-events: none;
   opacity: 0.065;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
 }
 
@@ -159,26 +161,23 @@ body {
   animation: tagFloat 5.5s ease-in-out infinite;
 }
 
-@keyframes floatY {
-  0%,
-  100% {
-    transform: translateY(0);
+/* truk roadmap: hanya transform (dijalankan compositor, tanpa repaint) */
+@keyframes truckDrift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(7deg);
   }
-  50% {
-    transform: translateY(-9px);
+  to {
+    transform: translate3d(76px, -12px, 0) rotate(2deg);
   }
 }
-.float-slow {
-  animation: floatY 6s ease-in-out infinite;
+.truck-drift {
+  animation: truckDrift 7s ease-in-out infinite alternate;
 }
 
-@keyframes dashMove {
-  to {
-    stroke-dashoffset: -120;
-  }
-}
-.road-dash {
-  animation: dashMove 2.8s linear infinite;
+/* section di bawah fold: dilewati renderer sampai hampir terlihat */
+.cv {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 /* ---------- typography helpers ---------- */
@@ -227,7 +226,8 @@ body {
   .kenburns,
   .spin-slow,
   .blink-dot,
-  .tag-float {
+  .tag-float,
+  .truck-drift {
     animation: none !important;
   }
   .reveal {

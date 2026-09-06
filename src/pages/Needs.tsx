@@ -246,7 +246,7 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
       </section>
 
       {/* tips checklist */}
-      <section className="bg-ranch text-cream bg-dotgrid border-y-2 border-ink">
+      <section className="cv bg-ranch text-cream bg-dotgrid border-y-2 border-ink">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
@@ -285,7 +285,7 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
       </section>
 
       {/* harga & cara beli */}
-      <section className="bg-cream">
+      <section className="cv bg-cream">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20">
           <Reveal>
             <PriceBlock name="sesuai kebutuhan Anda" waMessage={need.wa} />
