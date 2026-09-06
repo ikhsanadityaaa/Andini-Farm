@@ -441,15 +441,15 @@ export function StickyWA() {
           <IconWA className="w-5 h-5" />
           <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-ranch border border-gold blink-dot" />
         </span>
-        <span className="leading-tight">
-          <span className="block font-extrabold text-[13px] tracking-[0.1em] uppercase">
+        <span className="min-w-0 flex-1 leading-tight">
+          <span className="block truncate font-extrabold text-[13px] tracking-[0.1em] uppercase">
             CHAT WHATSAPP
           </span>
-          <span className="block text-[11px] font-medium text-ink/70">
+          <span className="hidden min-[420px]:block truncate text-[11px] font-medium text-ink/70">
             Tanya stok, jenis sapi, harga & pengiriman
           </span>
         </span>
-        <IconArrow className="ml-auto w-4 h-4 shrink-0" />
+        <IconArrow className="hidden min-[360px]:block ml-auto w-4 h-4 shrink-0" />
       </a>
 
       {/* desktop floating pill */}
