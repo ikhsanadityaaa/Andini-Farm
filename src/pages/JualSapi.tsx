@@ -222,8 +222,9 @@ export default function JualSapi() {
           <div className="lg:col-span-8 space-y-5 text-[15px] leading-relaxed text-ink/80">
             <Reveal delay={80}>
               <p>
-                Kalau Anda mencari <strong>jual sapi Sleman</strong> atau{" "}
-                <strong>jual sapi Yogyakarta</strong>, Andini Farm adalah peternakan dan
+                Kalau Anda mencari <strong>jual sapi Jogja</strong>,{" "}
+                <strong>jual sapi Sleman</strong> atau <strong>jual sapi Yogyakarta</strong>,
+                Andini Farm adalah peternakan dan
                 penjual sapi yang berbasis di Japanan, Margodadi, Seyegan, Sleman. Kami
                 berkecimpung di dunia sapi sejak 2008. Memahami sapi bukan dari brosur,
                 tapi dari kandang dan pasar hewan.

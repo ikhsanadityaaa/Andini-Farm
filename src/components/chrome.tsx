@@ -28,6 +28,16 @@ export function usePageMeta(title: string, desc?: string) {
       setMeta("property", "og:description", desc);
     }
     setMeta("property", "og:title", title);
+    /* canonical & og:url mengikuti rute aktif (berdasarkan domain deploy) */
+    const url = window.location.origin + window.location.pathname + (window.location.hash || "#/");
+    let canon = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canon) {
+      canon = document.createElement("link");
+      canon.rel = "canonical";
+      document.head.appendChild(canon);
+    }
+    canon.href = url;
+    setMeta("property", "og:url", url);
     window.scrollTo(0, 0);
   }, [title, desc]);
 }
@@ -406,7 +416,12 @@ export function Footer() {
       </div>
 
       <div className="border-t border-cream/10">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-5">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-5 space-y-3">
+          <p className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-[10px] font-bold tracking-[0.18em] uppercase">
+            <a href="/jual-sapi-jogja.html" className="text-cream/60 hover:text-gold transition-colors">Jual Sapi Jogja</a>
+            <a href="/sapi-qurban-jogja.html" className="text-cream/60 hover:text-gold transition-colors">Sapi Qurban Jogja</a>
+            <a href="/sapi-limosin-simental-pegon-jogja.html" className="text-cream/60 hover:text-gold transition-colors">Jenis Sapi Jogja</a>
+          </p>
           <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cream/35 leading-relaxed">
             {SEO_KEYWORDS.join("  ✦  ")}
           </p>

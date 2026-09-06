@@ -22,6 +22,7 @@ import {
 
 const MARQUEE_ITEMS = [
   "JUAL SAPI BERKUALITAS",
+  "JUAL SAPI JOGJA",
   "SAPI SEHAT",
   "GEMUK ALAMI",
   "LIMOSIN",
