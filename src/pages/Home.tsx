@@ -1,0 +1,843 @@
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ADDRESS_LINES, IMG, MAPS_EMBED, MAPS_LINK, WA_DISPLAY, waLink } from "../data/site";
+import { BREEDS } from "../data/breeds";
+import { usePageMeta } from "../components/chrome";
+import {
+  Button,
+  cx,
+  EarTag,
+  IconArrow,
+  IconPin,
+  IconStar,
+  IconTruck,
+  IconWA,
+  Marquee,
+  Reveal,
+  SectionHead,
+  Stamp,
+  StripeBar,
+  usePrefersReducedMotion,
+  WAButton,
+} from "../components/ui";
+
+const MARQUEE_ITEMS = [
+  "JUAL SAPI BERKUALITAS",
+  "SAPI SEHAT",
+  "GEMUK ALAMI",
+  "LIMOSIN",
+  "SIMENTAL",
+  "PEGON SUPER",
+  "HARGA KOMPETITIF",
+  "ANTAR SAMPAI TUJUAN",
+  "SEJAK 2008",
+  "SLEMAN • YOGYAKARTA",
+];
+
+const TRUST = [
+  { big: "SEJAK 2008", small: "Pengalaman lebih dari 17 tahun di dunia peternakan" },
+  { big: "JARINGAN PETERNAK", small: "Jaringan yang dibangun selama bertahun-tahun" },
+  { big: "FOKUS JUAL SAPI", small: "Menjual sapi, bukan daging, bukan produk olahan" },
+  { big: "YOGYAKARTA", small: "Sleman, Yogyakarta" },
+];
+
+const JANJI = [
+  {
+    t: "SAPI SEHAT, BEBAS PENYAKIT",
+    d: "Setiap sapi dirawat dan dipantau kondisinya setiap hari. Sapi yang sedang kurang sehat tidak kami pasarkan, sesederhana itu.",
+  },
+  {
+    t: "GEMUK ALAMI",
+    d: "Badan berisi karena pakan yang layak dan perawatan rutin, bukan cara instan. Kondisinya bisa Anda cek lewat video atau saat melihat langsung.",
+  },
+  {
+    t: "HARGA PALING KOMPETITIF",
+    d: "Sapi dari kandang sendiri dan jaringan peternak yang dibangun sejak 2008. Harga dari tangan pertama, bukan dari perantara berlapis.",
+  },
+  {
+    t: "DICARIKAN SESUAI BUDGET",
+    d: "Sebutkan budget dan kebutuhan Anda. Kalau stok kandang belum pas, kami carikan lewat jaringan sampai dapat yang cocok.",
+  },
+  {
+    t: "ANTAR SAMPAI TUJUAN",
+    d: "Sapi diantar sampai lokasi Anda dengan kendaraan ternak yang sesuai. Ongkos kirim jelas di depan, tanpa biaya tambahan di belakang.",
+  },
+  {
+    t: "BISA LIHAT DULU, BARU DEAL",
+    d: "Sapi yang sedang kami rawat di kandang bisa dilihat langsung. Untuk sapi di peternak rekanan, kita janjian lihat di lokasi atau di pasar hewan. Foto dan video terbaru juga siap dikirim.",
+  },
+];
+
+type NeedKind = "qurban" | "aqiqah" | "penggemukan" | "dagang";
+
+const NEEDS: { kind: NeedKind; t: string; d: string; to: string | null; cta: string; wa: string }[] = [
+  {
+    kind: "qurban",
+    t: "UNTUK QURBAN",
+    d: "Cari sapi untuk kebutuhan qurban. Sehat, cukup umur dan layak sesuai syariat.",
+    to: "/sapi-qurban",
+    cta: "CARI SAPI QURBAN",
+    wa: "Halo Andini Farm, saya sedang mencari sapi untuk QURBAN. Bisa dibantu carikan?",
+  },
+  {
+    kind: "aqiqah",
+    t: "UNTUK AQIQAH",
+    d: "Pilihan sapi untuk kebutuhan aqiqah keluarga, dengan bobot yang bisa disesuaikan.",
+    to: "/sapi-aqiqah",
+    cta: "TANYAKAN SAPI AQIQAH",
+    wa: "Halo Andini Farm, saya mencari sapi untuk AQIQAH. Bisa info stok dan harganya?",
+  },
+  {
+    kind: "penggemukan",
+    t: "UNTUK PENGGEMUKAN",
+    d: "Sapi untuk peternak dan kebutuhan penggemukan. Bakalan dengan kerangka dan kondisi bagus.",
+    to: "/sapi-penggemukan",
+    cta: "TANYAKAN SAPI",
+    wa: "Halo Andini Farm, saya mencari sapi bakalan untuk PENGGEMUKAN. Bisa dibantu carikan?",
+  },
+  {
+    kind: "dagang",
+    t: "UNTUK DAGANG / USAHA",
+    d: "Untuk pedagang atau kebutuhan usaha sapi. Kami bantu carikan sesuai perputaran pasar Anda.",
+    to: null,
+    cta: "HUBUNGI ANDINI FARM",
+    wa: "Halo Andini Farm, saya butuh sapi untuk dagang / usaha. Bisa dibantu?",
+  },
+];
+
+/* Logo / ikon custom untuk tiap kebutuhan */
+function NeedIcon({ kind, className = "w-12 h-12 md:w-14 md:h-14" }: { kind: NeedKind; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      className={cx(className, "text-gold")}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      {kind === "qurban" && (
+        <>
+          {/* bulan sabit */}
+          <path
+            d="M27 4 A20 20 0 1 0 27 44 A26 26 0 0 1 27 4 Z"
+            fill="currentColor"
+            stroke="none"
+          />
+          {/* bintang */}
+          <path
+            d="M36 15 l2.2 5.3 5.3 2.2 -5.3 2.2 -2.2 5.3 -2.2 -5.3 -5.3 -2.2 5.3 -2.2 z"
+            fill="currentColor"
+            stroke="none"
+          />
+        </>
+      )}
+      {kind === "aqiqah" && (
+        <>
+          <path d="M14 21 C10 20 8 17 8 13 C12 14 15 16 16 19" />
+          <path d="M30 21 C34 20 36 17 36 13 C32 14 29 16 28 19" />
+          <path d="M15 19 H29 V32 A7 7 0 0 1 15 32 Z" />
+          <path d="M19 31.5 h6 a3 3 0 0 1 -6 0" fill="currentColor" stroke="none" />
+          <path d="M19.5 24.5 h.01 M24.5 24.5 h.01" strokeWidth="2.8" />
+          <path
+            d="M39 9 c2.4 -2.9 6.8 -1.4 6.8 2 c0 2.9 -3.9 5.3 -6.8 6.8 c-2.9 -1.5 -6.8 -3.9 -6.8 -6.8 c0 -3.4 4.4 -4.9 6.8 -2 z"
+            fill="currentColor"
+            stroke="none"
+          />
+        </>
+      )}
+      {kind === "penggemukan" && (
+        <>
+          <path d="M7 41 H41" />
+          <path d="M12 41 V30 M21 41 V24 M30 41 V17" />
+          <path d="M11 19 L20 12 L26 16 L38 6" />
+          <path d="M38 6 h-7 M38 6 v7" />
+        </>
+      )}
+      {kind === "dagang" && (
+        <>
+          <circle cx="30" cy="30" r="12" />
+          <circle cx="19" cy="19" r="13" fill="var(--color-pine, #0d2114)" />
+          <circle cx="19" cy="19" r="13" />
+          <text
+            x="19"
+            y="23.5"
+            textAnchor="middle"
+            fill="currentColor"
+            stroke="none"
+            style={{ fontFamily: "var(--font-mono)", fontSize: "11px", fontWeight: 700 }}
+          >
+            Rp
+          </text>
+        </>
+      )}
+    </svg>
+  );
+}
+
+const ROUTE_NOTES = [
+  { c: "YOGYAKARTA", n: "Titik berangkat, kandang di Seyegan, Sleman" },
+  { c: "JAWA TENGAH", n: "Klaten, Solo, Magelang, Semarang & sekitarnya" },
+  { c: "JAWA BARAT", n: "Bandung, Bekasi, Bogor & sekitarnya" },
+  { c: "JAWA TIMUR", n: "Madiun, Kediri, Surabaya & sekitarnya" },
+];
+
+/* Roadmap ilustrasi pengiriman: jalan berkelok + pickup sapi + truk berjalan */
+function DeliveryRoad() {
+  const reduce = usePrefersReducedMotion();
+  const d =
+    "M 215 195 C 335 115, 445 118, 560 195 C 675 262, 775 265, 880 208 C 985 152, 1065 128, 1150 178";
+  const stops = [
+    { x: 215, y: 195, label: "YOGYAKARTA", sub: "KANDANG ANDINI FARM", up: true, start: true },
+    { x: 560, y: 195, label: "JAWA TENGAH", sub: "SOLO • SEMARANG • MAGELANG", up: false },
+    { x: 880, y: 208, label: "JAWA BARAT", sub: "BANDUNG • BOGOR • BEKASI", up: true },
+    { x: 1150, y: 178, label: "JAWA TIMUR", sub: "MADIUN • KEDIRI • SURABAYA", up: false },
+  ];
+  return (
+    <div className="relative">
+      <svg
+        viewBox="0 0 1260 330"
+        className="w-full h-auto"
+        role="img"
+        aria-label="Ilustrasi rute pengiriman sapi dari Yogyakarta menuju Jawa Tengah, Jawa Barat dan Jawa Timur"
+      >
+        {/* jalan */}
+        <path d={d} fill="none" stroke="#163020" strokeWidth="30" strokeLinecap="round" />
+        <path d={d} fill="none" stroke="#EDE8DC" strokeWidth="22" strokeLinecap="round" opacity="0.13" />
+        <path
+          d={d}
+          fill="none"
+          stroke="#C89B3C"
+          strokeWidth="3.5"
+          strokeDasharray="16 14"
+          strokeLinecap="round"
+          className="road-dash"
+        />
+
+        {/* titik-titik rute */}
+        {stops.map((s) => (
+          <g key={s.label}>
+            <circle cx={s.x} cy={s.y} r="14" fill="#EDE8DC" stroke="#151515" strokeWidth="3.5" />
+            {s.start ? (
+              <path
+                d={`M ${s.x} ${s.y - 7.5} l 2.3 5.2 5.2 2.3 -5.2 2.3 -2.3 5.2 -2.3 -5.2 -5.2 -2.3 5.2 -2.3 z`}
+                fill="#C89B3C"
+                stroke="#151515"
+                strokeWidth="1.4"
+              />
+            ) : (
+              <circle cx={s.x} cy={s.y} r="5.5" fill="#163020" />
+            )}
+            <text
+              x={s.x}
+              y={s.up ? s.y - 52 : s.y + 46}
+              textAnchor="middle"
+              style={{ fontFamily: "var(--font-display)", fontSize: "22px", letterSpacing: "1px" }}
+              fill="#163020"
+            >
+              {s.label}
+            </text>
+            <text
+              x={s.x}
+              y={s.up ? s.y - 32 : s.y + 66}
+              textAnchor="middle"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "11.5px",
+                fontWeight: 700,
+                letterSpacing: "1.8px",
+              }}
+              fill="#6E4B32"
+            >
+              {s.sub}
+            </text>
+          </g>
+        ))}
+
+        {/* truk berjalan menyusuri rute */}
+        {!reduce && (
+          <g>
+            <g stroke="#151515" strokeWidth="2.6" strokeLinejoin="round">
+              <rect x="-40" y="-24" width="46" height="22" rx="2.5" fill="#C89B3C" />
+              <circle cx="-26" cy="-31" r="7" fill="#6E4B32" strokeWidth="2.4" />
+              <circle cx="-12" cy="-31" r="7" fill="#EDE8DC" strokeWidth="2.4" />
+              <path d="M 6 -24 h 15 l 11 11 v 11 h -26 z" fill="#163020" />
+              <rect x="10" y="-20" width="9" height="8" fill="#EDE8DC" strokeWidth="2" />
+            </g>
+            <circle cx="-26" cy="2" r="8" fill="#151515" />
+            <circle cx="-26" cy="2" r="3" fill="#EDE8DC" />
+            <circle cx="17" cy="2" r="8" fill="#151515" />
+            <circle cx="17" cy="2" r="3" fill="#EDE8DC" />
+            <animateMotion dur="15s" repeatCount="indefinite" rotate="auto" path={d} />
+          </g>
+        )}
+      </svg>
+
+      {/* pickup angkut sapi di kiri bawah, tidak menutupi label Yogyakarta */}
+      <div className="pointer-events-none absolute left-[4%] bottom-[2%] w-[12%] mix-blend-multiply">
+        <img
+          src={IMG.pickup}
+          alt="Pickup mengangkut dua sapi dari kandang Andini Farm"
+          className="w-full h-auto float-slow"
+        />
+      </div>
+      {/* sapi tiba di tujuan */}
+      <div className="pointer-events-none absolute right-[4%] bottom-[46%] w-[8%] mix-blend-multiply">
+        <img
+          src={IMG.heroCutout}
+          alt="Sapi sampai di lokasi pembeli dengan selamat"
+          className="w-full h-auto float-slow"
+        />
+      </div>
+    </div>
+  );
+}
+
+/* Peta Google Maps yang dimuat lambat: tampilkan poster dulu, iframe
+   hanya dimuat ketika section hampir terlihat, supaya halaman tetap cepat */
+function LazyMap() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [load, setLoad] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setLoad(true);
+            io.disconnect();
+          }
+        });
+      },
+      { rootMargin: "400px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className="relative border-2 border-ink shadow-press overflow-hidden bg-ranch">
+      {load ? (
+        <iframe
+          title="Peta lokasi Andini Farm di Japanan, Seyegan, Sleman, Yogyakarta"
+          src={MAPS_EMBED}
+          className="w-full h-[240px] sm:h-[280px] lg:h-[320px] border-0 block bg-parch"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      ) : (
+        <a
+          href={MAPS_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group/mp relative flex h-[240px] sm:h-[280px] lg:h-[320px] items-center justify-center bg-dotgrid transition-colors duration-300 hover:bg-pine"
+          aria-label="Buka lokasi Andini Farm di Google Maps"
+        >
+          {/* garis jalan ilustratif */}
+          <svg viewBox="0 0 400 120" className="absolute inset-x-0 bottom-4 w-full opacity-30" aria-hidden>
+            <path d="M0 80 C 90 40, 170 100, 250 60 S 360 30, 400 55" fill="none" stroke="#C89B3C" strokeWidth="3" strokeDasharray="10 8" />
+          </svg>
+          <span className="relative flex flex-col items-center text-center px-6">
+            <span className="w-14 h-14 grid place-items-center border-2 border-gold bg-pine text-gold transition-transform duration-300 group-hover/mp:-translate-y-1.5">
+              <IconPin className="w-7 h-7" />
+            </span>
+            <span className="mt-4 font-display text-lg md:text-xl uppercase text-cream leading-snug">
+              Kandang Sapi Japanan, Seyegan
+            </span>
+            <span className="mt-2 font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-cream/60 group-hover/mp:text-gold transition-colors">
+              Klik untuk buka Google Maps
+            </span>
+          </span>
+        </a>
+      )}
+    </div>
+  );
+}
+
+export default function Home() {
+  usePageMeta(
+    "Jual Sapi Limosin, Simental & Pegon Super | Andini Farm",
+    "Andini Farm menyediakan sapi Limosin, Simental dan Pegon Super yang sehat dan terawat. Berpengalaman sejak 2008 dan berlokasi di Sleman, Yogyakarta. Hubungi kami untuk stok, harga dan pengiriman sapi."
+  );
+
+  const location = useLocation();
+  useEffect(() => {
+    const st = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (st) {
+      const t = setTimeout(() => {
+        document.getElementById(st)?.scrollIntoView({ behavior: "smooth" });
+      }, 60);
+      return () => clearTimeout(t);
+    }
+  }, [location.state]);
+
+  const scrollToBreeds = () =>
+    document.getElementById("jenis-sapi")?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  return (
+    <>
+      {/* ================= HERO: JUAL SAPI BERKUALITAS ================= */}
+      <section className="relative overflow-hidden bg-cream bg-rules">
+        {/* stempel berputar di kanan atas */}
+        <Stamp className="absolute top-4 right-3 sm:top-8 sm:right-6 lg:top-10 lg:right-10 w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 z-20" />
+        <div
+          className="pointer-events-none absolute -left-10 bottom-[-6rem] font-display text-[24rem] leading-none text-outline-ink select-none hidden lg:block"
+          aria-hidden
+        >
+          AF
+        </div>
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8 pt-10 md:pt-16 pb-14 md:pb-20 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* copy */}
+          <div className="lg:col-span-6">
+            <Reveal>
+              <EarTag tone="ranch" float>
+                Peternakan Sapi • Sleman, Yogyakarta
+              </EarTag>
+              <h1 className="mt-7 font-display text-[clamp(2.7rem,7.2vw,5rem)] leading-[0.95] uppercase text-ranch">
+                JUAL{" "}
+                <span className="relative inline-block">
+                  <span className="relative z-10">SAPI</span>
+                  <span
+                    className="absolute left-0 right-0 bottom-[0.08em] h-[0.28em] bg-gold -z-0"
+                    aria-hidden
+                  />
+                </span>{" "}
+                BERKUALITAS
+              </h1>
+              <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] md:text-[13px] font-bold tracking-[0.22em] uppercase text-leather">
+                LIMOSIN <IconStar className="w-3 h-3 text-gold" /> SIMENTAL{" "}
+                <IconStar className="w-3 h-3 text-gold" /> PEGON SUPER
+              </p>
+            </Reveal>
+            <Reveal delay={110}>
+              <p className="mt-7 text-base md:text-lg leading-relaxed text-ink/80 max-w-xl">
+                Berpengalaman di dunia peternakan sejak 2008, Andini Farm menyediakan
+                sapi-sapi pilihan untuk qurban, aqiqah, penggemukan hingga perdagangan.
+              </p>
+              <p className="mt-5 flex items-center gap-3">
+                <IconTruck className="w-7 h-7 md:w-8 md:h-8 shrink-0 text-gold" />
+                <span className="whitespace-nowrap text-base md:text-lg font-extrabold tracking-[0.05em] uppercase text-leather">
+                  Bisa diantar{" "}
+                  <span className="relative inline-block">
+                    <span className="relative z-10">sampai tujuan</span>
+                    <span
+                      className="absolute left-0 right-0 bottom-[0.08em] h-[0.3em] bg-gold/60 -z-0"
+                      aria-hidden
+                    />
+                  </span>
+                </span>
+              </p>
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <Button onClick={scrollToBreeds} variant="green" size="lg" arrow>
+                  LIHAT JENIS SAPI
+                </Button>
+                <WAButton
+                  wa="Halo Andini Farm, saya ingin tanya stok sapi yang tersedia."
+                  variant="gold"
+                  size="lg"
+                >
+                  CHAT WHATSAPP
+                </WAButton>
+              </div>
+              <p className="mt-6 font-mono text-[11px] tracking-[0.14em] uppercase text-ink/55">
+                Fast respon:{" "}
+                <a
+                  href={waLink("Halo Andini Farm.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ranch font-bold hover:text-leather"
+                >
+                  {WA_DISPLAY}
+                </a>
+                , tanya stok, bobot & harga.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* hero photo, sapi cutout murni tanpa bingkai */}
+          <Reveal delay={140} className="reveal-fade lg:col-span-6 relative">
+            <div className="relative aspect-[4/5] max-w-[430px] sm:max-w-[520px] mx-auto lg:mx-0 lg:max-w-none overflow-hidden mix-blend-multiply">
+              <img
+                src={IMG.heroCutout}
+                alt="Sapi Limosin berkualitas dari Andini Farm, Sleman, Yogyakarta"
+                className="absolute inset-0 w-full h-full object-cover kenburns"
+              />
+            </div>
+            <div className="absolute bottom-3 right-0 md:right-4 rotate-2">
+              <EarTag tone="ranch">BOBOT & STOK: TANYA VIA WA</EarTag>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <Marquee items={MARQUEE_ITEMS} />
+
+      {/* ================= TRUST BAR ================= */}
+      <section className="bg-cream border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4">
+          {TRUST.map((t, i) => (
+            <Reveal
+              key={t.big}
+              delay={i * 80}
+              className={cx(
+                "group p-6 md:p-8 transition-colors duration-300 hover:bg-gold/20",
+                i > 0 && "border-l-2 border-ink/15 lg:border-ink/30",
+                i >= 2 && "border-t-2 border-ink/15 lg:border-t-0"
+              )}
+            >
+              <span className="font-mono text-[10px] font-bold tracking-[0.24em] text-leather">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 font-display text-lg md:text-[1.35rem] leading-tight uppercase text-ranch group-hover:translate-x-1 transition-transform duration-300">
+                {t.big}
+              </h3>
+              <p className="mt-2.5 text-[13px] leading-snug text-ink/65">{t.small}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= 01 • JENIS SAPI (KATALOG) ================= */}
+      <section id="jenis-sapi" className="bg-cream bg-rules scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <SectionHead
+                kicker="01 • Jenis Sapi"
+                title="PILIH SAPI YANG ANDA CARI"
+                sub="Andini Farm menyediakan berbagai jenis sapi pilihan untuk berbagai kebutuhan. Sapi bisa dilihat langsung saat di kandang, di lokasi peternak rekanan, maupun lewat foto dan video terbaru."
+              />
+            </div>
+          </Reveal>
+
+          {/* katalog: tiga jenis sapi sejajar ke kanan, ukuran seragam */}
+          <div className="mt-14 grid md:grid-cols-3 gap-7 lg:gap-8">
+            {BREEDS.map((b, idx) => (
+              <Reveal key={b.slug} delay={idx * 110} className="h-full">
+                <div className="group/br h-full border-2 border-ink bg-cream shadow-press transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[8px_8px_0_0_#151515] flex flex-col">
+                  {/* foto besar */}
+                  <div className="relative overflow-hidden border-b-2 border-ink">
+                    <div className="aspect-[4/3]">
+                      <img
+                        src={b.photo}
+                        alt={b.photoAlt}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/br:scale-[1.06]"
+                      />
+                    </div>
+                    <span
+                      className="absolute -top-2 -left-1 font-display text-[4.5rem] leading-none text-outline-ink select-none"
+                      aria-hidden
+                    >
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <div className="absolute top-3 right-3">
+                      <EarTag>SIAP DIJUAL</EarTag>
+                    </div>
+                  </div>
+                  {/* isi */}
+                  <div className="p-6 md:p-7 flex flex-col flex-1">
+                    <h3 className="font-display text-2xl md:text-[1.7rem] leading-[1.02] uppercase text-ranch">
+                      SAPI {b.name}
+                    </h3>
+                    <p className="mt-2 font-bold text-[12px] tracking-[0.14em] text-olive uppercase">
+                      {b.tagline}
+                    </p>
+                    <p className="mt-3.5 text-[13.5px] leading-relaxed text-ink/70 flex-1">
+                      {b.intro}
+                    </p>
+                    <p className="mt-4 inline-flex w-fit items-center gap-2 border-2 border-ink bg-parch px-3 py-[7px] font-mono text-[10px] font-bold tracking-[0.12em] uppercase">
+                      <span className="w-2 h-2 rounded-full bg-olive blink-dot" />
+                      Harga menyesuaikan
+                    </p>
+                    <div className="mt-5 flex flex-col gap-2.5">
+                      <WAButton wa={b.waMessage} variant="gold" className="w-full">
+                        {b.cta}
+                      </WAButton>
+                      <Link
+                        to={`/sapi-${b.slug}`}
+                        className="group/l inline-flex items-center justify-center gap-2 border-2 border-ink px-5 py-[11px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink hover:bg-ranch hover:text-cream transition-colors"
+                      >
+                        LIHAT HALAMAN {b.nameAlt.toUpperCase()}
+                        <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+        <StripeBar />
+      </section>
+
+      {/* ================= 02 • CARI SAPI SESUAI KEBUTUHAN ================= */}
+      <section className="relative overflow-hidden bg-ranch text-cream bg-dotgrid border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+              <SectionHead
+                tone="dark"
+                kicker="02 • Sedang mencari sapi?"
+                title={
+                  <>
+                    CARI SAPI <span className="text-gold">SESUAI KEBUTUHAN</span>
+                  </>
+                }
+                sub="Apapun kebutuhan Anda, Andini Farm siap membantu mencari sapi yang sesuai dengan kebutuhan dan budget. Ceritakan saja, sisanya kami yang carikan."
+              />
+            </div>
+          </Reveal>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {NEEDS.map((n, i) => (
+              <Reveal key={n.t} delay={i * 90} className="h-full">
+                <div className="group/nd h-full border-2 border-cream/25 bg-pine/60 p-6 md:p-7 flex flex-col transition-all duration-300 hover:border-gold hover:bg-pine hover:-translate-y-1.5">
+                  <div className="flex items-start justify-between gap-3">
+                    <NeedIcon kind={n.kind} />
+                    <span className="font-display text-3xl leading-none text-cream/20 transition-colors duration-300 group-hover/nd:text-gold">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 font-display text-lg md:text-xl uppercase leading-snug text-cream group-hover/nd:text-gold transition-colors duration-300">
+                    {n.t}
+                  </h3>
+                  <p className="mt-2.5 text-[13px] leading-relaxed text-cream/70 flex-1">{n.d}</p>
+                  <div className="mt-5">
+                    {n.to ? (
+                      <Link
+                        to={n.to}
+                        className="group/b inline-flex w-full items-center justify-center gap-2 border-2 border-ink bg-gold px-4 py-3 text-[11px] font-extrabold uppercase tracking-[0.13em] shadow-[3px_3px_0_0_#151515] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#151515] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                      >
+                        {n.cta}
+                        <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/b:translate-x-1" />
+                      </Link>
+                    ) : (
+                      <WAButton wa={n.wa} variant="gold" className="w-full">
+                        {n.cta}
+                      </WAButton>
+                    )}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= 03 • KIRIM KE MANA SAJA, ROADMAP ================= */}
+      <section className="relative overflow-hidden bg-parch border-b-2 border-ink">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+              <SectionHead
+                kicker="03 • Pengiriman"
+                title="SAPI BISA DIKIRIM KE MANA SAJA"
+                sub="Beli dari luar kota tetap aman. Andini Farm melayani pengiriman sapi sesuai tujuan pembelian. Biaya menyesuaikan lokasi, jumlah sapi dan kondisi pengiriman."
+              />
+              <div className="flex flex-wrap items-center gap-5 shrink-0">
+                <Link
+                  to="/pengiriman-sapi"
+                  className="group/l inline-flex items-center gap-2 font-extrabold text-[12px] uppercase tracking-[0.14em] text-ranch border-b-2 border-gold pb-1 hover:text-leather transition-colors"
+                >
+                  DETAIL PENGIRIMAN
+                  <IconArrow className="w-3.5 h-3.5 transition-transform group-hover/l:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120} className="reveal-fade">
+            <div className="relative mt-10 md:mt-14">
+              <p className="md:hidden mb-3 text-center font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather">
+                ⟵ geser untuk melihat rute ⟶
+              </p>
+              <div className="overflow-x-auto md:overflow-x-visible -mx-5 px-5 md:mx-0 md:px-0">
+                <div className="min-w-[860px] md:min-w-0">
+                  <DeliveryRoad />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <div className="mt-9 border-2 border-ink bg-cream shadow-press grid sm:grid-cols-2 lg:grid-cols-4">
+              {ROUTE_NOTES.map((r, i) => (
+                <div
+                  key={r.c}
+                  className={cx(
+                    "group/rt flex items-start gap-4 p-5 md:p-6 transition-colors duration-200 hover:bg-gold/25",
+                    i > 0 && "border-t-2 border-ink sm:border-t-0 sm:border-l-2",
+                    i >= 2 && "sm:border-t-2 lg:border-t-0",
+                    i === 2 && "sm:border-l-0 lg:border-l-2"
+                  )}
+                >
+                  <IconTruck className="w-6 h-6 mt-1 shrink-0 text-leather transition-transform duration-300 group-hover/rt:translate-x-1.5" />
+                  <div>
+                    <p className="font-display text-base md:text-lg uppercase text-ranch leading-tight">
+                      {r.c}
+                    </p>
+                    <p className="mt-1.5 text-[12.5px] leading-snug text-ink/65">{r.n}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 font-mono text-[10.5px] md:text-[11px] tracking-[0.14em] uppercase text-leather">
+              + wilayah lain sesuai kesepakatan • ongkos kirim jelas di depan, tanpa
+              biaya tambahan di belakang
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ================= 04 • KENAPA HARUS BELI DI SINI (menyamping) ================= */}
+      <section className="relative overflow-hidden bg-ranch text-cream">
+        <img
+          src={IMG.kandang}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.13]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ranch via-ranch/92 to-ranch/70" aria-hidden />
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+              <SectionHead
+                tone="dark"
+                kicker="04 • Kenapa beli di sini"
+                title={
+                  <>
+                    KENAPA HARUS BELI SAPI <span className="text-gold">DI SINI?</span>
+                  </>
+                }
+                sub="Bukan sekadar jualan. Ini alasan pembeli tenang bertransaksi dengan Andini Farm, dan datang lagi."
+              />
+            </div>
+          </Reveal>
+          {/* kartu janji berjejer menyamping */}
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {JANJI.map((w, i) => (
+              <Reveal
+                key={w.t}
+                delay={(i % 3) * 90}
+                className="group border-2 border-cream/25 bg-pine/60 p-6 md:p-7 transition-all duration-300 hover:border-gold hover:bg-pine hover:-translate-y-1.5"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <span className="font-display text-3xl md:text-4xl text-gold leading-none transition-transform duration-300 group-hover:-translate-y-1">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <IconStar className="w-4 h-4 text-cream/25 transition-colors duration-300 group-hover:text-gold" />
+                </div>
+                <h3 className="mt-4 font-display text-lg md:text-xl leading-snug uppercase text-cream group-hover:text-gold transition-colors duration-300">
+                  {w.t}
+                </h3>
+                <p className="mt-3 text-[13.5px] leading-relaxed text-cream/70">{w.d}</p>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={140}>
+            <p className="mt-8 flex flex-wrap gap-x-2.5 gap-y-1.5 font-mono text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase text-cream/55">
+              <span className="text-gold">Ditopang:</span>
+              <span>Pengalaman sejak 2008</span>
+              <span aria-hidden>✦</span>
+              <span>Jaringan peternak luas</span>
+              <span aria-hidden>✦</span>
+              <span>Bisa konsultasi dulu</span>
+              <span aria-hidden>✦</span>
+              <span>Pilihan 3 jenis sapi</span>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ================= 05 • ALAMAT ANDINI FARM (Google Maps) ================= */}
+      <section className="bg-cream bg-rules border-b-2 border-ink/10">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            <Reveal className="lg:col-span-5">
+              <SectionHead
+                kicker="05 • Alamat"
+                title="ALAMAT ANDINI FARM"
+              />
+              <address className="mt-7 not-italic font-display text-xl md:text-2xl uppercase leading-snug text-ranch">
+                {ADDRESS_LINES.map((l) => (
+                  <span key={l} className="block">
+                    {l}
+                  </span>
+                ))}
+              </address>
+              <p className="mt-4 text-sm text-ink/65 max-w-md leading-relaxed">
+                Sapi yang tersedia bisa berada di kandang kami di Japanan atau di
+                peternak rekanan. Kabari kami untuk mengetahui lokasi sapi yang Anda
+                incar, atau lihat langsung di pasar hewan.
+              </p>
+              <a
+                href={MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2 border-2 border-ink px-5 py-[13px] text-[11px] font-extrabold uppercase tracking-[0.13em] text-ink hover:bg-ink hover:text-cream transition-colors"
+              >
+                <IconPin className="w-3.5 h-3.5" /> BUKA DI GOOGLE MAPS
+              </a>
+            </Reveal>
+            <Reveal delay={120} className="reveal-fade lg:col-span-7">
+              <LazyMap />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= FINAL: SEDANG MENCARI SAPI? ================= */}
+      <section className="relative overflow-hidden bg-ranch text-cream border-t-2 border-ink">
+        <img
+          src={IMG.heroCutout}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.1] kenburns"
+        />
+        <div className="absolute inset-0 bg-rules-dark" aria-hidden />
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28">
+          <Reveal>
+            <div className="max-w-2xl">
+              <p className="flex items-center gap-3 font-mono text-[11px] font-bold tracking-[0.28em] uppercase text-gold">
+                <IconStar className="w-3 h-3" /> Limosin, Simental, atau Pegon Super?
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(2.4rem,6.5vw,4.6rem)] leading-[0.98] uppercase">
+                SEDANG <span className="text-gold">MENCARI SAPI?</span>
+              </h2>
+              <p className="mt-6 text-base md:text-lg leading-relaxed text-cream/85">
+                Langsung hubungi kontak WhatsApp kami di{" "}
+                <a
+                  href={waLink("Halo Andini Farm, saya sedang mencari sapi.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display text-gold underline decoration-gold/50 decoration-2 underline-offset-4 hover:decoration-gold transition-colors"
+                >
+                  {WA_DISPLAY}
+                </a>
+                . Tanya stok, bobot, harga dan pengiriman, semua dijawab langsung.
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-5">
+                <WAButton
+                  wa="Halo Andini Farm, saya sedang mencari sapi. Bisa dibantu cek stok, harga dan pengiriman?"
+                  variant="gold"
+                  size="lg"
+                >
+                  CHAT WHATSAPP
+                </WAButton>
+                <span className="inline-flex items-center gap-2.5 font-mono text-[13px] font-bold tracking-[0.1em] text-cream/70">
+                  <IconWA className="w-5 h-5 text-gold" />
+                  {WA_DISPLAY}
+                </span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  );
+}
