@@ -28,7 +28,8 @@
     <meta name="robots" content="index, follow" />
     <meta name="geo.region" content="ID-YO" />
     <meta name="geo.placename" content="Sleman, Yogyakarta" />
-    <!-- canonical & og:url diisi dinamis sesuai domain deploy (lihat bagian bawah body) -->
+    <link rel="canonical" href="https://andinifarm.biz.id/" />
+    <meta property="og:url" content="https://andinifarm.biz.id/" />
     <meta property="og:site_name" content="Andini Farm" />
     <meta property="og:locale" content="id_ID" />
     <script type="application/ld+json">
@@ -37,7 +38,7 @@
         "@graph": [
           {
             "@type": "LocalBusiness",
-            "@id": "/#business",
+            "@id": "https://andinifarm.biz.id/#business",
             "name": "Andini Farm",
             "description": "Penjual sapi Limosin, Simental dan Pegon Super di Japanan, Seyegan, Sleman, Yogyakarta. Berpengalaman sejak 2008. Melayani qurban, aqiqah, penggemukan dan pengiriman ke berbagai wilayah.",
             "telephone": "+6285331379462",
@@ -57,10 +58,10 @@
           },
           {
             "@type": "WebSite",
-            "@id": "/#website",
+            "@id": "https://andinifarm.biz.id/#website",
             "name": "Andini Farm",
-            "url": "/",
-            "publisher": { "@id": "/#business" },
+            "url": "https://andinifarm.biz.id/",
+            "publisher": { "@id": "https://andinifarm.biz.id/#business" },
             "inLanguage": "id-ID"
           }
         ]
@@ -75,22 +76,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      /* canonical & og:url otomatis mengikuti domain deploy */
-      (function () {
-        try {
-          var base = location.origin + location.pathname;
-          var c = document.createElement("link");
-          c.rel = "canonical";
-          c.href = base + (location.hash || "");
-          document.head.appendChild(c);
-          var o = document.createElement("meta");
-          o.setAttribute("property", "og:url");
-          o.setAttribute("content", c.href);
-          document.head.appendChild(o);
-        } catch (e) {}
-      })();
-    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

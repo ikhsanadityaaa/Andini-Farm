@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/jual-sapi-jogja.html</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/sapi-qurban-jogja.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/sapi-limosin-simental-pegon-jogja.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>/</loc><priority>1.0</priority><changefreq>daily</changefreq></url>
-  <url><loc>/#/jual-sapi</loc><priority>0.8</priority></url>
-  <url><loc>/#/sapi-limosin</loc><priority>0.8</priority></url>
-  <url><loc>/#/sapi-simental</loc><priority>0.8</priority></url>
-  <url><loc>/#/sapi-pegon</loc><priority>0.8</priority></url>
-  <url><loc>/#/sapi-qurban</loc><priority>0.7</priority></url>
-  <url><loc>/#/sapi-aqiqah</loc><priority>0.7</priority></url>
-  <url><loc>/#/sapi-penggemukan</loc><priority>0.7</priority></url>
-  <url><loc>/#/pengiriman-sapi</loc><priority>0.6</priority></url>
-  <url><loc>/#/tentang-andini-farm</loc><priority>0.6</priority></url>
-  <url><loc>/#/artikel</loc><priority>0.5</priority></url>
-  <url><loc>/#/kontak</loc><priority>0.5</priority></url>
+  <url><loc>https://andinifarm.biz.id/jual-sapi-jogja.html</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/sapi-qurban-jogja.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/sapi-limosin-simental-pegon-jogja.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/jual-sapi</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/sapi-limosin</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/sapi-simental</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/sapi-pegon</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/sapi-qurban</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/sapi-aqiqah</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/sapi-penggemukan</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/pengiriman-sapi</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/tentang-andini-farm</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/artikel</loc><priority>0.6</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://andinifarm.biz.id/#/kontak</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>
