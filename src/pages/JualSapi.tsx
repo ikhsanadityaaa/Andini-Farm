@@ -197,7 +197,7 @@ export default function JualSapi() {
       </section>
 
       {/* harga */}
-      <section className="bg-cream">
+      <section className="cv bg-cream">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20">
           <Reveal>
             <PriceBlock
@@ -209,7 +209,7 @@ export default function JualSapi() {
       </section>
 
       {/* SEO text */}
-      <section className="bg-parch border-t-2 border-ink/10">
+      <section className="cv bg-parch border-t-2 border-ink/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Reveal>
@@ -253,7 +253,7 @@ export default function JualSapi() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-cream bg-rules border-t-2 border-ink/10">
+      <section className="cv bg-cream bg-rules border-t-2 border-ink/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <SectionHead

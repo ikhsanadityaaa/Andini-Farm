@@ -162,7 +162,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
       </section>
 
       {/* bobot */}
-      <section className="bg-parch border-y-2 border-ink">
+      <section className="cv bg-parch border-y-2 border-ink">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <SectionHead
@@ -214,7 +214,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
       </section>
 
       {/* harga */}
-      <section className="bg-cream">
+      <section className="cv bg-cream">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20">
           <Reveal>
             <PriceBlock name={breed.nameAlt} waMessage={breed.waMessage} />
@@ -245,7 +245,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
       </section>
 
       {/* pengiriman */}
-      <section className="bg-ranch text-cream bg-dotgrid">
+      <section className="cv bg-ranch text-cream bg-dotgrid">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20 grid md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-7">
             <Reveal>
@@ -275,7 +275,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
       </section>
 
       {/* jenis lain */}
-      <section className="bg-cream">
+      <section className="cv bg-cream">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <SectionHead

@@ -239,7 +239,7 @@ export function EarTag({
 export function Stamp({ className }: { className?: string }) {
   return (
     <div className={cx("pointer-events-none select-none", className)} aria-hidden>
-      <svg viewBox="0 0 120 120" className="w-full h-full spin-slow drop-shadow-[3px_3px_0_rgba(21,21,21,0.35)]">
+      <svg viewBox="0 0 120 120" className="w-full h-full spin-slow">
         <defs>
           <path id="stamp-circ" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" />
         </defs>
