@@ -385,7 +385,7 @@ export default function Home() {
               <EarTag tone="ranch" float>
                 Peternakan Sapi • Sleman, Yogyakarta
               </EarTag>
-              <h1 className="mt-7 font-display text-[clamp(2.7rem,7.2vw,5rem)] leading-[0.95] uppercase text-ranch">
+              <h1 className="mt-7 font-display text-[clamp(2.35rem,7.2vw,5rem)] leading-[0.95] uppercase text-ranch">
                 JUAL{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10">SAPI</span>
@@ -408,7 +408,7 @@ export default function Home() {
               </p>
               <p className="mt-5 flex items-center gap-3">
                 <IconTruck className="w-7 h-7 md:w-8 md:h-8 shrink-0 text-gold" />
-                <span className="whitespace-nowrap text-base md:text-lg font-extrabold tracking-[0.05em] uppercase text-leather">
+                <span className="text-base md:text-lg leading-snug font-extrabold tracking-[0.05em] uppercase text-leather">
                   Bisa diantar{" "}
                   <span className="relative inline-block">
                     <span className="relative z-10">sampai tujuan</span>
@@ -647,7 +647,7 @@ export default function Home() {
               <p className="md:hidden mb-3 text-center font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-leather">
                 ⟵ geser untuk melihat rute ⟶
               </p>
-              <div className="overflow-x-auto md:overflow-x-visible -mx-5 px-5 md:mx-0 md:px-0">
+              <div className="overflow-x-auto overscroll-x-contain md:overflow-x-visible -mx-5 px-5 md:mx-0 md:px-0">
                 <div className="min-w-[860px] md:min-w-0">
                   <DeliveryRoad />
                 </div>
