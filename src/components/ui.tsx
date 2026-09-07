@@ -264,13 +264,17 @@ export function SectionHead({
   sub,
   tone = "light",
   className,
+  as = "h2",
 }: {
   kicker: string;
   title: ReactNode;
   sub?: ReactNode;
   tone?: "light" | "dark";
   className?: string;
+  /* as="h1" untuk judul utama halaman yang memakai SectionHead (style sama) */
+  as?: "h1" | "h2";
 }) {
+  const Tag = as;
   return (
     <div className={cx("max-w-3xl", className)}>
       <p
@@ -282,14 +286,14 @@ export function SectionHead({
         <IconStar className="w-3 h-3 shrink-0" />
         {kicker}
       </p>
-      <h2
+      <Tag
         className={cx(
           "mt-4 font-display text-[clamp(1.9rem,4.6vw,3.4rem)] leading-[1.02] uppercase",
           tone === "light" ? "text-ranch" : "text-cream"
         )}
       >
         {title}
-      </h2>
+      </Tag>
       {sub && (
         <p
           className={cx(
@@ -328,6 +332,7 @@ export function Marquee({
   );
   return (
     <div
+      aria-hidden
       className={cx(
         "marquee overflow-hidden border-y-2 border-ink bg-ranch text-cream py-[13px]",
         className

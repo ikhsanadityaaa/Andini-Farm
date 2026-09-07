@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ARTICLES, getArticle } from "../data/articles";
-import { Crumbs, usePageMeta } from "../components/chrome";
+import { ARTICLES, ARTICLES_PUBLISHED, getArticle } from "../data/articles";
+import { SITE_URL, ogImage } from "../data/site";
+import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
   EarTag,
   IconArrow,
@@ -16,11 +17,26 @@ import {
 
 const CATS = ["SEMUA", ...Array.from(new Set(ARTICLES.map((a) => a.category)))];
 
+/* Format tanggal Indonesia untuk byline artikel */
+const formatTanggal = (iso: string) =>
+  new Date(iso).toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
 /* ================= LIST ================= */
 export function ArticlesPage() {
   usePageMeta(
     "Panduan Memilih Sapi: Artikel & Tips | Andini Farm",
-    "Kumpulan artikel panduan memilih sapi: cara memilih sapi sehat, memperkirakan bobot, perbedaan Limosin & Simental, tips qurban, aqiqah, penggemukan dan pengiriman."
+    "Kumpulan artikel panduan memilih sapi: cara memilih sapi sehat, memperkirakan bobot, perbedaan Limosin & Simental, tips qurban, aqiqah, penggemukan dan pengiriman.",
+    {
+      path: "/artikel",
+      crumbs: [
+        { label: "Beranda", to: "/" },
+        { label: "Artikel" },
+      ],
+    }
   );
   const [cat, setCat] = useState("SEMUA");
   const list = useMemo(
@@ -36,6 +52,7 @@ export function ArticlesPage() {
           <div className="mt-8 grid lg:grid-cols-12 gap-8 items-end">
             <Reveal>
               <SectionHead
+                as="h1"
                 kicker="Dari pengalaman di kandang & pasar hewan"
                 title="PANDUAN MEMILIH SAPI"
                 sub="Supaya Anda membeli sapi dengan tenang, bukan menebak-nebak. Semua ditulis dari pengalaman nyata berjualan sapi sejak 2008."
@@ -77,7 +94,7 @@ export function ArticlesPage() {
                     <span className="hidden md:block w-full aspect-[4/3] border-2 border-ink overflow-hidden">
                       <img
                         src={a.cover}
-                        alt=""
+                        alt={a.title}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover/ar:scale-105"
                       />
@@ -144,9 +161,58 @@ export function ArticlesPage() {
 export function ArticleDetailPage() {
   const { slug } = useParams();
   const article = getArticle(slug ?? "");
+  const published = article?.published ?? ARTICLES_PUBLISHED;
+
   usePageMeta(
     article ? `${article.title} | Andini Farm` : "Artikel | Andini Farm",
-    article?.excerpt
+    article?.excerpt,
+    {
+      path: article ? `/artikel/${article.slug}` : "/artikel",
+      image: article ? ogImage(article.cover) : undefined,
+      type: "article",
+      crumbs: article
+        ? [
+            { label: "Beranda", to: "/" },
+            { label: "Artikel", to: "/artikel" },
+            { label: article.title },
+          ]
+        : [{ label: "Beranda", to: "/" }, { label: "Artikel", to: "/artikel" }],
+    }
+  );
+
+  /* Article JSON-LD: data mengikuti konten yang benar-benar tampil di halaman */
+  useJsonLd(
+    `article-${slug ?? "na"}`,
+    article
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: article.title,
+          description: article.excerpt,
+          image: [ogImage(article.cover)],
+          datePublished: published,
+          dateModified: published,
+          inLanguage: "id-ID",
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/artikel/${article.slug}`,
+          },
+          author: {
+            "@type": "Organization",
+            name: "Andini Farm",
+            url: `${SITE_URL}/tentang-andini-farm`,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Andini Farm",
+            url: SITE_URL,
+            logo: {
+              "@type": "ImageObject",
+              url: `${SITE_URL}/favicon.svg`,
+            },
+          },
+        }
+      : null
   );
 
   if (!article) {
@@ -179,7 +245,7 @@ export function ArticleDetailPage() {
             items={[
               { label: "Beranda", to: "/" },
               { label: "Artikel", to: "/artikel" },
-              { label: article.category },
+              { label: article.title },
             ]}
           />
         </div>
@@ -196,7 +262,7 @@ export function ArticleDetailPage() {
                 {article.excerpt}
               </p>
               <p className="mt-6 font-mono text-[11px] tracking-[0.18em] uppercase text-leather">
-                ✦ Ditulis dari pengalaman Andini Farm sejak 2008
+                ✦ Ditulis dari pengalaman Andini Farm • {formatTanggal(published)}
               </p>
             </Reveal>
           </div>
@@ -313,7 +379,7 @@ export function ArticleDetailPage() {
                       className="group/rl flex gap-4 items-center border-2 border-ink bg-cream p-3 shadow-[3px_3px_0_0_#151515] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#151515]"
                     >
                       <span className="w-16 h-14 shrink-0 border-2 border-ink overflow-hidden">
-                        <img src={r.cover} alt="" loading="lazy" className="w-full h-full object-cover" />
+                        <img src={r.cover} alt={r.title} loading="lazy" className="w-full h-full object-cover" />
                       </span>
                       <span>
                         <span className="block font-mono text-[8px] font-bold tracking-[0.2em] uppercase text-leather">

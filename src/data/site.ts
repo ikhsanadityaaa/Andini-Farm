@@ -9,6 +9,18 @@ export const TAGLINE = "JUAL SAPI BERKUALITAS";
 export const SUBTAGLINE = "LIMOSIN • SIMENTAL • PEGON SUPER";
 export const SINCE = 2008;
 
+/* Host kanonik produksi (apex 308-redirect ke www, jadi www adalah host final) */
+export const SITE_URL = "https://www.andinifarm.biz.id";
+
+/* Gambar OG default (JPEG agar kompatibel dgn scraper WhatsApp/Facebook) */
+export const OG_IMAGE_URL = `${SITE_URL}/images/sapi-limosin.jpg`;
+
+/* Konversi path gambar lokal (/images/x.webp) menjadi URL OG absolut (.jpg) */
+export const ogImage = (path: string) =>
+  path.startsWith("http")
+    ? path
+    : `${SITE_URL}${path.replace(/\.webp$/, ".jpg")}`;
+
 export const WA_NUMBER = "6285331379462";
 export const WA_DISPLAY = "085331379462";
 
@@ -30,33 +42,24 @@ export const MAPS_LINK = "https://maps.app.goo.gl/W7nCM55av43rAnFm7";
 export const MAPS_EMBED =
   "https://www.google.com/maps?q=-7.7336362,110.2950401&z=16&output=embed";
 
-/* Foto utama. Placeholder, ganti dengan foto asli peternakan */
+/* Foto situs — kini self-hosted di /public/images (WebP, nama file SEO-friendly).
+   Semula PNG ~2 MB/each dari host pihak ketiga; di optimalkan jadi WebP q90
+   (visual identik, 87% lebih kecil). Ganti file di public/images/ bila ada foto asli. */
 export const IMG = {
-  heroLimosin:
-    "https://image.qwenlm.ai/generated-images/dfe76c77-7a6d-468c-9cce-b9e01d2d35f5/_result.png",
-  simental:
-    "https://image.qwenlm.ai/generated-images/a2468954-9892-4de0-96e1-bacc0db1f3f8/_result.png",
-  pegon:
-    "https://image.qwenlm.ai/generated-images/c6a6c636-a9da-48eb-a777-c6d785d01522/_result.png",
-  bapak:
-    "https://image.qwenlm.ai/generated-images/09f424e5-6421-455e-b33b-a44903a8b809/_result.png",
-  kandang:
-    "https://image.qwenlm.ai/generated-images/3346a639-8aaa-4018-8338-5b243e27b5f8/_result.png",
-  truk: "https://image.qwenlm.ai/generated-images/ce2b4a36-6c4d-4dde-af67-50f9538e87c5/_result.png",
-  qurban:
-    "https://image.qwenlm.ai/generated-images/a5536be2-8b90-4d17-8454-c7e0e50dcbb0/_result.png",
-  penggemukan:
-    "https://image.qwenlm.ai/generated-images/09519d1e-618e-445d-9287-f84c6a265ea2/_result.png",
-  aqiqah:
-    "https://image.qwenlm.ai/generated-images/be68e2fd-e174-4aca-ac0a-e458800256ba/_result.png",
-  pasar:
-    "https://image.qwenlm.ai/generated-images/842fadb8-cb74-4670-b362-56a80259da4d/_result.png",
+  heroLimosin: "/images/sapi-limosin.webp",
+  simental: "/images/sapi-simental.webp",
+  pegon: "/images/sapi-pegon.webp",
+  bapak: "/images/peternak-andini-farm.webp",
+  kandang: "/images/kandang-sapi-andini-farm.webp",
+  truk: "/images/pengiriman-sapi-truk.webp",
+  qurban: "/images/sapi-qurban.webp",
+  penggemukan: "/images/sapi-penggemukan.webp",
+  aqiqah: "/images/sapi-aqiqah.webp",
+  pasar: "/images/pasar-hewan-sapi.webp",
   /* Cutout sapi di atas latar krem polos. Ditampilkan dengan mix-blend-multiply
      supaya latar menyatu dengan halaman */
-  heroCutout:
-    "https://image.qwenlm.ai/generated-images/af81a566-6951-43a7-901b-a97d52e4a148/_result.png",
-  pickup:
-    "https://image.qwenlm.ai/generated-images/d0450f64-120d-4104-ad2e-aa496fc1862b/_result.png",
+  heroCutout: "/images/sapi-limosin-utama.webp",
+  pickup: "/images/pengiriman-sapi-pickup.webp",
 };
 
 export const SEO_KEYWORDS = [

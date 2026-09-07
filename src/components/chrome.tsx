@@ -3,7 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import {
   ADDRESS_LINES,
   MAPS_LINK,
+  OG_IMAGE_URL,
   SEO_KEYWORDS,
+  SITE_URL,
   WA_DEFAULT,
   WA_DISPLAY,
   waLink,
@@ -11,25 +13,40 @@ import {
 import { cx, IconArrow, IconCow, IconPin, IconStar, IconWA } from "./ui";
 
 /* ---------------- per-page meta ---------------- */
-export function usePageMeta(title: string, desc?: string) {
+export type Crumb = { label: string; to?: string };
+
+export type PageMetaOpts = {
+  /* path kanonik, mis. "/sapi-limosin" — tanpa hash, tanpa query */
+  path?: string;
+  /* og:image absolut; path lokal ("/images/...") otomatis dijadikan absolut */
+  image?: string;
+  type?: "website" | "article";
+  /* breadcrumb visual + BreadcrumbList JSON-LD */
+  crumbs?: Crumb[];
+};
+
+const absUrl = (u: string) => (u.startsWith("http") ? u : SITE_URL + u);
+
+const setMeta = (attr: "name" | "property", key: string, value: string) => {
+  let el = document.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", value);
+};
+
+export function usePageMeta(title: string, desc?: string, opts: PageMetaOpts = {}) {
+  const { pathname } = useLocation();
   useEffect(() => {
     document.title = title;
-    const setMeta = (attr: "name" | "property", key: string, value: string) => {
-      let el = document.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, key);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", value);
-    };
-    if (desc) {
-      setMeta("name", "description", desc);
-      setMeta("property", "og:description", desc);
-    }
-    setMeta("property", "og:title", title);
-    /* canonical & og:url mengikuti rute aktif (berdasarkan domain deploy) */
-    const url = window.location.origin + window.location.pathname + (window.location.hash || "#/");
+
+    /* canonical & og:url: URL bersih tanpa hash (host kanonik: www) */
+    let path = opts.path ?? pathname;
+    if (path !== "/" && path.endsWith("/")) path = path.slice(0, -1);
+    const url = SITE_URL + path;
+
     let canon = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canon) {
       canon = document.createElement("link");
@@ -37,9 +54,46 @@ export function usePageMeta(title: string, desc?: string) {
       document.head.appendChild(canon);
     }
     canon.href = url;
+
+    setMeta("property", "og:title", title);
     setMeta("property", "og:url", url);
+    setMeta("property", "og:type", opts.type ?? "website");
+    setMeta("property", "og:image", absUrl(opts.image ?? OG_IMAGE_URL));
+    if (desc) {
+      setMeta("name", "description", desc);
+      setMeta("property", "og:description", desc);
+    }
+
+    /* Twitter card */
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", title);
+    setMeta("name", "twitter:image", absUrl(opts.image ?? OG_IMAGE_URL));
+    if (desc) setMeta("name", "twitter:description", desc);
+
+    /* BreadcrumbList JSON-LD mengikuti breadcrumb visual halaman */
+    const old = document.getElementById("ld-breadcrumb");
+    old?.remove();
+    if (opts.crumbs?.length) {
+      const items = opts.crumbs.map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c.label,
+        item: c.to ? SITE_URL + c.to : i === opts.crumbs!.length - 1 ? url : undefined,
+      }));
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = "ld-breadcrumb";
+      script.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: items,
+      });
+      document.head.appendChild(script);
+    }
+
     window.scrollTo(0, 0);
-  }, [title, desc]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [title, desc, opts.path, opts.image, opts.type, pathname]);
 }
 
 /* inject / remove JSON-LD structured data per halaman */
@@ -418,9 +472,9 @@ export function Footer() {
       <div className="border-t border-cream/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-5 space-y-3">
           <p className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-[10px] font-bold tracking-[0.18em] uppercase">
-            <a href="/jual-sapi-jogja.html" className="text-cream/60 hover:text-gold transition-colors">Jual Sapi Jogja</a>
-            <a href="/sapi-qurban-jogja.html" className="text-cream/60 hover:text-gold transition-colors">Sapi Qurban Jogja</a>
-            <a href="/sapi-limosin-simental-pegon-jogja.html" className="text-cream/60 hover:text-gold transition-colors">Jenis Sapi Jogja</a>
+            <Link to="/jual-sapi" className="text-cream/60 hover:text-gold transition-colors">Jual Sapi Jogja</Link>
+            <Link to="/sapi-qurban" className="text-cream/60 hover:text-gold transition-colors">Sapi Qurban Jogja</Link>
+            <Link to="/sapi-limosin" className="text-cream/60 hover:text-gold transition-colors">Jenis Sapi Jogja</Link>
           </p>
           <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cream/35 leading-relaxed">
             {SEO_KEYWORDS.join("  ✦  ")}

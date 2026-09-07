@@ -26,8 +26,7 @@ export const BREEDS: Breed[] = [
     nameAlt: "Limosin",
     h1: "JUAL SAPI LIMOSIN",
     earTag: "AF-LMS • SIAP DIJUAL",
-    photo:
-      "https://image.qwenlm.ai/generated-images/dfe76c77-7a6d-468c-9cce-b9e01d2d35f5/_result.png",
+    photo: "/images/sapi-limosin.webp",
     photoAlt: "Sapi Limosin berwarna cokelat kemerahan polos di peternakan Andini Farm Sleman",
     tagline: "Tubuh besar, berotot, dan proporsional.",
     intro:
@@ -68,8 +67,7 @@ export const BREEDS: Breed[] = [
     nameAlt: "Simental",
     h1: "JUAL SAPI SIMENTAL",
     earTag: "AF-SMT • SIAP DIJUAL",
-    photo:
-      "https://image.qwenlm.ai/generated-images/a2468954-9892-4de0-96e1-bacc0db1f3f8/_result.png",
+    photo: "/images/sapi-simental.webp",
     photoAlt: "Sapi Simental berbadan cokelat dengan wajah dan kaki putih di peternakan Andini Farm Sleman",
     tagline: "Rangka besar dengan pertumbuhan cepat.",
     intro:
@@ -110,8 +108,7 @@ export const BREEDS: Breed[] = [
     nameAlt: "Pegon",
     h1: "JUAL SAPI PEGON SUPER",
     earTag: "AF-PGN • SIAP DIJUAL",
-    photo:
-      "https://image.qwenlm.ai/generated-images/c6a6c636-a9da-48eb-a777-c6d785d01522/_result.png",
+    photo: "/images/sapi-pegon.webp",
     photoAlt: "Sapi Pegon Super belang abu-cokelat dengan wajah putih di kandang Andini Farm Yogyakarta",
     tagline: "Persilangan lokal yang adaptif dan bernilai ekonomis.",
     intro:

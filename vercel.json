@@ -1,0 +1,62 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/jual-sapi-jogja.html",
+      "destination": "/jual-sapi",
+      "permanent": true
+    },
+    {
+      "source": "/jual-sapi-jogja",
+      "destination": "/jual-sapi",
+      "permanent": true
+    },
+    {
+      "source": "/sapi-qurban-jogja.html",
+      "destination": "/sapi-qurban",
+      "permanent": true
+    },
+    {
+      "source": "/sapi-qurban-jogja",
+      "destination": "/sapi-qurban",
+      "permanent": true
+    },
+    {
+      "source": "/sapi-limosin-simental-pegon-jogja.html",
+      "destination": "/jual-sapi",
+      "permanent": true
+    },
+    {
+      "source": "/sapi-limosin-simental-pegon-jogja",
+      "destination": "/jual-sapi",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!google107f73dd7c77e356\\.html|sitemap\\.xml|robots\\.txt|images/|assets/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ADDRESS_LINES, IMG, MAPS_LINK, WA_DISPLAY, waLink } from "../data/site";
+import { ADDRESS_LINES, IMG, MAPS_LINK, WA_DISPLAY, ogImage, waLink } from "../data/site";
 import { Crumbs, usePageMeta } from "../components/chrome";
 import {
   BigCTA,
@@ -21,8 +21,16 @@ import {
 /* ================= PENGIRIMAN ================= */
 export function PengirimanPage() {
   usePageMeta(
-    "Pengiriman Sapi ke Berbagai Wilayah | Andini Farm",
-    "Andini Farm melayani pengiriman sapi dari Seyegan, Sleman, Yogyakarta ke Jawa Tengah, Jawa Barat, Jawa Timur & wilayah lain. Tanya ongkos kirim via WhatsApp."
+    "Pengiriman Sapi ke Jawa Tengah & Pulau Jawa | Andini Farm",
+    "Pengiriman sapi dari kandang Andini Farm di Seyegan, Sleman, Yogyakarta ke Jawa Tengah, Jawa Barat, Jawa Timur dan berbagai wilayah Pulau Jawa. Ongkos kirim dihitung jelas di depan sesuai jarak dan jumlah sapi.",
+    {
+      path: "/pengiriman-sapi",
+      image: ogImage(IMG.truk),
+      crumbs: [
+        { label: "Beranda", to: "/" },
+        { label: "Pengiriman Sapi" },
+      ],
+    }
   );
 
   const ROUTE = [
@@ -169,7 +177,15 @@ export function PengirimanPage() {
 export function TentangPage() {
   usePageMeta(
     "Tentang Andini Farm, Peternakan Sapi Sejak 2008 | Sleman, Yogyakarta",
-    "Andini Farm adalah peternakan dan penjual sapi di Japanan, Seyegan, Sleman, Yogyakarta. Berpengalaman di dunia peternakan sejak 2008 dengan jaringan peternak yang luas."
+    "Andini Farm adalah peternakan dan penjual sapi di Japanan, Seyegan, Sleman, Yogyakarta. Berpengalaman di dunia peternakan sejak 2008 dengan jaringan peternak yang luas.",
+    {
+      path: "/tentang-andini-farm",
+      image: ogImage(IMG.bapak),
+      crumbs: [
+        { label: "Beranda", to: "/" },
+        { label: "Tentang Andini Farm" },
+      ],
+    }
   );
 
   return (
@@ -341,7 +357,15 @@ export function TentangPage() {
 export function KontakPage() {
   usePageMeta(
     "Kontak Andini Farm, Jual Sapi Sleman Yogyakarta | WhatsApp",
-    "Hubungi Andini Farm via WhatsApp 085331379462. Kandang di Japanan, Margodadi, Seyegan, Sleman, Yogyakarta. Tanya stok, harga & pengiriman sapi."
+    "Hubungi Andini Farm via WhatsApp 085331379462. Kandang di Japanan, Margodadi, Seyegan, Sleman, Yogyakarta. Tanya stok, harga & pengiriman sapi.",
+    {
+      path: "/kontak",
+      image: ogImage(IMG.kandang),
+      crumbs: [
+        { label: "Beranda", to: "/" },
+        { label: "Kontak" },
+      ],
+    }
   );
 
   const [nama, setNama] = useState("");

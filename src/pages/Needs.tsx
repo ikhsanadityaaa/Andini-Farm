@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { IMG } from "../data/site";
+import { IMG, ogImage } from "../data/site";
 import { Crumbs, usePageMeta } from "../components/chrome";
 import {
   BigCTA,
@@ -167,7 +167,19 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
   const params = useParams();
   const need = NEEDS.find((n) => n.slug === (propSlug ?? params.slug));
 
-  usePageMeta(need?.metaTitle ?? "Kebutuhan Sapi | Andini Farm", need?.metaDesc);
+  const crumbLabel = need
+    ? `Sapi ${need.slug.charAt(0).toUpperCase()}${need.slug.slice(1)}`
+    : "Kebutuhan";
+
+  usePageMeta(need?.metaTitle ?? "Kebutuhan Sapi | Andini Farm", need?.metaDesc, {
+    path: need ? `/sapi-${need.slug}` : undefined,
+    image: need ? ogImage(need.photo) : undefined,
+    crumbs: [
+      { label: "Beranda", to: "/" },
+      { label: "Kebutuhan", to: "/jual-sapi" },
+      { label: crumbLabel },
+    ],
+  });
 
   if (!need) {
     return (
@@ -189,7 +201,7 @@ export default function NeedPage({ slug: propSlug }: { slug?: string }) {
           items={[
             { label: "Beranda", to: "/" },
             { label: "Kebutuhan", to: "/jual-sapi" },
-            { label: need.slug },
+            { label: crumbLabel },
           ]}
         />
       </div>

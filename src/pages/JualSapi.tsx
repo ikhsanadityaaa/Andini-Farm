@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IMG, WA_DEFAULT, WA_DISPLAY } from "../data/site";
+import { IMG, WA_DEFAULT, WA_DISPLAY, ogImage } from "../data/site";
 import { BREEDS } from "../data/breeds";
 import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
@@ -49,7 +49,15 @@ const FAQ = [
 export default function JualSapi() {
   usePageMeta(
     "Jual Sapi di Sleman, Yogyakarta | Andini Farm",
-    "Jual sapi Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Sehat, gemuk alami, harga kompetitif. Untuk qurban, aqiqah, penggemukan & dagang. Tanya stok & harga via WhatsApp."
+    "Jual sapi Limosin, Simental & Pegon Super di Sleman, Yogyakarta. Sehat, gemuk alami, harga kompetitif. Untuk qurban, aqiqah, penggemukan & dagang. Melayani pembeli dari Yogyakarta, Jawa Tengah dan berbagai wilayah Pulau Jawa. Tanya stok & harga via WhatsApp.",
+    {
+      path: "/jual-sapi",
+      image: ogImage(IMG.kandang),
+      crumbs: [
+        { label: "Beranda", to: "/" },
+        { label: "Jual Sapi" },
+      ],
+    }
   );
 
   useJsonLd("faq-jual-sapi", {

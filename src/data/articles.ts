@@ -10,7 +10,13 @@ export type Article = {
   body: string[];
   checklist?: string[];
   ctaWa: string;
+  /* Tanggal publikasi (ISO). Default: tanggal artikel pertama dipublikasikan
+     di situs (riwayat git repository). */
+  published?: string;
 };
+
+/* Semua artikel dipublikasikan bersamaan saat sistem artikel dirilis */
+export const ARTICLES_PUBLISHED = "2026-09-05";
 
 export const ARTICLES: Article[] = [
   {

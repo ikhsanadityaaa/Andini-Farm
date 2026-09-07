@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { getBreed } from "../data/breeds";
+import { ogImage } from "../data/site";
 import { Crumbs, usePageMeta, useJsonLd } from "../components/chrome";
 import {
   BigCTA,
@@ -21,9 +22,22 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
   const params = useParams();
   const breed = getBreed(propSlug ?? params.slug ?? "");
 
+  const crumbs = breed
+    ? [
+        { label: "Beranda", to: "/" },
+        { label: "Jenis Sapi", to: "/jual-sapi" },
+        { label: `Sapi ${breed.nameAlt}` },
+      ]
+    : [{ label: "Beranda", to: "/" }];
+
   usePageMeta(
     breed?.metaTitle ?? "Jenis Sapi | Andini Farm",
-    breed?.metaDesc
+    breed?.metaDesc,
+    {
+      path: breed ? `/sapi-${breed.slug}` : undefined,
+      image: breed ? ogImage(breed.photo) : undefined,
+      crumbs,
+    }
   );
 
   useJsonLd(
@@ -36,7 +50,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
           description: breed.intro,
           brand: { "@type": "Brand", name: "Andini Farm" },
           category: "Sapi Hidup",
-          image: breed.photo,
+          image: [ogImage(breed.photo)],
           offers: {
             "@type": "Offer",
             availability: "https://schema.org/InStock",
@@ -76,7 +90,7 @@ export default function BreedPage({ slug: propSlug }: { slug?: string }) {
           items={[
             { label: "Beranda", to: "/" },
             { label: "Jenis Sapi", to: "/jual-sapi" },
-            { label: breed.name },
+            { label: `Sapi ${breed.nameAlt}` },
           ]}
         />
       </div>

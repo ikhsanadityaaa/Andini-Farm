@@ -349,8 +349,9 @@ function LazyMap() {
 
 export default function Home() {
   usePageMeta(
-    "Jual Sapi Limosin, Simental & Pegon Super | Andini Farm",
-    "Andini Farm menyediakan sapi Limosin, Simental dan Pegon Super yang sehat dan terawat. Berpengalaman sejak 2008 dan berlokasi di Sleman, Yogyakarta. Hubungi kami untuk stok, harga dan pengiriman sapi."
+    "Jual Sapi Limosin, Simental & Pegon | Andini Farm",
+    "Andini Farm menyediakan sapi Limosin, Simental dan Pegon Super yang sehat dan terawat dari peternakan berbasis di Yogyakarta. Melayani qurban, aqiqah, penggemukan dan pengiriman ke berbagai wilayah Pulau Jawa. Tanya stok & harga via WhatsApp.",
+    { path: "/" }
   );
 
   const location = useLocation();
