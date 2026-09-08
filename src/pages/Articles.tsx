@@ -50,7 +50,7 @@ export function ArticlesPage() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 pt-12 md:pt-16 pb-12">
           <Crumbs items={[{ label: "Beranda", to: "/" }, { label: "Artikel" }]} />
           <div className="mt-8 grid lg:grid-cols-12 gap-8 items-end">
-            <Reveal>
+            <Reveal className="lg:col-span-7">
               <SectionHead
                 as="h1"
                 kicker="Dari pengalaman di kandang & pasar hewan"
